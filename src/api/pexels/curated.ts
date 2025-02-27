@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import type { UseQueryResult } from "@tanstack/react-query";
-import type { Photos } from "pexels";
 
-import type { PexelsClient } from ".";
+import type { PexelsClient, Photos } from ".";
 
 /**
  * @see https://www.pexels.com/api/documentation/#photos-curated

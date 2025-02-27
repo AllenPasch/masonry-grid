@@ -1,14 +1,12 @@
-import { SPACING_BETWEEN_PX, SPACING_SIDES_PX } from ".";
+import { getWidthVw, SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
 
 export const getWidthPx = (
   columnCount: number,
   htmlClientWidth: number,
-  spacingSidesPx: number = SPACING_SIDES_PX,
-  spacingBetweenPx: number = SPACING_BETWEEN_PX
+  spacingSidesVw: number = SPACING_SIDES_VW,
+  spacingBetweenVw: number = SPACING_BETWEEN_VW
 ): number => {
-  const totalSpacingPx =
-    2 * spacingSidesPx + (columnCount - 1) * spacingBetweenPx;
-  const availableWidth = htmlClientWidth - totalSpacingPx;
+  const widthVw = getWidthVw(columnCount, spacingSidesVw, spacingBetweenVw);
 
-  return availableWidth / columnCount;
+  return (htmlClientWidth * widthVw) / 100;
 };

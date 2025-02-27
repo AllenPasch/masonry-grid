@@ -1,4 +1,5 @@
 export { SPACING_BETWEEN_PX, SPACING_SIDES_PX } from "./constant";
+export { getHeight } from "./getHeight";
 export { getLeftPositionCalcExpression } from "./getLeftPositionCalcExpression";
 export { getNextColumnIndex } from "./getNextColumnIndex";
 export { getWidthCalcExpression } from "./getWidthCalcExpression";

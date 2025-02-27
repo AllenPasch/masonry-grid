@@ -4,6 +4,9 @@ import type { Photos } from "pexels";
 
 import type { PexelsClient } from ".";
 
+/**
+ * @see https://www.pexels.com/api/documentation/#photos-curated
+ */
 export const useCuratedPhotos = (
   pexelsClient: PexelsClient
 ): UseQueryResult<Photos> => {

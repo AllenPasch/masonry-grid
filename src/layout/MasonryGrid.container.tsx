@@ -1,10 +1,10 @@
-import { memo, useMemo } from "react";
+import { memo } from "react";
 
-import { createPexelsClient, useCuratedPhotos } from "@/api/pexels";
+import { useCuratedPhotos, usePexelsClient } from "@/api/pexels";
 import MasonryGrid from "./MasonryGrid";
 
 const MasonryGridContainer = () => {
-  const pexelsClient = useMemo(createPexelsClient, []);
+  const pexelsClient = usePexelsClient();
   const query = useCuratedPhotos(pexelsClient);
 
   console.log("query", query);

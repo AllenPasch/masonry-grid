@@ -1,3 +1,4 @@
-export { createPexelsClient } from "./client";
+export { createPexelsClient, usePexelsClient } from "./client";
 export { useCuratedPhotos } from "./curated";
+
 export type { PexelsClient } from "./client";

@@ -5,9 +5,9 @@ import MasonryGrid from "./MasonryGrid";
 
 const MasonryGridContainer = () => {
   const pexelsClient = usePexelsClient();
-  const query = useCuratedPhotos(pexelsClient);
+  const curatedPhotos = useCuratedPhotos(pexelsClient);
 
-  return <MasonryGrid photos={query.data?.photos} />;
+  return <MasonryGrid photos={curatedPhotos.data?.photos} />;
 };
 
 export default memo(MasonryGridContainer);

@@ -8,17 +8,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.66.9",
+    "next": "15.2.0",
+    "pexels": "^1.4.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.2.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tanstack/eslint-plugin-query": "^5.66.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
   }
 }

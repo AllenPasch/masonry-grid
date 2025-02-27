@@ -1,6 +1,6 @@
 import { SPACING_BETWEEN_PX, SPACING_SIDES_PX } from ".";
 
-export const getWidth = (
+export const getWidthCalcExpression = (
   columnCount: number,
   spacingSidesPx: number = SPACING_SIDES_PX,
   spacingBetweenPx: number = SPACING_BETWEEN_PX

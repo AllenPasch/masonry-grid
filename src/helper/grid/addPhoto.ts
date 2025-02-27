@@ -3,6 +3,7 @@ import type { Photo } from "@/api/pexels";
 import {
   getHeight,
   getNextColumnIndex,
+  getPositionLeftVw,
   getWidthVw,
   SPACING_BETWEEN_VW,
   SPACING_SIDES_VW,
@@ -10,10 +11,12 @@ import {
 import type { NextColumnTopVws } from ".";
 
 export interface IAddPhotoResult {
-  readonly nextColumnTopVws: NextColumnTopVws;
-  readonly columnIndex: number;
+  readonly positionLeftVw: number;
+  readonly positionTopVw: number;
   readonly widthVw: number;
   readonly heightVw: number;
+  readonly columnIndex: number;
+  readonly nextColumnTopVws: NextColumnTopVws;
 }
 
 export const addPhoto = (
@@ -24,17 +27,26 @@ export const addPhoto = (
 ): IAddPhotoResult => {
   const columnCount = nextColumnTopVws.length;
   const columnIndex = getNextColumnIndex(nextColumnTopVws);
+  const positionLeftVw = getPositionLeftVw(
+    columnCount,
+    columnIndex,
+    spacingSidesVw,
+    spacingBetweenVw
+  );
+  const positionTopVw = nextColumnTopVws[columnIndex];
   const widthVw = getWidthVw(columnCount, spacingSidesVw, spacingBetweenVw);
   const heightVw = getHeight(widthVw, photo);
-  const columnOffsetVw = heightVw + spacingBetweenVw;
 
+  const columnOffsetVw = heightVw + spacingBetweenVw;
   const updatedNextColumnTopVws = [...nextColumnTopVws];
   updatedNextColumnTopVws[columnIndex] += columnOffsetVw;
 
   return {
-    nextColumnTopVws: updatedNextColumnTopVws,
-    columnIndex,
+    positionLeftVw,
+    positionTopVw,
     widthVw,
     heightVw,
+    columnIndex,
+    nextColumnTopVws: updatedNextColumnTopVws,
   };
 };

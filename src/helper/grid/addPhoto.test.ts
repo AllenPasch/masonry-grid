@@ -4,7 +4,7 @@ import { addPhoto } from ".";
 describe("addPhoto()", () => {
   test("at the top of the page, the 1st photo is added to column 0", () => {
     // Arrange
-    const nextColumnTopVws = [0, 0, 0, 0];
+    const nextColumnTopVws = [4, 4, 4, 4];
 
     const photo = {
       width: 240,
@@ -26,20 +26,22 @@ describe("addPhoto()", () => {
     );
 
     // Assert
-    expect(result.columnIndex).toBe(0);
     expect(result.widthVw).toBe(expectedPhotoWidthVw);
     expect(result.heightVw).toBe(expectedPhotoHeightVw);
+    expect(result.positionLeftVw).toBe(spacingSidesVw);
+    expect(result.positionTopVw).toBe(4);
+    expect(result.columnIndex).toBe(0);
     expect(result.nextColumnTopVws).toEqual([
-      expectedPhotoHeightVw + spacingBetweenVw,
-      0,
-      0,
-      0,
+      4 + expectedPhotoHeightVw + spacingBetweenVw,
+      4,
+      4,
+      4,
     ]);
   });
 
   test("at the top of the page, the 2nd photo is added to column 1", () => {
     // Arrange
-    const nextColumnTopVws = [14.875, 0, 0, 0];
+    const nextColumnTopVws = [18.875, 4, 4, 4];
 
     const photo = {
       width: 240,
@@ -61,14 +63,18 @@ describe("addPhoto()", () => {
     );
 
     // Assert
-    expect(result.columnIndex).toBe(1);
     expect(result.widthVw).toBe(expectedPhotoWidthVw);
     expect(result.heightVw).toBe(expectedPhotoHeightVw);
+    expect(result.positionLeftVw).toBe(
+      spacingSidesVw + expectedPhotoWidthVw + spacingBetweenVw
+    );
+    expect(result.positionTopVw).toBe(4);
+    expect(result.columnIndex).toBe(1);
     expect(result.nextColumnTopVws).toEqual([
-      14.875,
-      expectedPhotoHeightVw + spacingBetweenVw,
-      0,
-      0,
+      18.875,
+      4 + expectedPhotoHeightVw + spacingBetweenVw,
+      4,
+      4,
     ]);
   });
 });

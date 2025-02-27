@@ -1,7 +1,11 @@
 export { addPhoto } from "./addPhoto";
-export { SPACING_BETWEEN_VW, SPACING_SIDES_VW } from "./constant";
+export {
+  SPACING_BETWEEN_VW,
+  SPACING_SIDES_VW,
+  SPACING_TOP_VW,
+} from "./constant";
 export { getHeight } from "./getHeight";
-export { getLeftPositionVw } from "./getLeftPositionVw";
+export { getPositionLeftVw } from "./getPositionLeftVw";
 export { getNextColumnIndex } from "./getNextColumnIndex";
 export { getWidthPx } from "./getWidthPx";
 export { getWidthVw } from "./getWidthVw";

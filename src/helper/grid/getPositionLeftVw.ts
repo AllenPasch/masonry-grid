@@ -1,6 +1,6 @@
 import { getWidthVw, SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
 
-export const getLeftPositionVw = (
+export const getPositionLeftVw = (
   columnCount: number,
   columnIndex: number,
   spacingSidesVw: number = SPACING_SIDES_VW,

@@ -7,9 +7,7 @@ const MasonryGridContainer = () => {
   const pexelsClient = usePexelsClient();
   const query = useCuratedPhotos(pexelsClient);
 
-  console.log("query", query);
-
-  return <MasonryGrid />;
+  return <MasonryGrid photos={query.data?.photos} />;
 };
 
 export default memo(MasonryGridContainer);

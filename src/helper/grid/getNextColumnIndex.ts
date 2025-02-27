@@ -1,5 +1,7 @@
+import type { NextColumnTopVws } from ".";
+
 export const getNextColumnIndex = (
-  nextColumnTopVws: readonly number[]
+  nextColumnTopVws: NextColumnTopVws
 ): number => {
   const minTopPosition = Math.min(...nextColumnTopVws);
 

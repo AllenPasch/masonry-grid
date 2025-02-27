@@ -1,7 +1,7 @@
 export const getNextColumnIndex = (
-  nextColumnTopPositions: readonly number[]
+  nextColumnTopVws: readonly number[]
 ): number => {
-  const minTopPosition = Math.min(...nextColumnTopPositions);
+  const minTopPosition = Math.min(...nextColumnTopVws);
 
-  return nextColumnTopPositions.indexOf(minTopPosition);
+  return nextColumnTopVws.indexOf(minTopPosition);
 };

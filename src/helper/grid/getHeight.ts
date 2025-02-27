@@ -1,4 +1,4 @@
-import type { Photo } from "pexels";
+import type { Photo } from "@/api/pexels";
 
 export const getHeight = (width: number, photo: Photo): number => {
   const photoWidth = photo.width;

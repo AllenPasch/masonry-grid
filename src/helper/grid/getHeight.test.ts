@@ -1,5 +1,4 @@
-import type { Photo } from "pexels";
-
+import type { Photo } from "@/api/pexels";
 import { getHeight } from ".";
 
 describe("getHeight()", () => {

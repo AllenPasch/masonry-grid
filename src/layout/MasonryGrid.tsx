@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { memo } from "react";
-import type { Photo } from "pexels";
+
+import type { Photo } from "@/api/pexels";
 
 interface IProps {
-  readonly photos: Photo[] | undefined;
+  readonly photos: readonly Photo[] | undefined;
 }
 
 const MasonryGrid = ({ photos }: IProps) => (

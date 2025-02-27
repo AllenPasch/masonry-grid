@@ -1,7 +1,7 @@
 import { getNextColumnIndex } from ".";
 
 describe("getNextColumnIndex()", () => {
-  test("photos are added to the column with the lowest nextColumnTopPosition", () => {
+  test("photos are added to the column with the lowest nextColumnTopVw", () => {
     expect(getNextColumnIndex([100, 50, 75, 33, 80])).toBe(3);
   });
 

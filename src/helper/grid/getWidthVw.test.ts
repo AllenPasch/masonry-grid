@@ -1,23 +1,23 @@
-import { getWidthCalcExpression } from ".";
+import { getWidthVw } from ".";
 
-describe("getWidthCalcExpression()", () => {
+describe("getWidthVw()", () => {
   test("with 1 column, use the whole window, minus 2 spacingSidesVw", () => {
-    expect(getWidthCalcExpression(1, 20, 10)).toBe("(100vw - 40vw)");
+    expect(getWidthVw(1, 20, 10)).toBe(100 - 2 * 20);
   });
 
   test("with 2 columns, share the whole window, minus 2 spacingSidesVw and 1 spacingBetweenVw", () => {
-    expect(getWidthCalcExpression(2, 20, 10)).toBe("(100vw - 50vw) / 2");
+    expect(getWidthVw(2, 20, 10)).toBe((100 - 50) / 2);
   });
 
   test("with 3 columns, share the whole window, minus 2 spacingSidesVw and 2 spacingBetweenVw", () => {
-    expect(getWidthCalcExpression(3, 20, 10)).toBe("(100vw - 60vw) / 3");
+    expect(getWidthVw(3, 20, 10)).toBe((100 - 60) / 3);
   });
 
   test("with 4 columns, share the whole window, minus 2 spacingSidesVw and 3 spacingBetweenVw", () => {
-    expect(getWidthCalcExpression(4, 20, 10)).toBe("(100vw - 70vw) / 4");
+    expect(getWidthVw(4, 20, 10)).toBe((100 - 70) / 4);
   });
 
   test("with 5 columns, share the whole window, minus 2 spacingSidesVw and 4 spacingBetweenVw", () => {
-    expect(getWidthCalcExpression(5, 20, 10)).toBe("(100vw - 80vw) / 5");
+    expect(getWidthVw(5, 20, 10)).toBe((100 - 80) / 5);
   });
 });

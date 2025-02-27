@@ -1,15 +1,13 @@
 import { SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
 
-export const getWidthCalcExpression = (
+export const getWidthVw = (
   columnCount: number,
   spacingSidesVw: number = SPACING_SIDES_VW,
   spacingBetweenVw: number = SPACING_BETWEEN_VW
-): string => {
+): number => {
   const totalSpacingVw =
     2 * spacingSidesVw + (columnCount - 1) * spacingBetweenVw;
-  const availableWidth = `(100vw - ${totalSpacingVw}vw)`;
+  const availableWidthVw = 100 - totalSpacingVw;
 
-  return columnCount > 1
-    ? `${availableWidth} / ${columnCount}`
-    : availableWidth;
+  return availableWidthVw / columnCount;
 };

@@ -1,4 +1,4 @@
-import { SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
+import { getWidthVw, SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
 
 export const getWidthPx = (
   columnCount: number,
@@ -6,9 +6,7 @@ export const getWidthPx = (
   spacingSidesVw: number = SPACING_SIDES_VW,
   spacingBetweenVw: number = SPACING_BETWEEN_VW
 ): number => {
-  const totalSpacingVw =
-    2 * spacingSidesVw + (columnCount - 1) * spacingBetweenVw;
-  const availableWidth = htmlClientWidth * (1 - totalSpacingVw / 100);
+  const widthVw = getWidthVw(columnCount, spacingSidesVw, spacingBetweenVw);
 
-  return availableWidth / columnCount;
+  return (htmlClientWidth * widthVw) / 100;
 };

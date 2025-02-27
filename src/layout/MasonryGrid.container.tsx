@@ -1,15 +1,11 @@
 import { memo, useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
 
-import createPexelsClient from "@/api/pexels/createPexelsClient";
+import { createPexelsClient, useCuratedPhotos } from "@/api/pexels";
 import MasonryGrid from "./MasonryGrid";
 
 const MasonryGridContainer = () => {
   const pexelsClient = useMemo(createPexelsClient, []);
-  const query = useQuery({
-    queryKey: ["curated"],
-    queryFn: () => pexelsClient.photos.curated(),
-  });
+  const query = useCuratedPhotos(pexelsClient);
 
   console.log("query", query);
 

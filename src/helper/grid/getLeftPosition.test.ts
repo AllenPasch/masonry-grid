@@ -1,4 +1,4 @@
-import { getLeftPosition } from "./getLeftPosition";
+import { getLeftPosition } from ".";
 
 describe("getLeftPosition()", () => {
   test("column 0 is just spacingSidesPx from the left", () => {

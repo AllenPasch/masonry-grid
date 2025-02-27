@@ -1,13 +1,13 @@
-import { SPACING_BETWEEN_PX, SPACING_SIDES_PX } from ".";
+import { SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
 
 export const getWidthCalcExpression = (
   columnCount: number,
-  spacingSidesPx: number = SPACING_SIDES_PX,
-  spacingBetweenPx: number = SPACING_BETWEEN_PX
+  spacingSidesVw: number = SPACING_SIDES_VW,
+  spacingBetweenVw: number = SPACING_BETWEEN_VW
 ): string => {
-  const totalSpacingPx =
-    2 * spacingSidesPx + (columnCount - 1) * spacingBetweenPx;
-  const availableWidth = `(100vw - ${totalSpacingPx}px)`;
+  const totalSpacingVw =
+    2 * spacingSidesVw + (columnCount - 1) * spacingBetweenVw;
+  const availableWidth = `(100vw - ${totalSpacingVw}vw)`;
 
   return columnCount > 1
     ? `${availableWidth} / ${columnCount}`

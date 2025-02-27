@@ -1,14 +1,14 @@
-import { SPACING_BETWEEN_PX, SPACING_SIDES_PX } from ".";
+import { SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
 
 export const getWidthPx = (
   columnCount: number,
   htmlClientWidth: number,
-  spacingSidesPx: number = SPACING_SIDES_PX,
-  spacingBetweenPx: number = SPACING_BETWEEN_PX
+  spacingSidesVw: number = SPACING_SIDES_VW,
+  spacingBetweenVw: number = SPACING_BETWEEN_VW
 ): number => {
-  const totalSpacingPx =
-    2 * spacingSidesPx + (columnCount - 1) * spacingBetweenPx;
-  const availableWidth = htmlClientWidth - totalSpacingPx;
+  const totalSpacingVw =
+    2 * spacingSidesVw + (columnCount - 1) * spacingBetweenVw;
+  const availableWidth = htmlClientWidth * (1 - totalSpacingVw / 100);
 
   return availableWidth / columnCount;
 };

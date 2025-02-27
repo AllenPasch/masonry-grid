@@ -1,18 +1,18 @@
-import { getWidthCalcExpression, SPACING_BETWEEN_PX, SPACING_SIDES_PX } from ".";
+import { getWidthCalcExpression, SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
 
 export const getLeftPositionCalcExpression = (
   columnCount: number,
   columnIndex: number,
-  spacingSidesPx: number = SPACING_SIDES_PX,
-  spacingBetweenPx: number = SPACING_BETWEEN_PX
+  spacingSidesVw: number = SPACING_SIDES_VW,
+  spacingBetweenVw: number = SPACING_BETWEEN_VW
 ): string => {
-  const spacingLeftPx = spacingSidesPx + columnIndex * spacingBetweenPx;
-  const spacingLeftCss = `${spacingLeftPx}px`;
+  const spacingLeftVw = spacingSidesVw + columnIndex * spacingBetweenVw;
+  const spacingLeftCss = `${spacingLeftVw}vw`;
 
   if (!columnIndex) {
     return spacingLeftCss;
   }
 
-  const imageWidth = getWidthCalcExpression(columnCount, spacingSidesPx, spacingBetweenPx);
+  const imageWidth = getWidthCalcExpression(columnCount, spacingSidesVw, spacingBetweenVw);
   return `${spacingLeftCss} + ${columnIndex} * ${imageWidth}`;
 };

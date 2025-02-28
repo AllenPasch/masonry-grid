@@ -1,9 +1,9 @@
-import type { NextColumnTopVws } from ".";
+import type { ColumnTopVws } from ".";
 
 export const getNextColumnIndex = (
-  nextColumnTopVws: NextColumnTopVws
+  columnTopVws: ColumnTopVws
 ): number => {
-  const minTopPosition = Math.min(...nextColumnTopVws);
+  const minTopPosition = Math.min(...columnTopVws);
 
-  return nextColumnTopVws.indexOf(minTopPosition);
+  return columnTopVws.indexOf(minTopPosition);
 };

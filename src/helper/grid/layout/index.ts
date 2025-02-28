@@ -1,3 +1,4 @@
+export type { ColumnTopVws } from "./ColumnTopVws";
 export {
   SPACING_BETWEEN_VW,
   SPACING_SIDES_VW,
@@ -9,4 +10,3 @@ export { getNextColumnIndex } from "./getNextColumnIndex";
 export { getWidthPx } from "./getWidthPx";
 export { getWidthVw } from "./getWidthVw";
 export type { IPhotoPosition } from "./IPhotoPosition";
-export type { NextColumnTopVws } from "./NextColumnTopVws";

@@ -8,34 +8,34 @@ import {
   SPACING_BETWEEN_VW,
   SPACING_SIDES_VW,
 } from "../layout";
-import type { IPhotoPosition, NextColumnTopVws } from "../layout";
+import type { IPhotoPosition, ColumnTopVws } from "../layout";
 
 export interface IAddPhotoToBreakpointResult {
   readonly position: IPhotoPosition;
-  readonly nextColumnTopVws: NextColumnTopVws;
+  readonly nextColumnTopVws: ColumnTopVws;
 }
 
 export const addPhotoToBreakpoint = (
-  nextColumnTopVws: NextColumnTopVws,
+  columnTopVws: ColumnTopVws,
   photo: Photo,
   spacingSidesVw: number = SPACING_SIDES_VW,
   spacingBetweenVw: number = SPACING_BETWEEN_VW
 ): IAddPhotoToBreakpointResult => {
-  const columnCount = nextColumnTopVws.length;
-  const columnIndex = getNextColumnIndex(nextColumnTopVws);
+  const columnCount = columnTopVws.length;
+  const columnIndex = getNextColumnIndex(columnTopVws);
   const leftVw = getPositionLeftVw(
     columnCount,
     columnIndex,
     spacingSidesVw,
     spacingBetweenVw
   );
-  const topVw = nextColumnTopVws[columnIndex];
+  const topVw = columnTopVws[columnIndex];
   const widthVw = getWidthVw(columnCount, spacingSidesVw, spacingBetweenVw);
   const heightVw = getHeight(widthVw, photo);
 
   const columnOffsetVw = heightVw + spacingBetweenVw;
-  const updatedNextColumnTopVws = [...nextColumnTopVws];
-  updatedNextColumnTopVws[columnIndex] += columnOffsetVw;
+  const nextColumnTopVws = [...columnTopVws];
+  nextColumnTopVws[columnIndex] += columnOffsetVw;
 
   return {
     position: {
@@ -46,6 +46,6 @@ export const addPhotoToBreakpoint = (
       heightVw,
       columnIndex,
     },
-    nextColumnTopVws: updatedNextColumnTopVws,
+    nextColumnTopVws,
   };
 };

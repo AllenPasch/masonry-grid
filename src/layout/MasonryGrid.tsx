@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { memo } from "react";
 
-import { addPhotoToBreakpoint, initializeNextColumnTopVws } from "@/helper/grid/breakpoint";
+import {
+  addPhotoToBreakpoint,
+  initializeColumnTopVws,
+} from "@/helper/grid/breakpoint";
 import { getHeight, getWidthPx } from "@/helper/grid/layout";
 
 import type { Photo } from "@/api/pexels";
@@ -11,14 +14,17 @@ interface IProps {
 }
 
 const MasonryGrid = ({ photos }: IProps) => {
-  let nextColumnTopVws = initializeNextColumnTopVws(4);
-  const columnCount = nextColumnTopVws.length;
+  let columnTopVws = initializeColumnTopVws(4);
+  const columnCount = columnTopVws.length;
 
   return (
     <>
       {photos?.map((photo, index) => {
-        const addPhotoToBreakpointResult = addPhotoToBreakpoint(nextColumnTopVws, photo);
-        nextColumnTopVws = addPhotoToBreakpointResult.nextColumnTopVws;
+        const addPhotoToBreakpointResult = addPhotoToBreakpoint(
+          columnTopVws,
+          photo
+        );
+        columnTopVws = addPhotoToBreakpointResult.nextColumnTopVws;
 
         const htmlClientWidth =
           document.querySelectorAll("html")[0].clientWidth;

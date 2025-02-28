@@ -10,7 +10,7 @@ describe("addPhotoToBreakpoint()", () => {
       height: 120,
     } as Photo;
 
-    const nextColumnTopVws = [4, 4, 4, 4];
+    const columnTopVws = [4, 4, 4, 4];
     const spacingSidesVw = 8;
     const spacingBetweenVw = 7;
 
@@ -19,7 +19,7 @@ describe("addPhotoToBreakpoint()", () => {
 
     // Act
     const result = addPhotoToBreakpoint(
-      nextColumnTopVws,
+      columnTopVws,
       photo,
       spacingSidesVw,
       spacingBetweenVw
@@ -47,7 +47,7 @@ describe("addPhotoToBreakpoint()", () => {
       height: 480,
     } as Photo;
 
-    const nextColumnTopVws = [18.875, 4, 4, 4];
+    const columnTopVws = [18.875, 4, 4, 4];
     const spacingSidesVw = 8;
     const spacingBetweenVw = 7;
 
@@ -56,7 +56,7 @@ describe("addPhotoToBreakpoint()", () => {
 
     // Act
     const result = addPhotoToBreakpoint(
-      nextColumnTopVws,
+      columnTopVws,
       photo,
       spacingSidesVw,
       spacingBetweenVw

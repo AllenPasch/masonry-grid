@@ -1,8 +1,8 @@
 import type { Photo } from "@/api/pexels";
 
-import { addPhotosToBreakpoint } from ".";
+import { fillBreakpoint } from ".";
 
-describe("addPhotosToBreakpoint()", () => {
+describe("fillBreakpoint()", () => {
   test("At the top of the page, the first 2 photos are added to column 0 and column 1.", () => {
     // Arrange
     const photo1 = {
@@ -15,7 +15,7 @@ describe("addPhotosToBreakpoint()", () => {
       height: 240,
     } as Photo;
 
-    const nextColumnTopVws = [4, 4, 4, 4];
+    const columnTopVws = [4, 4, 4, 4];
     const photos = [photo1, photo2];
     const spacingSidesVw = 8;
     const spacingBetweenVw = 7;
@@ -25,8 +25,8 @@ describe("addPhotosToBreakpoint()", () => {
     const expectedPhoto2HeightVw = 2 * expectedPhotoWidthVw;
 
     // Act
-    const result = addPhotosToBreakpoint(
-      nextColumnTopVws,
+    const result = fillBreakpoint(
+      columnTopVws,
       photos,
       spacingSidesVw,
       spacingBetweenVw
@@ -48,6 +48,7 @@ describe("addPhotosToBreakpoint()", () => {
     expect(result.photoPositions[1].widthVw).toBe(expectedPhotoWidthVw);
     expect(result.photoPositions[1].heightVw).toBe(expectedPhoto2HeightVw);
     expect(result.photoPositions[1].columnIndex).toBe(1);
+    expect(result.columnTopVws).toEqual([4, 4, 4, 4]);
     expect(result.nextColumnTopVws).toEqual([
       4 + expectedPhoto1HeightVw + spacingBetweenVw,
       4 + expectedPhoto2HeightVw + spacingBetweenVw,

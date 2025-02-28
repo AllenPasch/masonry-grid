@@ -1,5 +1,5 @@
-export { addPhoto } from "./addPhoto";
-export type { IAddPhotoResult } from "./addPhoto";
-export { addPhotos } from "./addPhotos";
-export type { IAddPhotosResult } from "./addPhotos";
+export { addPhotoToBreakpoint } from "./addPhotoToBreakpoint";
+export type { IAddPhotoToBreakpointResult } from "./addPhotoToBreakpoint";
+export { addPhotosToBreakpoint } from "./addPhotosToBreakpoint";
+export type { IAddPhotosToBreakpointResult } from "./addPhotosToBreakpoint";
 export { initializeNextColumnTopVws } from "./initializeNextColumnTopVws";

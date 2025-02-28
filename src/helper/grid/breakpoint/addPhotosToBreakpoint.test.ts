@@ -1,8 +1,8 @@
 import type { Photo } from "@/api/pexels";
 
-import { addPhotos } from ".";
+import { addPhotosToBreakpoint } from ".";
 
-describe("addPhotos()", () => {
+describe("addPhotosToBreakpoint()", () => {
   test("At the top of the page, the first 2 photos are added to column 0 and column 1.", () => {
     // Arrange
     const photo1 = {
@@ -25,7 +25,7 @@ describe("addPhotos()", () => {
     const expectedPhoto2HeightVw = 2 * expectedPhotoWidthVw;
 
     // Act
-    const result = addPhotos(
+    const result = addPhotosToBreakpoint(
       nextColumnTopVws,
       photos,
       spacingSidesVw,

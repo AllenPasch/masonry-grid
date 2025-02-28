@@ -2,21 +2,21 @@ import type { Photo } from "@/api/pexels";
 
 import { SPACING_BETWEEN_VW, SPACING_SIDES_VW } from "../layout";
 import type { IPhotoPosition, NextColumnTopVws } from "../layout";
-import { addPhoto } from ".";
+import { addPhotoToBreakpoint } from ".";
 
-export interface IAddPhotosResult {
+export interface IAddPhotosToBreakpointResult {
   readonly photoPositions: readonly IPhotoPosition[];
   readonly nextColumnTopVws: NextColumnTopVws;
 }
 
-export const addPhotos = (
+export const addPhotosToBreakpoint = (
   nextColumnTopVws: NextColumnTopVws,
   photos: readonly Photo[],
   spacingSidesVw: number = SPACING_SIDES_VW,
   spacingBetweenVw: number = SPACING_BETWEEN_VW
-): IAddPhotosResult => {
+): IAddPhotosToBreakpointResult => {
   const photoPositions = photos.map((photo) => {
-    const result = addPhoto(
+    const result = addPhotoToBreakpoint(
       nextColumnTopVws,
       photo,
       spacingSidesVw,

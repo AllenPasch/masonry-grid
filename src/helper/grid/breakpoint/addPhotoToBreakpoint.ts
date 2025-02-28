@@ -10,17 +10,17 @@ import {
 } from "../layout";
 import type { IPhotoPosition, NextColumnTopVws } from "../layout";
 
-export interface IAddPhotoResult {
+export interface IAddPhotoToBreakpointResult {
   readonly position: IPhotoPosition;
   readonly nextColumnTopVws: NextColumnTopVws;
 }
 
-export const addPhoto = (
+export const addPhotoToBreakpoint = (
   nextColumnTopVws: NextColumnTopVws,
   photo: Photo,
   spacingSidesVw: number = SPACING_SIDES_VW,
   spacingBetweenVw: number = SPACING_BETWEEN_VW
-): IAddPhotoResult => {
+): IAddPhotoToBreakpointResult => {
   const columnCount = nextColumnTopVws.length;
   const columnIndex = getNextColumnIndex(nextColumnTopVws);
   const leftVw = getPositionLeftVw(

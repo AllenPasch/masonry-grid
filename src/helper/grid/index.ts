@@ -12,5 +12,6 @@ export { getPositionLeftVw } from "./getPositionLeftVw";
 export { getNextColumnIndex } from "./getNextColumnIndex";
 export { getWidthPx } from "./getWidthPx";
 export { getWidthVw } from "./getWidthVw";
+export { initializeNextColumnTopVws } from "./initializeNextColumnTopVws";
 export type { IPhotoPosition } from "./IPhotoPosition";
 export type { NextColumnTopVws } from "./NextColumnTopVws";

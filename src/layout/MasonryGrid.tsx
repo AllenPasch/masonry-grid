@@ -1,22 +1,21 @@
 import Image from "next/image";
 import { memo } from "react";
 
-import { addPhoto, getHeight, getWidthPx, SPACING_TOP_VW } from "@/helper/grid";
+import {
+  addPhoto,
+  getHeight,
+  getWidthPx,
+  initializeNextColumnTopVws,
+} from "@/helper/grid";
 
 import type { Photo } from "@/api/pexels";
-import type { NextColumnTopVws } from "@/helper/grid";
 
 interface IProps {
   readonly photos: readonly Photo[] | undefined;
 }
 
 const MasonryGrid = ({ photos }: IProps) => {
-  let nextColumnTopVws: NextColumnTopVws = [
-    SPACING_TOP_VW,
-    SPACING_TOP_VW,
-    SPACING_TOP_VW,
-    SPACING_TOP_VW,
-  ];
+  let nextColumnTopVws = initializeNextColumnTopVws(4);
   const columnCount = nextColumnTopVws.length;
 
   return (

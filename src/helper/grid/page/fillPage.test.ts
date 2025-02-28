@@ -7,7 +7,7 @@ import { fillPage } from ".";
 import type { IPage } from ".";
 
 describe("fillPage()", () => {
-  test("At the top of the page, maxColumns breakpoints are created, and the first photos are added in each breakpoint.", () => {
+  test("At the top of the window, maxColumns breakpoints are created, and the first photos are added in each breakpoint.", () => {
     // Arrange
     const photo1 = {
       width: 240,

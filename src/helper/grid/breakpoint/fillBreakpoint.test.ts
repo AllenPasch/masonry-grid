@@ -3,7 +3,7 @@ import type { Photo } from "@/api/pexels";
 import { fillBreakpoint } from ".";
 
 describe("fillBreakpoint()", () => {
-  test("At the top of the page, the first 2 photos are added to column 0 and column 1.", () => {
+  test("At the top of the window, the first 2 photos are added to column 0 and column 1.", () => {
     // Arrange
     const photo1 = {
       width: 240,

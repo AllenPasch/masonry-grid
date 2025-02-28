@@ -3,7 +3,7 @@ import type { Photo } from "@/api/pexels";
 import { addPhotoToBreakpoint } from ".";
 
 describe("addPhotoToBreakpoint()", () => {
-  test("At the top of the page, the 1st photo is added to column 0.", () => {
+  test("At the top of the window, the 1st photo is added to column 0.", () => {
     // Arrange
     const photo = {
       width: 240,
@@ -40,7 +40,7 @@ describe("addPhotoToBreakpoint()", () => {
     ]);
   });
 
-  test("At the top of the page, the 2nd photo is added to column 1.", () => {
+  test("At the top of the window, the 2nd photo is added to column 1.", () => {
     // Arrange
     const photo = {
       width: 240,

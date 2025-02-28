@@ -1,5 +1,6 @@
 export type { ColumnTopVws } from "./ColumnTopVws";
 export {
+  MAX_COLUMN_COUNT,
   SPACING_BETWEEN_VW,
   SPACING_SIDES_VW,
   SPACING_TOP_VW,

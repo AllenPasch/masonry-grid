@@ -25,7 +25,7 @@ describe("fillBreakpoint()", () => {
     const expectedPhoto2HeightVw = 2 * expectedPhotoWidthVw;
 
     // Act
-    const result = fillBreakpoint(
+    const breakpoint = fillBreakpoint(
       columnTopVws,
       photos,
       spacingSidesVw,
@@ -33,23 +33,23 @@ describe("fillBreakpoint()", () => {
     );
 
     // Assert
-    expect(result.photoPositions.length).toBe(2);
-    expect(result.photoPositions[0].photo).toEqual(photo1);
-    expect(result.photoPositions[0].leftVw).toBe(spacingSidesVw);
-    expect(result.photoPositions[0].topVw).toBe(4);
-    expect(result.photoPositions[0].widthVw).toBe(expectedPhotoWidthVw);
-    expect(result.photoPositions[0].heightVw).toBe(expectedPhoto1HeightVw);
-    expect(result.photoPositions[0].columnIndex).toBe(0);
-    expect(result.photoPositions[1].photo).toEqual(photo2);
-    expect(result.photoPositions[1].leftVw).toBe(
+    expect(breakpoint.photoPositions.length).toBe(2);
+    expect(breakpoint.photoPositions[0].photo).toEqual(photo1);
+    expect(breakpoint.photoPositions[0].leftVw).toBe(spacingSidesVw);
+    expect(breakpoint.photoPositions[0].topVw).toBe(4);
+    expect(breakpoint.photoPositions[0].widthVw).toBe(expectedPhotoWidthVw);
+    expect(breakpoint.photoPositions[0].heightVw).toBe(expectedPhoto1HeightVw);
+    expect(breakpoint.photoPositions[0].columnIndex).toBe(0);
+    expect(breakpoint.photoPositions[1].photo).toEqual(photo2);
+    expect(breakpoint.photoPositions[1].leftVw).toBe(
       spacingSidesVw + expectedPhotoWidthVw + spacingBetweenVw
     );
-    expect(result.photoPositions[1].topVw).toBe(4);
-    expect(result.photoPositions[1].widthVw).toBe(expectedPhotoWidthVw);
-    expect(result.photoPositions[1].heightVw).toBe(expectedPhoto2HeightVw);
-    expect(result.photoPositions[1].columnIndex).toBe(1);
-    expect(result.columnTopVws).toEqual([4, 4, 4, 4]);
-    expect(result.nextColumnTopVws).toEqual([
+    expect(breakpoint.photoPositions[1].topVw).toBe(4);
+    expect(breakpoint.photoPositions[1].widthVw).toBe(expectedPhotoWidthVw);
+    expect(breakpoint.photoPositions[1].heightVw).toBe(expectedPhoto2HeightVw);
+    expect(breakpoint.photoPositions[1].columnIndex).toBe(1);
+    expect(breakpoint.columnTopVws).toEqual([4, 4, 4, 4]);
+    expect(breakpoint.nextColumnTopVws).toEqual([
       4 + expectedPhoto1HeightVw + spacingBetweenVw,
       4 + expectedPhoto2HeightVw + spacingBetweenVw,
       4,

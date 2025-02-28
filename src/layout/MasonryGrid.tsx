@@ -39,8 +39,8 @@ const MasonryGrid = ({ photos }: IProps) => {
             key={index}
             style={{
               position: "absolute",
-              left: `calc(${addPhotoResult.positionLeftVw}vw)`,
-              top: `calc(${addPhotoResult.positionTopVw}vw)`,
+              left: `calc(${addPhotoResult.position.leftVw}vw)`,
+              top: `calc(${addPhotoResult.position.topVw}vw)`,
             }}
           />
         );

@@ -26,11 +26,12 @@ describe("addPhoto()", () => {
     );
 
     // Assert
-    expect(result.widthVw).toBe(expectedPhotoWidthVw);
-    expect(result.heightVw).toBe(expectedPhotoHeightVw);
-    expect(result.positionLeftVw).toBe(spacingSidesVw);
-    expect(result.positionTopVw).toBe(4);
-    expect(result.columnIndex).toBe(0);
+    expect(result.position.photo).toEqual(photo);
+    expect(result.position.leftVw).toBe(spacingSidesVw);
+    expect(result.position.topVw).toBe(4);
+    expect(result.position.widthVw).toBe(expectedPhotoWidthVw);
+    expect(result.position.heightVw).toBe(expectedPhotoHeightVw);
+    expect(result.position.columnIndex).toBe(0);
     expect(result.nextColumnTopVws).toEqual([
       4 + expectedPhotoHeightVw + spacingBetweenVw,
       4,
@@ -63,13 +64,14 @@ describe("addPhoto()", () => {
     );
 
     // Assert
-    expect(result.widthVw).toBe(expectedPhotoWidthVw);
-    expect(result.heightVw).toBe(expectedPhotoHeightVw);
-    expect(result.positionLeftVw).toBe(
+    expect(result.position.photo).toEqual(photo);
+    expect(result.position.leftVw).toBe(
       spacingSidesVw + expectedPhotoWidthVw + spacingBetweenVw
     );
-    expect(result.positionTopVw).toBe(4);
-    expect(result.columnIndex).toBe(1);
+    expect(result.position.topVw).toBe(4);
+    expect(result.position.widthVw).toBe(expectedPhotoWidthVw);
+    expect(result.position.heightVw).toBe(expectedPhotoHeightVw);
+    expect(result.position.columnIndex).toBe(1);
     expect(result.nextColumnTopVws).toEqual([
       18.875,
       4 + expectedPhotoHeightVw + spacingBetweenVw,

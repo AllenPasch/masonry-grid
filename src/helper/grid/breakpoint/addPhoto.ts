@@ -7,8 +7,8 @@ import {
   getWidthVw,
   SPACING_BETWEEN_VW,
   SPACING_SIDES_VW,
-} from ".";
-import type { IPhotoPosition, NextColumnTopVws } from ".";
+} from "../layout";
+import type { IPhotoPosition, NextColumnTopVws } from "../layout";
 
 export interface IAddPhotoResult {
   readonly position: IPhotoPosition;

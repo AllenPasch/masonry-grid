@@ -1,5 +1,5 @@
-import { SPACING_TOP_VW } from ".";
-import type { NextColumnTopVws } from ".";
+import { SPACING_TOP_VW } from "../layout";
+import type { NextColumnTopVws } from "../layout";
 
 export const initializeNextColumnTopVws = (
   columnCount: number

@@ -1,7 +1,8 @@
 import type { Photo } from "@/api/pexels";
 
-import { addPhoto, SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
-import type { IPhotoPosition, NextColumnTopVws } from ".";
+import { SPACING_BETWEEN_VW, SPACING_SIDES_VW } from "../layout";
+import type { IPhotoPosition, NextColumnTopVws } from "../layout";
+import { addPhoto } from ".";
 
 export interface IAddPhotosResult {
   readonly photoPositions: readonly IPhotoPosition[];

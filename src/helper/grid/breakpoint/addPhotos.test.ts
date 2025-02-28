@@ -1,4 +1,5 @@
 import type { Photo } from "@/api/pexels";
+
 import { addPhotos } from ".";
 
 describe("addPhotos()", () => {

@@ -1,4 +1,5 @@
-import { initializeNextColumnTopVws, SPACING_TOP_VW } from ".";
+import { SPACING_TOP_VW } from "../layout";
+import { initializeNextColumnTopVws } from ".";
 
 test("initializeNextColumnTopVws()", () => {
   expect(initializeNextColumnTopVws(1)).toEqual([SPACING_TOP_VW]);

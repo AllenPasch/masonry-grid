@@ -1,12 +1,8 @@
 import Image from "next/image";
 import { memo } from "react";
 
-import {
-  addPhoto,
-  getHeight,
-  getWidthPx,
-  initializeNextColumnTopVws,
-} from "@/helper/grid";
+import { addPhoto, initializeNextColumnTopVws } from "@/helper/grid/breakpoint";
+import { getHeight, getWidthPx } from "@/helper/grid/layout";
 
 import type { Photo } from "@/api/pexels";
 

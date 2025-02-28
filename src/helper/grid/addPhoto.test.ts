@@ -2,7 +2,7 @@ import type { Photo } from "@/api/pexels";
 import { addPhoto } from ".";
 
 describe("addPhoto()", () => {
-  test("at the top of the page, the 1st photo is added to column 0", () => {
+  test("At the top of the page, the 1st photo is added to column 0.", () => {
     // Arrange
     const nextColumnTopVws = [4, 4, 4, 4];
 
@@ -39,7 +39,7 @@ describe("addPhoto()", () => {
     ]);
   });
 
-  test("at the top of the page, the 2nd photo is added to column 1", () => {
+  test("At the top of the page, the 2nd photo is added to column 1.", () => {
     // Arrange
     const nextColumnTopVws = [18.875, 4, 4, 4];
 

@@ -1,7 +1,7 @@
 import { getWidthPx } from ".";
 
 describe("getWidthPx()", () => {
-  test("with 1 column, use the whole window, minus 2 spacingSidesVw", () => {
+  test("With 1 column, use the whole window, minus 2 spacingSidesVw.", () => {
     // Arrange
     const columnCount = 1;
     const htmlClientWidth = 1000;
@@ -23,7 +23,7 @@ describe("getWidthPx()", () => {
     expect(widthPx).toBeCloseTo(availableWidth);
   });
 
-  test("with 2 columns, share the whole window, minus 2 spacingSidesVw and 1 spacingBetweenVw", () => {
+  test("With 2 columns, share the whole window, minus 2 spacingSidesVw and 1 spacingBetweenVw.", () => {
     // Arrange
     const columnCount = 2;
     const htmlClientWidth = 1000;
@@ -45,7 +45,7 @@ describe("getWidthPx()", () => {
     expect(widthPx).toBeCloseTo(availableWidth / columnCount);
   });
 
-  test("with 3 columns, share the whole window, minus 2 spacingSidesVw and 2 spacingBetweenVw", () => {
+  test("With 3 columns, share the whole window, minus 2 spacingSidesVw and 2 spacingBetweenVw.", () => {
     // Arrange
     const columnCount = 3;
     const htmlClientWidth = 1000;
@@ -67,7 +67,7 @@ describe("getWidthPx()", () => {
     expect(widthPx).toBeCloseTo(availableWidth / columnCount);
   });
 
-  test("with 4 columns, share the whole window, minus 2 spacingSidesVw and 3 spacingBetweenVw", () => {
+  test("With 4 columns, share the whole window, minus 2 spacingSidesVw and 3 spacingBetweenVw.", () => {
     // Arrange
     const columnCount = 4;
     const htmlClientWidth = 1000;
@@ -89,7 +89,7 @@ describe("getWidthPx()", () => {
     expect(widthPx).toBeCloseTo(availableWidth / columnCount);
   });
 
-  test("with 5 columns, share the whole window, minus 2 spacingSidesVw and 4 spacingBetweenVw", () => {
+  test("With 5 columns, share the whole window, minus 2 spacingSidesVw and 4 spacingBetweenVw.", () => {
     // Arrange
     const columnCount = 5;
     const htmlClientWidth = 1000;

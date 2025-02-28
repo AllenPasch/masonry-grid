@@ -1,4 +1,7 @@
 export { addPhoto } from "./addPhoto";
+export type { IAddPhotoResult } from "./addPhoto";
+export { addPhotos } from "./addPhotos";
+export type { IAddPhotosResult } from "./addPhotos";
 export {
   SPACING_BETWEEN_VW,
   SPACING_SIDES_VW,

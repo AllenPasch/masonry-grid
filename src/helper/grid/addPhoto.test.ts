@@ -4,13 +4,12 @@ import { addPhoto } from ".";
 describe("addPhoto()", () => {
   test("At the top of the page, the 1st photo is added to column 0.", () => {
     // Arrange
-    const nextColumnTopVws = [4, 4, 4, 4];
-
     const photo = {
       width: 240,
       height: 120,
     } as Photo;
 
+    const nextColumnTopVws = [4, 4, 4, 4];
     const spacingSidesVw = 8;
     const spacingBetweenVw = 7;
 
@@ -42,13 +41,12 @@ describe("addPhoto()", () => {
 
   test("At the top of the page, the 2nd photo is added to column 1.", () => {
     // Arrange
-    const nextColumnTopVws = [18.875, 4, 4, 4];
-
     const photo = {
       width: 240,
       height: 480,
     } as Photo;
 
+    const nextColumnTopVws = [18.875, 4, 4, 4];
     const spacingSidesVw = 8;
     const spacingBetweenVw = 7;
 

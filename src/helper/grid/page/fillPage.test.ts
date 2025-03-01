@@ -1,4 +1,4 @@
-import type { Photo } from "@/api/pexels";
+import type { Photo, Photos } from "@/api/pexels";
 
 import { IBreakpoint } from "../breakpoint";
 import { SPACING_TOP_VW } from "../layout";
@@ -19,7 +19,10 @@ describe("fillPage()", () => {
       height: 240,
     } as Photo;
 
-    const photos = [photo1, photo2];
+    const photos = {
+      photos: [photo1, photo2],
+      next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
+    } as any as Photos;
     const maxColumnCount = 3;
 
     // Act
@@ -27,6 +30,7 @@ describe("fillPage()", () => {
 
     // Assert
     expect(page.breakpoints.length).toBe(maxColumnCount);
+    expect(page.morePages).toBe(true);
 
     expect(page.breakpoints[0].photoPositions.length).toBe(2);
     expect(page.breakpoints[0].photoPositions[0].photo).toEqual(photo1);
@@ -102,8 +106,11 @@ describe("fillPage()", () => {
         } as IBreakpoint,
       ],
       photos: [],
+      morePages: true,
     };
-    const photos = [photo1, photo2];
+    const photos = {
+      photos: [photo1, photo2],
+    } as any as Photos;
     const maxColumnCount = 3;
 
     // Act
@@ -111,6 +118,7 @@ describe("fillPage()", () => {
 
     // Assert
     expect(page.breakpoints.length).toBe(maxColumnCount);
+    expect(page.morePages).toBe(false);
 
     expect(page.breakpoints[0].photoPositions.length).toBe(2);
     expect(page.breakpoints[0].photoPositions[0].photo).toEqual(photo1);

@@ -53,10 +53,12 @@ describe("getMinGridHeightVws()", () => {
     const page1: IPage = {
       breakpoints: [page1Breakpoint1, page1Breakpoint2],
       photos: [],
+      morePages: true,
     };
     const page2: IPage = {
       breakpoints: [page2Breakpoint1, page2Breakpoint2],
       photos: [],
+      morePages: false,
     };
 
     const searchResults: ISearchResults = {

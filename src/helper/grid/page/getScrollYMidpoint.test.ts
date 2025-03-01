@@ -22,6 +22,7 @@ describe("getScrollYMidpoint()", () => {
     const page: IPage = {
       breakpoints: [breakpoint1, breakpoint2],
       photos: [],
+      morePages: true,
     };
 
     const htmlClientWidth = BREAKPOINTS_PX[1];

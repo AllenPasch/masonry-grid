@@ -9,7 +9,7 @@ export const reducer = (state: IState, action: Action): IState => {
     const { query, photos, pageNumber } = action;
 
     const previousPage = results[query].pages[pageNumber - 1];
-    const page = fillPage(previousPage, photos.photos);
+    const page = fillPage(previousPage, photos);
 
     const pages = [...results[query].pages];
     pages[pageNumber] = page;

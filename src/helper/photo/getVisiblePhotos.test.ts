@@ -66,6 +66,7 @@ describe("getVisiblePhotos()", () => {
     const page1: IPage = {
       breakpoints: [],
       photos: [photoBreakpoints1, photoBreakpoints2],
+      morePages: true,
     };
 
     const searchResults: ISearchResults = {
@@ -127,6 +128,7 @@ describe("getVisiblePhotos()", () => {
     const page1: IPage = {
       breakpoints: [],
       photos: [photoBreakpoints1, photoBreakpoints2],
+      morePages: true,
     };
 
     const searchResults: ISearchResults = {
@@ -189,6 +191,7 @@ describe("getVisiblePhotos()", () => {
     const page1: IPage = {
       breakpoints: [],
       photos: [photoBreakpoints1, photoBreakpoints2],
+      morePages: true,
     };
 
     const searchResults: ISearchResults = {
@@ -251,6 +254,7 @@ describe("getVisiblePhotos()", () => {
     const page1: IPage = {
       breakpoints: [],
       photos: [photoBreakpoints1, photoBreakpoints2],
+      morePages: true,
     };
 
     const searchResults: ISearchResults = {
@@ -330,6 +334,7 @@ describe("getVisiblePhotos()", () => {
     const page1: IPage = {
       breakpoints: [],
       photos: [photoBreakpoints1, photoBreakpoints2],
+      morePages: true,
     };
 
     const searchResults: ISearchResults = {

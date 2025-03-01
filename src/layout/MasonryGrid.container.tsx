@@ -1,16 +1,16 @@
 import { memo } from "react";
 
 import { usePhotos } from "@/api/pexels";
-import { useHtmlClientWidth } from "@/helper/screen";
+import { useHtmlClientDimensions } from "@/helper/screen";
 import { useMasonryReducer } from "@/reducer";
 import MasonryGrid from "./MasonryGrid";
 
 const MasonryGridContainer = () => {
-  const htmlClientWidth = useHtmlClientWidth();
+  const htmlClientDimensions = useHtmlClientDimensions();
   const [{ search, cachedPhotoSizes }, dispatch] = useMasonryReducer();
   const searchResults = search.results[search.query];
 
-  console.log("htmlClientWidth", htmlClientWidth);
+  console.log("htmlClientDimensions", htmlClientDimensions);
 
   usePhotos(dispatch, 1, "");
 

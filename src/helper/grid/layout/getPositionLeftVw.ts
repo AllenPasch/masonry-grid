@@ -8,10 +8,10 @@ export const getPositionLeftVw = (
 ): number => {
   const spacingLeftVw = spacingSidesVw + columnIndex * spacingBetweenVw;
 
-  const imageWidthVw = getWidthVw(
+  const photoWidthVw = getWidthVw(
     columnCount,
     spacingSidesVw,
     spacingBetweenVw
   );
-  return spacingLeftVw + columnIndex * imageWidthVw;
+  return spacingLeftVw + columnIndex * photoWidthVw;
 };

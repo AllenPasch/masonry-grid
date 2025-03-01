@@ -1,5 +1,5 @@
+import styled from "@emotion/styled";
 import { memo } from "react";
-import { styled } from "styled-components";
 
 import { BREAKPOINTS_PX } from "@/helper/grid";
 import MasonryGrid from "./MasonryGrid";

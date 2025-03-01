@@ -1,8 +1,5 @@
-import type { Photo } from "@/api/pexels";
-
 import type { IHtmlClientDimensions } from "@/helper/screen";
 import type { ISearchResults } from "@/reducer";
-import { BREAKPOINTS_PX } from "..";
 import type { IBreakpoint } from "..";
 import { getDesiredPageNumber } from ".";
 import type { IPage } from ".";

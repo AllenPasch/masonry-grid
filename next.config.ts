@@ -12,10 +12,10 @@ const nextConfig: NextConfig = {
   },
 
   /**
-   * Styled-components for styling.
+   * Emotion CSS for styling.
    */
   compiler: {
-    styledComponents: true,
+    emotion: true,
   },
 };
 

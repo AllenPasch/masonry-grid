@@ -3,6 +3,7 @@ export { fillPage } from "./page";
 export type { IPage } from "./page";
 export {
   BREAKPOINTS_PX,
+  getBreakpointIndex,
   getColumnCount,
   getMinGridHeightVws,
   getWidthPx,

@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { isEqual } from "lodash";
+import { useEffect, useMemo, useState } from "react";
 
 import type { IPhotoBreakpoints } from "@/helper/grid";
 import type { IHtmlClientDimensions } from "@/helper/screen";
@@ -7,13 +8,28 @@ import { getVisiblePhotos } from ".";
 
 export const useVisiblePhotos = (
   searchResults: ISearchResults,
-  htmlClientDimensions: IHtmlClientDimensions,
+  { htmlClientWidth, htmlClientHeight }: IHtmlClientDimensions,
   scrollY: number
 ): readonly IPhotoBreakpoints[] => {
-  const visiblePhotos = useMemo(
-    () => getVisiblePhotos(searchResults, htmlClientDimensions, scrollY),
-    [searchResults, htmlClientDimensions, scrollY]
+  const [visiblePhotos, setVisiblePhotos] = useState<
+    readonly IPhotoBreakpoints[]
+  >([]);
+
+  const newVisiblePhotos = useMemo(
+    () =>
+      getVisiblePhotos(
+        searchResults,
+        { htmlClientWidth, htmlClientHeight },
+        scrollY
+      ),
+    [searchResults, htmlClientWidth, htmlClientHeight, scrollY]
   );
+
+  useEffect(() => {
+    if (!isEqual(visiblePhotos, newVisiblePhotos)) {
+      setVisiblePhotos(newVisiblePhotos);
+    }
+  }, [visiblePhotos, newVisiblePhotos]);
 
   return visiblePhotos;
 };

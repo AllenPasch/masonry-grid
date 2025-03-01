@@ -1,30 +1,42 @@
-import { memo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 
 import { usePhotos } from "@/api/pexels";
+import { getDesiredPageNumber, getMinGridHeightVws } from "@/helper/grid";
 import { useVisiblePhotos } from "@/helper/photo";
 import { useHtmlClientDimensions, useScrollY } from "@/helper/screen";
 import { useMasonryReducer } from "@/reducer";
-import MasonryGrid from "./MasonryGrid";
+import MasonryGridStyled from "./MasonryGrid.styled";
 
 const MasonryGridContainer = () => {
   const htmlClientDimensions = useHtmlClientDimensions();
   const scrollY = useScrollY();
   const [{ search, cachedPhotoSizes }, dispatch] = useMasonryReducer();
   const searchResults = search.results[search.query];
+
+  const minHeightVws = useMemo(
+    () => getMinGridHeightVws(searchResults),
+    [searchResults]
+  );
   const visiblePhotos = useVisiblePhotos(
     searchResults,
     htmlClientDimensions,
     scrollY
   );
-
-  const pageNumber = 1; // TODO: Calculate the page number that needs to be loaded.
+  const pageNumber = getDesiredPageNumber(
+    searchResults,
+    htmlClientDimensions,
+    scrollY
+  );
   const [searchQuery] = useState(""); // TODO: Allow the user to search.
+
   usePhotos(dispatch, pageNumber, searchQuery);
 
   return (
-    <MasonryGrid
+    <MasonryGridStyled
+      minHeightVws={minHeightVws}
       visiblePhotos={visiblePhotos}
       cachedPhotoSizes={cachedPhotoSizes}
+      dispatch={dispatch}
     />
   );
 };

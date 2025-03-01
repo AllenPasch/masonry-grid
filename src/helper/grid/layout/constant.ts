@@ -30,6 +30,11 @@ export const SPACING_SIDES_VW = 4;
 export const SPACING_TOP_VW = 4;
 
 /**
+ * Vertical spacing after the last photo in the grid.
+ */
+export const SPACING_BOTTOM_VW = 4;
+
+/**
  * Spacing between photos.
  */
 export const SPACING_BETWEEN_VW = 2;

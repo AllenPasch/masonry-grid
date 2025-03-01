@@ -4,3 +4,4 @@ export { getHtmlClientHeight } from "./getHtmlClientHeight";
 export { getHtmlClientWidth } from "./getHtmlClientWidth";
 export type { IHtmlClientDimensions } from "./IHtmlClientDimensions";
 export { useHtmlClientDimensions } from "./useHtmlClientDimensions";
+export { useScrollY } from "./useScrollY";

@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 
 import { usePhotos } from "@/api/pexels";
 import { getMinGridHeightVws } from "@/helper/grid";
@@ -12,7 +12,11 @@ const MasonryGridContainer = () => {
   const scrollY = useScrollY();
   const [{ search, cachedPhotoSizes }, dispatch] = useMasonryReducer();
   const searchResults = search.results[search.query];
-  const minHeightVws = getMinGridHeightVws(searchResults);
+
+  const minHeightVws = useMemo(
+    () => getMinGridHeightVws(searchResults),
+    [searchResults]
+  );
   const visiblePhotos = useVisiblePhotos(
     searchResults,
     htmlClientDimensions,

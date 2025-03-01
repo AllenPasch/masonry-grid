@@ -1,12 +1,5 @@
-export { addPhoto } from "./addPhoto";
-export {
-  SPACING_BETWEEN_VW,
-  SPACING_SIDES_VW,
-  SPACING_TOP_VW,
-} from "./constant";
-export { getHeight } from "./getHeight";
-export { getPositionLeftVw } from "./getPositionLeftVw";
-export { getNextColumnIndex } from "./getNextColumnIndex";
-export { getWidthPx } from "./getWidthPx";
-export { getWidthVw } from "./getWidthVw";
-export type { NextColumnTopVws } from "./NextColumnTopVws";
+export type { IBreakpoint, IPhotoBreakpoints } from "./breakpoint";
+export { fillPage } from "./page";
+export type { IPage } from "./page";
+export { BREAKPOINTS_PX, MAX_COLUMN_COUNT } from "./layout";
+export type { IPhotoPosition } from "./layout";

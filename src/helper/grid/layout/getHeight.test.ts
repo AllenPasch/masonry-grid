@@ -1,8 +1,9 @@
 import type { Photo } from "@/api/pexels";
+
 import { getHeight } from ".";
 
 describe("getHeight()", () => {
-  test("a photo with half the width has half the height", () => {
+  test("A photo with half the width should have half the height.", () => {
     // Arrange
     const widthPx = 120;
 
@@ -18,7 +19,7 @@ describe("getHeight()", () => {
     expect(heightPx).toBe(30);
   });
 
-  test("a photo with 0 dimensions should result in a height of 0, instead of NaN", () => {
+  test("A photo with 0 dimensions should result in a height of 0, instead of NaN.", () => {
     // Arrange
     const widthPx = 120;
 

@@ -1,16 +1,16 @@
 import type { Photo } from "@/api/pexels";
-import { addPhoto } from ".";
 
-describe("addPhoto()", () => {
-  test("at the top of the page, the 1st photo is added to column 0", () => {
+import { addPhotoToBreakpoint } from ".";
+
+describe("addPhotoToBreakpoint()", () => {
+  test("At the top of the window, the 1st photo is added to column 0.", () => {
     // Arrange
-    const nextColumnTopVws = [4, 4, 4, 4];
-
     const photo = {
       width: 240,
       height: 120,
     } as Photo;
 
+    const columnTopVws = [4, 4, 4, 4];
     const spacingSidesVw = 8;
     const spacingBetweenVw = 7;
 
@@ -18,19 +18,20 @@ describe("addPhoto()", () => {
     const expectedPhotoHeightVw = 0.5 * expectedPhotoWidthVw;
 
     // Act
-    const result = addPhoto(
-      nextColumnTopVws,
+    const result = addPhotoToBreakpoint(
+      columnTopVws,
       photo,
       spacingSidesVw,
       spacingBetweenVw
     );
 
     // Assert
-    expect(result.widthVw).toBe(expectedPhotoWidthVw);
-    expect(result.heightVw).toBe(expectedPhotoHeightVw);
-    expect(result.positionLeftVw).toBe(spacingSidesVw);
-    expect(result.positionTopVw).toBe(4);
-    expect(result.columnIndex).toBe(0);
+    expect(result.position.photo).toEqual(photo);
+    expect(result.position.leftVw).toBe(spacingSidesVw);
+    expect(result.position.topVw).toBe(4);
+    expect(result.position.widthVw).toBe(expectedPhotoWidthVw);
+    expect(result.position.heightVw).toBe(expectedPhotoHeightVw);
+    expect(result.position.columnIndex).toBe(0);
     expect(result.nextColumnTopVws).toEqual([
       4 + expectedPhotoHeightVw + spacingBetweenVw,
       4,
@@ -39,15 +40,14 @@ describe("addPhoto()", () => {
     ]);
   });
 
-  test("at the top of the page, the 2nd photo is added to column 1", () => {
+  test("At the top of the window, the 2nd photo is added to column 1.", () => {
     // Arrange
-    const nextColumnTopVws = [18.875, 4, 4, 4];
-
     const photo = {
       width: 240,
       height: 480,
     } as Photo;
 
+    const columnTopVws = [18.875, 4, 4, 4];
     const spacingSidesVw = 8;
     const spacingBetweenVw = 7;
 
@@ -55,21 +55,22 @@ describe("addPhoto()", () => {
     const expectedPhotoHeightVw = 2 * expectedPhotoWidthVw;
 
     // Act
-    const result = addPhoto(
-      nextColumnTopVws,
+    const result = addPhotoToBreakpoint(
+      columnTopVws,
       photo,
       spacingSidesVw,
       spacingBetweenVw
     );
 
     // Assert
-    expect(result.widthVw).toBe(expectedPhotoWidthVw);
-    expect(result.heightVw).toBe(expectedPhotoHeightVw);
-    expect(result.positionLeftVw).toBe(
+    expect(result.position.photo).toEqual(photo);
+    expect(result.position.leftVw).toBe(
       spacingSidesVw + expectedPhotoWidthVw + spacingBetweenVw
     );
-    expect(result.positionTopVw).toBe(4);
-    expect(result.columnIndex).toBe(1);
+    expect(result.position.topVw).toBe(4);
+    expect(result.position.widthVw).toBe(expectedPhotoWidthVw);
+    expect(result.position.heightVw).toBe(expectedPhotoHeightVw);
+    expect(result.position.columnIndex).toBe(1);
     expect(result.nextColumnTopVws).toEqual([
       18.875,
       4 + expectedPhotoHeightVw + spacingBetweenVw,

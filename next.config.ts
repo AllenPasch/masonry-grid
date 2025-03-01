@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+
+  /**
+   * Styled-components for styling.
+   */
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 export default nextConfig;

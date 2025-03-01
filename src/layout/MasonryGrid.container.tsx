@@ -1,13 +1,16 @@
 import { memo } from "react";
 
-import { useCuratedPhotos, usePexelsClient } from "@/api/pexels";
+import { usePhotos } from "@/api/pexels";
+import { useMasonryReducer } from "@/reducer";
 import MasonryGrid from "./MasonryGrid";
 
 const MasonryGridContainer = () => {
-  const pexelsClient = usePexelsClient();
-  const curatedPhotos = useCuratedPhotos(pexelsClient);
+  const [{ search }, dispatch] = useMasonryReducer();
+  const searchResults = search.results[search.query];
 
-  return <MasonryGrid photos={curatedPhotos.data?.photos} />;
+  usePhotos(dispatch, 1, "");
+
+  return <MasonryGrid searchResults={searchResults} />;
 };
 
 export default memo(MasonryGridContainer);

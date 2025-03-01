@@ -22,7 +22,7 @@ describe("fillPage()", () => {
     const photos = {
       photos: [photo1, photo2],
       next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
-    } as any as Photos;
+    } as unknown as Photos;
     const maxColumnCount = 3;
 
     // Act
@@ -110,7 +110,7 @@ describe("fillPage()", () => {
     };
     const photos = {
       photos: [photo1, photo2],
-    } as any as Photos;
+    } as unknown as Photos;
     const maxColumnCount = 3;
 
     // Act

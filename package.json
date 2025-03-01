@@ -10,13 +10,14 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@tanstack/react-query": "^5.66.9",
     "lodash": "^4.17.21",
     "next": "15.2.0",
     "pexels": "^1.4.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "styled-components": "^6.1.15"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

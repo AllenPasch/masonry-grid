@@ -2,7 +2,7 @@ import { fillPage } from "@/helper/grid";
 import type { Action, IState } from ".";
 
 export const reducer = (state: IState, action: Action): IState => {
-  const { search, cachedPhotoSizes } = state;
+  const { search } = state;
   const { results } = search;
 
   if (action.type === "addPageResults") {
@@ -25,17 +25,6 @@ export const reducer = (state: IState, action: Action): IState => {
             pages,
           },
         },
-      },
-    };
-  }
-  if (action.type === "cachePhotoSize") {
-    const { photoId, photoSize } = action;
-
-    return {
-      ...state,
-      cachedPhotoSizes: {
-        ...cachedPhotoSizes,
-        [photoId]: photoSize,
       },
     };
   }

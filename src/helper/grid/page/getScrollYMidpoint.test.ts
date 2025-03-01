@@ -1,5 +1,3 @@
-import type { Photo } from "@/api/pexels";
-
 import type { IHtmlClientDimensions } from "@/helper/screen";
 import { BREAKPOINTS_PX } from "..";
 import type { IBreakpoint } from "..";

@@ -8,7 +8,16 @@ export const useScrollY = (): number => {
   useEffect(() => {
     if (!HAS_WINDOW) return;
 
-    const onScroll = () => setScrollY(window.scrollY);
+    let timeout: NodeJS.Timeout | undefined;
+
+    const onScroll = () => {
+      if (!timeout) {
+        timeout = setTimeout(() => {
+          timeout = undefined;
+          setScrollY(window.scrollY);
+        }, 5);
+      }
+    };
 
     window.addEventListener("scroll", onScroll, { passive: true });
 

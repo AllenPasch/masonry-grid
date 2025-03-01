@@ -18,7 +18,7 @@ export const usePhotoSize = (
       const widthPx = getWidthPx(columnCount, htmlClientWidth);
 
       size = {
-        devicePixelRatio: window.devicePixelRatio,
+        devicePixelRatio: window.devicePixelRatio || 1,
         widthPx,
       };
     }

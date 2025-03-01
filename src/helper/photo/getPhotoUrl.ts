@@ -2,6 +2,20 @@ import type { Photo } from "@/api/pexels";
 
 import type { ICachedPhotoSize } from "@/reducer";
 
-// TODO: Implement this for real.
-export const getPhotoUrl = (photo: Photo, size: ICachedPhotoSize): string =>
-  photo.src.large;
+export const getPhotoUrl = (
+  { src: { original }, width }: Photo,
+  { devicePixelRatio, widthPx }: ICachedPhotoSize
+): string => {
+  const urlFragments = [`${original}?auto=compress&cs=tinysrgb`];
+
+  widthPx = Math.floor(widthPx + 0.25);
+
+  if (devicePixelRatio * widthPx < width) {
+    if (devicePixelRatio !== 1) {
+      urlFragments.push(`dpr=${devicePixelRatio}`);
+    }
+    urlFragments.push(`w=${widthPx}`);
+  }
+
+  return urlFragments.join("&");
+};

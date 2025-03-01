@@ -1,42 +1,34 @@
+import Image from "next/image";
 import { memo } from "react";
-import { styled } from "styled-components";
 
-import { BREAKPOINTS_PX } from "@/helper/grid";
 import type { IPhotoBreakpoints } from "@/helper/grid";
-import Photo from "./Photo";
 
 interface IProps {
   readonly photoBreakpoints: IPhotoBreakpoints;
   readonly url: string;
+  readonly className?: string;
 }
 
+// TODO: Consider setting `sizes` for improved static generation.
+// See https://nextjs.org/docs/pages/api-reference/components/image#sizes
+// See https://nextjs.org/docs/pages/building-your-application/deploying/static-exports#image-optimization
+
+// TODO: Add `priority` to those photos above the fold.
+// See https://nextjs.org/docs/pages/api-reference/components/image#priority
 const MasonryPhoto = ({
-  photoBreakpoints: { photo, breakpoints },
+  photoBreakpoints: {
+    photo: { width, height, alt },
+  },
   url,
-}: IProps) => {
-  const UnstyledPhoto = ({ className }: { className?: string }) => (
-    <Photo photo={photo} url={url} className={className} />
-  );
-
-  const StyledPhoto = styled(UnstyledPhoto)`
-    background: ${photo.avg_color};
-    position: absolute;
-
-    ${BREAKPOINTS_PX.map((breakpointPx, breakpointIndex) => {
-      const { leftVw, topVw, widthVw, heightVw } = breakpoints[breakpointIndex];
-
-      return `
-        @media (min-width: ${breakpointPx}px) {
-          left: calc(${leftVw}vw);
-          top: calc(${topVw}vw);
-          width: calc(${widthVw}vw);
-          height: calc(${heightVw}vw);
-        }
-      `;
-    })}
-  `;
-
-  return <StyledPhoto />;
-};
+  className,
+}: IProps) => (
+  <Image
+    src={url}
+    width={width}
+    height={height}
+    alt={alt || ""}
+    className={className}
+  />
+);
 
 export default memo(MasonryPhoto);

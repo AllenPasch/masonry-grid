@@ -23,11 +23,15 @@ export const usePhotoSize = (
         widthPx,
       };
 
-      dispatch({
-        type: "cachePhotoSize",
-        photoId: id,
-        photoSize: size,
-      });
+      setTimeout(
+        () =>
+          dispatch({
+            type: "cachePhotoSize",
+            photoId: id,
+            photoSize: size,
+          }),
+        0
+      );
     }
 
     return size;

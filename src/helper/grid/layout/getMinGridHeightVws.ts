@@ -1,4 +1,4 @@
-import { findLast, max } from "lodash";
+import { findLast } from "lodash";
 
 import type { ISearchResults } from "@/reducer";
 import {
@@ -20,7 +20,7 @@ export const getMinGridHeightVws = (
     }
 
     const { nextColumnTopVws } = breakpoints[breakpointIndex];
-    const maxNextColumnTopVw = max(nextColumnTopVws) || 0;
+    const maxNextColumnTopVw = Math.max(...nextColumnTopVws) || 0;
     return maxNextColumnTopVw + SPACING_BOTTOM_VW - SPACING_BETWEEN_VW;
   });
 };

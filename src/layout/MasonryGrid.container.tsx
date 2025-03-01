@@ -1,7 +1,7 @@
 import { memo, useMemo, useState } from "react";
 
 import { usePhotos } from "@/api/pexels";
-import { getMinGridHeightVws } from "@/helper/grid";
+import { getDesiredPageNumber, getMinGridHeightVws } from "@/helper/grid";
 import { useVisiblePhotos } from "@/helper/photo";
 import { useHtmlClientDimensions, useScrollY } from "@/helper/screen";
 import { useMasonryReducer } from "@/reducer";
@@ -22,9 +22,13 @@ const MasonryGridContainer = () => {
     htmlClientDimensions,
     scrollY
   );
-
-  const pageNumber = 1; // TODO: Calculate the page number that needs to be loaded.
+  const pageNumber = getDesiredPageNumber(
+    searchResults,
+    htmlClientDimensions,
+    scrollY
+  );
   const [searchQuery] = useState(""); // TODO: Allow the user to search.
+
   usePhotos(dispatch, pageNumber, searchQuery);
 
   return (

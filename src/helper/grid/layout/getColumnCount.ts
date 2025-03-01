@@ -1,9 +1,4 @@
-import { findLastIndex } from "lodash";
-
-import { BREAKPOINTS_PX } from ".";
+import { getBreakpointIndex } from ".";
 
 export const getColumnCount = (htmlClientWidth: number): number =>
-  findLastIndex(
-    BREAKPOINTS_PX,
-    (breakpointPx) => htmlClientWidth >= breakpointPx
-  ) + 1;
+  getBreakpointIndex(htmlClientWidth) + 1;

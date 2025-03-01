@@ -11,6 +11,7 @@ export {
   SPACING_SIDES_VW,
   SPACING_TOP_VW,
 } from "./constant";
+export { getBreakpointIndex } from "./getBreakpointIndex";
 export { getColumnCount } from "./getColumnCount";
 export { getHeight } from "./getHeight";
 export { getPositionLeftVw } from "./getPositionLeftVw";

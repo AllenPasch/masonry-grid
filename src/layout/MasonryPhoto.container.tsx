@@ -3,7 +3,7 @@ import { memo } from "react";
 import type { IPhotoBreakpoints } from "@/helper/grid";
 import { usePhotoUrl } from "@/helper/photo";
 import type { ICachedPhotoSizes } from "@/reducer";
-import MasonryPhoto from "./MasonryPhoto";
+import MasonryPhotoStyled from "./MasonryPhoto.styled";
 
 interface IProps {
   readonly photoBreakpoints: IPhotoBreakpoints;
@@ -17,7 +17,7 @@ const MasonryPhotoContainer = ({
   const { photo } = photoBreakpoints;
   const url = usePhotoUrl(photo, cachedPhotoSizes);
 
-  return <MasonryPhoto photoBreakpoints={photoBreakpoints} url={url} />;
+  return <MasonryPhotoStyled photoBreakpoints={photoBreakpoints} url={url} />;
 };
 
 export default memo(MasonryPhotoContainer);

@@ -32,6 +32,7 @@ export const addPhotoToBreakpoint = (
   const topVw = columnTopVws[columnIndex];
   const widthVw = getWidthVw(columnCount, spacingSidesVw, spacingBetweenVw);
   const heightVw = getHeight(widthVw, photo);
+  const bottomVw = topVw + heightVw;
 
   const columnOffsetVw = heightVw + spacingBetweenVw;
   const nextColumnTopVws = [...columnTopVws];
@@ -42,6 +43,7 @@ export const addPhotoToBreakpoint = (
       photo,
       leftVw,
       topVw,
+      bottomVw,
       widthVw,
       heightVw,
       columnIndex,

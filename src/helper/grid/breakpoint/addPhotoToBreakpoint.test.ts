@@ -29,6 +29,7 @@ describe("addPhotoToBreakpoint()", () => {
     expect(result.position.photo).toEqual(photo);
     expect(result.position.leftVw).toBe(spacingSidesVw);
     expect(result.position.topVw).toBe(4);
+    expect(result.position.bottomVw).toBe(4 + expectedPhotoHeightVw);
     expect(result.position.widthVw).toBe(expectedPhotoWidthVw);
     expect(result.position.heightVw).toBe(expectedPhotoHeightVw);
     expect(result.position.columnIndex).toBe(0);
@@ -68,6 +69,7 @@ describe("addPhotoToBreakpoint()", () => {
       spacingSidesVw + expectedPhotoWidthVw + spacingBetweenVw
     );
     expect(result.position.topVw).toBe(4);
+    expect(result.position.bottomVw).toBe(4 + expectedPhotoHeightVw);
     expect(result.position.widthVw).toBe(expectedPhotoWidthVw);
     expect(result.position.heightVw).toBe(expectedPhotoHeightVw);
     expect(result.position.columnIndex).toBe(1);

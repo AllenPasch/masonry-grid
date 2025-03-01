@@ -3,11 +3,12 @@ import { useMemo } from "react";
 import type { Photo } from "@/api/pexels";
 import { getColumnCount, getWidthPx } from "@/helper/grid";
 import { getHtmlClientWidth } from "@/helper/screen";
-import type { ICachedPhotoSize, ICachedPhotoSizes } from "@/reducer";
+import type { Dispatch, ICachedPhotoSize, ICachedPhotoSizes } from "@/reducer";
 
 export const usePhotoSize = (
   { id }: Photo,
-  cachedPhotoSizes: ICachedPhotoSizes
+  cachedPhotoSizes: ICachedPhotoSizes,
+  dispatch: Dispatch
 ): ICachedPhotoSize =>
   useMemo(() => {
     let size = cachedPhotoSizes[id];
@@ -21,6 +22,12 @@ export const usePhotoSize = (
         devicePixelRatio: window.devicePixelRatio || 1,
         widthPx,
       };
+
+      dispatch({
+        type: "cachePhotoSize",
+        photoId: id,
+        photoSize: size,
+      });
     }
 
     return size;

@@ -7,12 +7,17 @@ import { getVisiblePhotos } from ".";
 
 export const useVisiblePhotos = (
   searchResults: ISearchResults,
-  htmlClientDimensions: IHtmlClientDimensions,
+  { htmlClientWidth, htmlClientHeight }: IHtmlClientDimensions,
   scrollY: number
 ): readonly IPhotoBreakpoints[] => {
   const visiblePhotos = useMemo(
-    () => getVisiblePhotos(searchResults, htmlClientDimensions, scrollY),
-    [searchResults, htmlClientDimensions, scrollY]
+    () =>
+      getVisiblePhotos(
+        searchResults,
+        { htmlClientWidth, htmlClientHeight },
+        scrollY
+      ),
+    [searchResults, htmlClientWidth, htmlClientHeight, scrollY]
   );
 
   return visiblePhotos;

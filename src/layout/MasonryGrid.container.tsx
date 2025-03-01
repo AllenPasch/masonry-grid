@@ -25,6 +25,7 @@ const MasonryGridContainer = () => {
     <MasonryGrid
       visiblePhotos={visiblePhotos}
       cachedPhotoSizes={cachedPhotoSizes}
+      dispatch={dispatch}
     />
   );
 };

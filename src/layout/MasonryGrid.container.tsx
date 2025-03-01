@@ -12,7 +12,7 @@ const MasonryGridContainer = () => {
   const scrollY = useScrollY();
   const [{ search, cachedPhotoSizes }, dispatch] = useMasonryReducer();
   const searchResults = search.results[search.query];
-  const minHeightVws = getMinGridHeightVws();
+  const minHeightVws = getMinGridHeightVws(searchResults);
   const visiblePhotos = useVisiblePhotos(
     searchResults,
     htmlClientDimensions,

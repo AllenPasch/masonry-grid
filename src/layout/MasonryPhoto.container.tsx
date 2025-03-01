@@ -1,16 +1,21 @@
 import { memo } from "react";
 
 import type { IPhotoBreakpoints } from "@/helper/grid";
+import { usePhotoUrl } from "@/helper/photo";
+import type { ICachedPhotoSizes } from "@/reducer";
 import MasonryPhoto from "./MasonryPhoto";
 
 interface IProps {
   readonly photoBreakpoints: IPhotoBreakpoints;
+  readonly cachedPhotoSizes: ICachedPhotoSizes;
 }
 
-const MasonryPhotoContainer = ({ photoBreakpoints }: IProps) => {
-  // TODO: Calculate a URL that's exactly the right width.
-  // TODO: Cache the URL once it's generated.
-  const url = photoBreakpoints.photo.src.medium;
+const MasonryPhotoContainer = ({
+  photoBreakpoints,
+  cachedPhotoSizes,
+}: IProps) => {
+  const { photo } = photoBreakpoints;
+  const url = usePhotoUrl(photo, cachedPhotoSizes);
 
   return <MasonryPhoto photoBreakpoints={photoBreakpoints} url={url} />;
 };

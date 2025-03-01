@@ -5,12 +5,17 @@ import { useMasonryReducer } from "@/reducer";
 import MasonryGrid from "./MasonryGrid";
 
 const MasonryGridContainer = () => {
-  const [{ search }, dispatch] = useMasonryReducer();
+  const [{ search, cachedPhotoSizes }, dispatch] = useMasonryReducer();
   const searchResults = search.results[search.query];
 
   usePhotos(dispatch, 1, "");
 
-  return <MasonryGrid searchResults={searchResults} />;
+  return (
+    <MasonryGrid
+      searchResults={searchResults}
+      cachedPhotoSizes={cachedPhotoSizes}
+    />
+  );
 };
 
 export default memo(MasonryGridContainer);

@@ -1,27 +1,23 @@
 import { memo } from "react";
 
-import type { ICachedPhotoSizes, ISearchResults } from "@/reducer";
+import type { IPhotoBreakpoints } from "@/helper/grid";
+import type { ICachedPhotoSizes } from "@/reducer";
 import MasonryPhotoContainer from "./MasonryPhoto.container";
 
 interface IProps {
-  readonly searchResults: ISearchResults;
+  readonly visiblePhotos: readonly IPhotoBreakpoints[];
   readonly cachedPhotoSizes: ICachedPhotoSizes;
 }
 
-const MasonryGrid = ({
-  searchResults: { pages },
-  cachedPhotoSizes,
-}: IProps) => (
+const MasonryGrid = ({ visiblePhotos, cachedPhotoSizes }: IProps) => (
   <>
-    {pages.map((page) =>
-      page?.photos.map((photoBreakpoints) => (
-        <MasonryPhotoContainer
-          photoBreakpoints={photoBreakpoints}
-          cachedPhotoSizes={cachedPhotoSizes}
-          key={photoBreakpoints.photo.id}
-        />
-      ))
-    )}
+    {visiblePhotos.map((photoBreakpoints) => (
+      <MasonryPhotoContainer
+        photoBreakpoints={photoBreakpoints}
+        cachedPhotoSizes={cachedPhotoSizes}
+        key={photoBreakpoints.photo.id}
+      />
+    ))}
   </>
 );
 

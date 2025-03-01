@@ -17,22 +17,13 @@ const MasonryGridContainer = () => {
     scrollY
   );
 
-  console.log(
-    "visiblePhotos",
-    visiblePhotos,
-    "htmlClientDimensions",
-    htmlClientDimensions,
-    "scrollY",
-    scrollY
-  );
-
   const pageNumber = 1; // TODO: Calculate the page number that needs to be loaded.
   const [searchQuery] = useState(""); // TODO: Allow the user to search.
   usePhotos(dispatch, pageNumber, searchQuery);
 
   return (
     <MasonryGrid
-      searchResults={searchResults}
+      visiblePhotos={visiblePhotos}
       cachedPhotoSizes={cachedPhotoSizes}
     />
   );

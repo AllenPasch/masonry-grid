@@ -13,13 +13,13 @@ const MasonryPhotoStyled = styled(MasonryPhoto)`
       const { leftVw, topVw, widthVw, heightVw } = breakpoints[breakpointIndex];
 
       return `
-      @media (min-width: ${breakpointPx}px) {
-        left: calc(${leftVw}vw);
-        top: calc(${topVw}vw);
-        width: calc(${widthVw}vw);
-        height: calc(${heightVw}vw);
-      }
-    `;
+        @media (min-width: ${breakpointPx}px) {
+          left: calc(${leftVw}vw);
+          top: calc(${topVw}vw);
+          width: calc(${widthVw}vw);
+          height: calc(${heightVw}vw);
+        }
+      `;
     })}
 `;
 

@@ -1,16 +1,18 @@
 import { memo, useState } from "react";
 
 import { usePhotos } from "@/api/pexels";
+import { getMinGridHeightVws } from "@/helper/grid";
 import { useVisiblePhotos } from "@/helper/photo";
 import { useHtmlClientDimensions, useScrollY } from "@/helper/screen";
 import { useMasonryReducer } from "@/reducer";
-import MasonryGrid from "./MasonryGrid";
+import MasonryGridStyled from "./MasonryGrid.styled";
 
 const MasonryGridContainer = () => {
   const htmlClientDimensions = useHtmlClientDimensions();
   const scrollY = useScrollY();
   const [{ search, cachedPhotoSizes }, dispatch] = useMasonryReducer();
   const searchResults = search.results[search.query];
+  const minHeightVws = getMinGridHeightVws();
   const visiblePhotos = useVisiblePhotos(
     searchResults,
     htmlClientDimensions,
@@ -22,7 +24,8 @@ const MasonryGridContainer = () => {
   usePhotos(dispatch, pageNumber, searchQuery);
 
   return (
-    <MasonryGrid
+    <MasonryGridStyled
+      minHeightVws={minHeightVws}
       visiblePhotos={visiblePhotos}
       cachedPhotoSizes={cachedPhotoSizes}
       dispatch={dispatch}

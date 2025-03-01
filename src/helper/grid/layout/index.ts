@@ -14,6 +14,7 @@ export {
 export { getBreakpointIndex } from "./getBreakpointIndex";
 export { getColumnCount } from "./getColumnCount";
 export { getHeight } from "./getHeight";
+export { getMinGridHeightVws } from "./getMinGridHeightVws";
 export { getPositionLeftVw } from "./getPositionLeftVw";
 export { getNextColumnIndex } from "./getNextColumnIndex";
 export { getWidthPx } from "./getWidthPx";

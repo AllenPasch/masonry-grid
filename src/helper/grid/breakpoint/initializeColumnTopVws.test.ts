@@ -3,10 +3,7 @@ import { initializeColumnTopVws } from ".";
 
 test("initializeColumnTopVws()", () => {
   expect(initializeColumnTopVws(1)).toEqual([SPACING_TOP_VW]);
-  expect(initializeColumnTopVws(2)).toEqual([
-    SPACING_TOP_VW,
-    SPACING_TOP_VW,
-  ]);
+  expect(initializeColumnTopVws(2)).toEqual([SPACING_TOP_VW, SPACING_TOP_VW]);
   expect(initializeColumnTopVws(3)).toEqual([
     SPACING_TOP_VW,
     SPACING_TOP_VW,

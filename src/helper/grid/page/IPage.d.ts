@@ -1,5 +1,6 @@
-import type { IBreakpoint } from "../breakpoint";
+import type { IBreakpoint, IPhotoBreakpoints } from "../breakpoint";
 
 export interface IPage {
-    readonly breakpoints: readonly IBreakpoint[];
+  readonly breakpoints: readonly IBreakpoint[];
+  readonly photos: readonly IPhotoBreakpoints[];
 }

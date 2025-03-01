@@ -55,6 +55,26 @@ describe("fillPage()", () => {
       SPACING_TOP_VW,
       SPACING_TOP_VW,
     ]);
+
+    expect(page.photos.length).toBe(2);
+
+    expect(page.photos[0].photo).toEqual(photo1);
+    expect(page.photos[0].breakpoints.length).toBe(maxColumns);
+    expect(page.photos[0].breakpoints[0].photo).toEqual(photo1);
+    expect(page.photos[0].breakpoints[0].columnIndex).toBe(0);
+    expect(page.photos[0].breakpoints[1].photo).toEqual(photo1);
+    expect(page.photos[0].breakpoints[1].columnIndex).toBe(0);
+    expect(page.photos[0].breakpoints[2].photo).toEqual(photo1);
+    expect(page.photos[0].breakpoints[2].columnIndex).toBe(0);
+
+    expect(page.photos[1].photo).toEqual(photo2);
+    expect(page.photos[1].breakpoints.length).toBe(maxColumns);
+    expect(page.photos[1].breakpoints[0].photo).toEqual(photo2);
+    expect(page.photos[1].breakpoints[0].columnIndex).toBe(0);
+    expect(page.photos[1].breakpoints[1].photo).toEqual(photo2);
+    expect(page.photos[1].breakpoints[1].columnIndex).toBe(1);
+    expect(page.photos[1].breakpoints[2].photo).toEqual(photo2);
+    expect(page.photos[1].breakpoints[2].columnIndex).toBe(1);
   });
 
   test("For later pages of photos, photos are added at the minimum columnTopVws in each breakpoint.", () => {
@@ -81,6 +101,7 @@ describe("fillPage()", () => {
           nextColumnTopVws: [100, 50, 55] as ColumnTopVws,
         } as IBreakpoint,
       ],
+      photos: [],
     };
     const photos = [photo1, photo2];
     const maxColumns = 3;
@@ -111,5 +132,25 @@ describe("fillPage()", () => {
     expect(page.breakpoints[2].photoPositions[1].photo).toEqual(photo2);
     expect(page.breakpoints[2].photoPositions[1].columnIndex).toBe(2);
     expect(page.breakpoints[2].columnTopVws).toEqual([100, 50, 55]);
+
+    expect(page.photos.length).toBe(2);
+
+    expect(page.photos[0].photo).toEqual(photo1);
+    expect(page.photos[0].breakpoints.length).toBe(maxColumns);
+    expect(page.photos[0].breakpoints[0].photo).toEqual(photo1);
+    expect(page.photos[0].breakpoints[0].columnIndex).toBe(0);
+    expect(page.photos[0].breakpoints[1].photo).toEqual(photo1);
+    expect(page.photos[0].breakpoints[1].columnIndex).toBe(1);
+    expect(page.photos[0].breakpoints[2].photo).toEqual(photo1);
+    expect(page.photos[0].breakpoints[2].columnIndex).toBe(1);
+
+    expect(page.photos[1].photo).toEqual(photo2);
+    expect(page.photos[1].breakpoints.length).toBe(maxColumns);
+    expect(page.photos[1].breakpoints[0].photo).toEqual(photo2);
+    expect(page.photos[1].breakpoints[0].columnIndex).toBe(0);
+    expect(page.photos[1].breakpoints[1].photo).toEqual(photo2);
+    expect(page.photos[1].breakpoints[1].columnIndex).toBe(0);
+    expect(page.photos[1].breakpoints[2].photo).toEqual(photo2);
+    expect(page.photos[1].breakpoints[2].columnIndex).toBe(2);
   });
 });

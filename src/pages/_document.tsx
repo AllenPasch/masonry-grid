@@ -1,11 +1,15 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
+import { StyledComponentsRegistry } from "@/style";
+
 const Document = () => {
   return (
     <Html lang="en">
       <Head />
       <body>
-        <Main />
+        <StyledComponentsRegistry>
+          <Main />
+        </StyledComponentsRegistry>
         <NextScript />
       </body>
     </Html>

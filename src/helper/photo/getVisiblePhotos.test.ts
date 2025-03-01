@@ -318,7 +318,7 @@ describe("getVisiblePhotos()", () => {
         {
           photo: photo2,
           leftVw: 4,
-          topVw: 51,
+          topVw: 4,
           bottomVw: 77,
           widthVw: 45,
           heightVw: 73,

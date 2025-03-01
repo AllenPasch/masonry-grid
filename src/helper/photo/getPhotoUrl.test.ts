@@ -1,6 +1,6 @@
 import type { Photo } from "@/api/pexels";
-import type { ICachedPhotoSize } from "@/reducer";
 import { getPhotoUrl } from ".";
+import type { ICachedPhotoSize } from ".";
 
 describe("getPhotoUrl()", () => {
   test("When devicePixelRatio is 1, it does not need to be included in the URL.", () => {

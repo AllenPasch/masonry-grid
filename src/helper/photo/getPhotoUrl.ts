@@ -1,6 +1,6 @@
 import type { Photo } from "@/api/pexels";
 
-import type { ICachedPhotoSize } from "@/reducer";
+import type { ICachedPhotoSize } from ".";
 
 export const getPhotoUrl = (
   { src: { original }, width }: Photo,

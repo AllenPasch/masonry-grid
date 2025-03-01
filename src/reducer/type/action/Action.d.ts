@@ -1,3 +1,3 @@
-import type { IAddPageResults, ICachePhotoSize } from ".";
+import type { IAddPageResults } from ".";
 
-export type Action = IAddPageResults | ICachePhotoSize;
+export type Action = IAddPageResults;

@@ -10,7 +10,7 @@ import MasonryGridStyled from "./MasonryGrid.styled";
 const MasonryGridContainer = () => {
   const htmlClientDimensions = useHtmlClientDimensions();
   const scrollY = useScrollY();
-  const [{ search, cachedPhotoSizes }, dispatch] = useMasonryReducer();
+  const [{ search }, dispatch] = useMasonryReducer();
   const searchResults = search.results[search.query];
 
   const minHeightVws = useMemo(
@@ -35,8 +35,6 @@ const MasonryGridContainer = () => {
     <MasonryGridStyled
       minHeightVws={minHeightVws}
       visiblePhotos={visiblePhotos}
-      cachedPhotoSizes={cachedPhotoSizes}
-      dispatch={dispatch}
     />
   );
 };

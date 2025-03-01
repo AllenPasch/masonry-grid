@@ -3,13 +3,11 @@ import { useMemo } from "react";
 import type { Photo } from "@/api/pexels";
 import { getColumnCount, getWidthPx } from "@/helper/grid";
 import { getHtmlClientWidth } from "@/helper/screen";
-import type { Dispatch, ICachedPhotoSize, ICachedPhotoSizes } from "@/reducer";
+import type { ICachedPhotoSize, ICachedPhotoSizes } from ".";
 
-export const usePhotoSize = (
-  { id }: Photo,
-  cachedPhotoSizes: ICachedPhotoSizes,
-  dispatch: Dispatch
-): ICachedPhotoSize =>
+const cachedPhotoSizes: ICachedPhotoSizes = {};
+
+export const usePhotoSize = ({ id }: Photo): ICachedPhotoSize =>
   useMemo(() => {
     let size = cachedPhotoSizes[id];
 
@@ -23,16 +21,8 @@ export const usePhotoSize = (
         widthPx,
       };
 
-      setTimeout(
-        () =>
-          dispatch({
-            type: "cachePhotoSize",
-            photoId: id,
-            photoSize: size,
-          }),
-        0
-      );
+      cachedPhotoSizes[id] = size;
     }
 
     return size;
-  }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [id]);

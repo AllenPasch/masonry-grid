@@ -1,6 +1,5 @@
-import type { ICachedPhotoSizes, ISearch } from ".";
+import type { ISearch } from ".";
 
 export interface IState {
   readonly search: ISearch;
-  readonly cachedPhotoSizes: ICachedPhotoSizes;
 }

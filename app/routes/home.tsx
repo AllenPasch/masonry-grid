@@ -1,4 +1,4 @@
-import MasonryGridContainer from "~/layout/MasonryGrid.container";
+import MasonryGridContainer from "~/layout/grid/MasonryGrid.container";
 
 export const meta = () => {
   return [

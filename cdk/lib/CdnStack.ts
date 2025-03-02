@@ -64,7 +64,7 @@ export class CdnStack extends Stack {
       defaultBehavior: {
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         cachedMethods: CachedMethods.CACHE_GET_HEAD_OPTIONS,
-        cachePolicy: CachePolicy.USE_ORIGIN_CACHE_CONTROL_HEADERS,
+        cachePolicy: CachePolicy.CACHING_OPTIMIZED,
         origin,
       },
       defaultRootObject: DEFAULT_PATH,

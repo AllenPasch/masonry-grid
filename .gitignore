@@ -13,12 +13,11 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# react router
+/.react-router/
 
 # production
-/build
+/build/
 
 # misc
 .DS_Store
@@ -36,7 +35,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
 # draw.io
 /docs/.$*.drawio.bkp

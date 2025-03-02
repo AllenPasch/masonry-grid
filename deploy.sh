@@ -22,3 +22,7 @@ aws s3 cp out s3://allen-pasch-masonry-grid \
     --cache-control "max-age=2592000" \
     --exclude "*.html" \
     --recursive
+
+aws cloudfront create-invalidation \
+    --distribution-id E1K21MT8F2KK0V \
+    --paths "/favicon.ico"

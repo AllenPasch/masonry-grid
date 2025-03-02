@@ -51,7 +51,10 @@ export class CdnStack extends Stack {
       },
       objectOwnership: ObjectOwnership.OBJECT_WRITER,
       publicReadAccess: true,
+
       versioned: true,
+      websiteErrorDocument: DEFAULT_PATH,
+      websiteIndexDocument: DEFAULT_PATH,
     });
 
     const origin = new S3StaticWebsiteOrigin(bucket);

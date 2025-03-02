@@ -38,5 +38,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# draw.io
+/docs/.$*.drawio.bkp
+/docs/.$*.drawio.dtmp
+
 # ide settings
 .vscode

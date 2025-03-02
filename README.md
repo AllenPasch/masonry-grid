@@ -12,7 +12,7 @@ Install the project.
 
 ### `yarn dev`
 
-Run the project, and view it at [http://localhost:3000](http://localhost:3000)
+Run the project, and view it at [http://localhost:5173](http://localhost:5173)
 
 ### `yarn build`
 

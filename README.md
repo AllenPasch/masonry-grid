@@ -6,6 +6,10 @@ View the masonry grid online at [photos.allenpasch.com](https://photos.allenpasc
 
 ## How To
 
+### `yarn install`
+
+Install the project.
+
 ### `yarn dev`
 
 Run the project, and view it at [http://localhost:3000](http://localhost:3000)

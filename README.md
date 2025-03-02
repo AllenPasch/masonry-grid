@@ -2,7 +2,7 @@
 
 Responsive masonry grid, with performance optimizations.
 
-View the masonry grid online at [masonry.allenpasch.com](https://masonry.allenpasch.com/).
+View the masonry grid online at [photos.allenpasch.com](https://photos.allenpasch.com/)
 
 ## How To
 

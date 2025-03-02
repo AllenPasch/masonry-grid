@@ -1,6 +1,8 @@
 export const AWS_ACCOUNT_ID = "119537545461";
 
-export const CDN_DOMAIN = "masonry.allenpasch.com";
+export const CDN_DOMAIN = "photos.allenpasch.com";
+
+export const CERTIFICATE_VALIDATION_DOMAIN = "allenpasch.com";
 
 export const DEFAULT_PATH = "index.html";
 

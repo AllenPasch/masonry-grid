@@ -4,10 +4,9 @@ import {
   Certificate,
   CertificateValidation,
 } from "aws-cdk-lib/aws-certificatemanager";
-import { PublicHostedZone } from "aws-cdk-lib/aws-route53";
 import { Construct } from "constructs";
 
-import { CDN_DOMAIN, ROUTE_53_HOSTED_ZONE_ID } from "./config";
+import { CDN_DOMAIN, CERTIFICATE_VALIDATION_DOMAIN } from "./config";
 
 export class CertificateStack extends Stack {
   readonly certificate: Certificate;
@@ -15,15 +14,11 @@ export class CertificateStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const hostedZone = PublicHostedZone.fromHostedZoneId(
-      this,
-      "HostedZone",
-      ROUTE_53_HOSTED_ZONE_ID
-    );
-
     this.certificate = new Certificate(this, "Certificate", {
       domainName: CDN_DOMAIN,
-      validation: CertificateValidation.fromDns(hostedZone),
+      validation: CertificateValidation.fromEmail({
+        CDN_DOMAIN: CERTIFICATE_VALIDATION_DOMAIN,
+      }),
     });
   }
 }

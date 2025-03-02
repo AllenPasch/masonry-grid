@@ -35,8 +35,8 @@ After [adding infinite scroll](https://github.com/AllenPasch/masonry-grid/pull/8
 
 |                            styled-components                             |                         Emotion CSS                          |
 | :----------------------------------------------------------------------: | :----------------------------------------------------------: |
+|                             ❌ 93.4% of CPU                              |                        ✅ 0.3% of CPU                        |
 | ![styled-components](./docs/performance/css-in-js/styled-components.png) | ![Emotion CSS](./docs/performance/css-in-js/emotion-css.png) |
-|                               93.4% of CPU                               |                         0.3% of CPU                          |
 
 Migrating styled-components to Emotion CSS made infinite scroll pretty smooth.
 
@@ -44,5 +44,25 @@ Migrating styled-components to Emotion CSS made infinite scroll pretty smooth.
 
 |                            useReducer                            |                             vanilla JS                              |
 | :--------------------------------------------------------------: | :-----------------------------------------------------------------: |
+|                         ❌ 37.0% of CPU                          |                           ✅ 0.0% of CPU                            |
 | ![useReducer](./docs/performance/cached-photo-sizes/reducer.png) | ![vanilla JS](./docs/performance/cached-photo-sizes/vanilla-js.png) |
-|                           37.0% of CPU                           |                             0.0% of CPU                             |
+
+### Next.js → React Router
+
+When setting up React Router, I noticed React Router supports static pre-rendering now.
+
+After migrating from Next.js to React Router, PageSpeed Insights showed the same performance score for desktop and a better performance score for mobile:
+
+#### Desktop
+
+|                                    Next.js                                    |                                       React Router                                       |
+| :---------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
+|                           ✅ 99% Performance Score                            |                                 ✅ 99% Performance Score                                 |
+| ![Next.js Desktop](./docs/performance/framework/nextjs/pagespeed-desktop.png) | ![React Router Desktop](./docs/performance/framework/react-router/pagespeed-desktop.png) |
+
+#### Mobile
+
+|                                   Next.js                                   |                                      React Router                                      |
+| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
+|                          ❌ 85% Performance Score                           |                                ✅ 94% Performance Score                                |
+| ![Next.js Mobile](./docs/performance/framework/nextjs/pagespeed-mobile.png) | ![React Router Mobile](./docs/performance/framework/react-router/pagespeed-mobile.png) |

@@ -17,8 +17,11 @@
 /.next/
 /out/
 
+# react router
+/.react-router/
+
 # production
-/build
+/build/
 
 # misc
 .DS_Store

@@ -1,16 +1,28 @@
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { Stack, StackProps } from "aws-cdk-lib";
+import {
+  Bucket,
+  BucketAccessControl,
+  ObjectOwnership,
+} from "aws-cdk-lib/aws-s3";
+import { Construct } from "constructs";
 
-export class CdkStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+export class CdkStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    new Bucket(this, "Bucket", {
+      bucketName: "allen-pasch-masonry-grid",
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+      accessControl: BucketAccessControl.PUBLIC_READ,
+      blockPublicAccess: {
+        blockPublicAcls: false,
+        blockPublicPolicy: false,
+        ignorePublicAcls: false,
+        restrictPublicBuckets: false,
+      },
+      objectOwnership: ObjectOwnership.OBJECT_WRITER,
+      publicReadAccess: true,
+      versioned: true,
+    });
   }
 }

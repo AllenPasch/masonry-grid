@@ -4,7 +4,7 @@
 export AWS_PROFILE=masonry
 
 # Deploy Cloud Infrastructure with CDK
-(cd cdk && cdk deploy)
+(cd cdk && cdk deploy --all)
 
 # Build Application
 yarn build

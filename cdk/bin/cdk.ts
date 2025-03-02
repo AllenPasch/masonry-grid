@@ -1,9 +1,16 @@
 #!/usr/bin/env node
+
 import { App } from "aws-cdk-lib";
-import { CdkStack } from "../lib/cdk-stack";
+import { AWS_ACCOUNT_ID, CertificateStack, CdnStack } from "../lib";
 
 const app = new App();
 
-new CdkStack(app, "masonry-grid", {
-  env: { account: "119537545461", region: "eu-central-1" },
+const certificateStack = new CertificateStack(app, "masonry-grid-certificate", {
+  env: { account: AWS_ACCOUNT_ID, region: "us-east-1" },
+  crossRegionReferences: true,
+});
+
+new CdnStack(app, "masonry-grid", certificateStack, {
+  env: { account: AWS_ACCOUNT_ID, region: "eu-central-1" },
+  crossRegionReferences: true,
 });

@@ -1,4 +1,4 @@
-import { isEqual } from "lodash";
+import isEqual from "lodash/isEqual";
 import { useEffect, useMemo, useState } from "react";
 
 import type { IPhotoBreakpoints } from "~/helper/grid";

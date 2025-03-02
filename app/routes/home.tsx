@@ -1,7 +1,6 @@
-import type { Route } from "./+types/home";
 import MasonryGridContainer from "~/layout/MasonryGrid.container";
 
-export function meta({}: Route.MetaArgs) {
+export const meta = () => {
   return [
     { title: "Masonry Grid" },
     {
@@ -9,8 +8,8 @@ export function meta({}: Route.MetaArgs) {
       content: "Responsive masonry grid, with performance optimizations.",
     },
   ];
-}
+};
 
-export default function Home() {
-  return <MasonryGridContainer />;
-}
+const Home = () => <MasonryGridContainer />;
+
+export default Home;

@@ -38,6 +38,7 @@
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "react-router-devtools": "^1.1.0",
+    "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2",
     "typescript": "^5",
     "utility-types": "^3.11.0",

@@ -1,5 +1,4 @@
-import { IPage } from "~/helper/grid";
-import type { IBreakpoint } from "~/helper/grid";
+import type { IBreakpoint, IPage } from "~/helper/grid";
 import type { ISearchResults } from "~/reducer";
 import {
   getMinGridHeightVws,

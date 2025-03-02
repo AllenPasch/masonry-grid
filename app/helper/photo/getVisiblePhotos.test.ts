@@ -1,6 +1,6 @@
 import type { Photo } from "~/api/pexels";
-import { BREAKPOINTS_PX, IPage } from "~/helper/grid";
-import type { IPhotoBreakpoints } from "~/helper/grid";
+import { BREAKPOINTS_PX } from "~/helper/grid";
+import type { IPage, IPhotoBreakpoints } from "~/helper/grid";
 import type { IHtmlClientDimensions } from "~/helper/screen";
 import type { ISearchResults } from "~/reducer";
 import { getVisiblePhotos } from ".";

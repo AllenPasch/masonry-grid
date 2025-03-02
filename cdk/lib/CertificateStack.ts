@@ -6,7 +6,7 @@ import {
 } from "aws-cdk-lib/aws-certificatemanager";
 import { Construct } from "constructs";
 
-import { CDN_DOMAIN, CERTIFICATE_VALIDATION_DOMAIN } from "./config";
+import { CDN_DOMAIN, ROUTE_53_HOSTED_ZONE_NAME } from "./config";
 
 export class CertificateStack extends Stack {
   readonly certificate: Certificate;
@@ -17,7 +17,7 @@ export class CertificateStack extends Stack {
     this.certificate = new Certificate(this, "Certificate", {
       domainName: CDN_DOMAIN,
       validation: CertificateValidation.fromEmail({
-        CDN_DOMAIN: CERTIFICATE_VALIDATION_DOMAIN,
+        CDN_DOMAIN: ROUTE_53_HOSTED_ZONE_NAME,
       }),
     });
   }

@@ -9,13 +9,25 @@ import {
   HttpVersion,
 } from "aws-cdk-lib/aws-cloudfront";
 import {
+  ARecord,
+  PublicHostedZone,
+  RecordTarget,
+} from "aws-cdk-lib/aws-route53";
+import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
+import {
   Bucket,
   BucketAccessControl,
   ObjectOwnership,
 } from "aws-cdk-lib/aws-s3";
 import { Construct } from "constructs";
 
-import { CDN_DOMAIN, DEFAULT_PATH, S3_BUCKET_NAME } from "./config";
+import {
+  CDN_DOMAIN,
+  DEFAULT_PATH,
+  ROUTE_53_HOSTED_ZONE_ID,
+  ROUTE_53_HOSTED_ZONE_NAME,
+  S3_BUCKET_NAME,
+} from "./config";
 import { CertificateStack } from "./CertificateStack";
 
 export class CdnStack extends Stack {
@@ -44,7 +56,7 @@ export class CdnStack extends Stack {
 
     const origin = new S3StaticWebsiteOrigin(bucket);
 
-    new Distribution(this, "Distribution", {
+    const distribution = new Distribution(this, "Distribution", {
       certificate: certificateStack.certificate,
       defaultBehavior: {
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
@@ -57,10 +69,25 @@ export class CdnStack extends Stack {
       errorResponses: [403, 404].map((httpStatus) => ({
         httpStatus,
         responseHttpStatus: 200,
-        responsePagePath: DEFAULT_PATH,
+        responsePagePath: `/${DEFAULT_PATH}`,
         ttl: Duration.days(30),
       })),
       httpVersion: HttpVersion.HTTP2_AND_3,
+    });
+
+    const hostedZone = PublicHostedZone.fromHostedZoneAttributes(
+      this,
+      "HostedZone",
+      {
+        hostedZoneId: ROUTE_53_HOSTED_ZONE_ID,
+        zoneName: ROUTE_53_HOSTED_ZONE_NAME,
+      }
+    );
+
+    new ARecord(this, "AliasRecord", {
+      recordName: CDN_DOMAIN,
+      target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+      zone: hostedZone,
     });
   }
 }

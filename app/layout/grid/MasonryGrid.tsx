@@ -11,12 +11,20 @@ interface IProps {
 
 const MasonryGrid = ({ visiblePhotos, className }: IProps) => (
   <div className={className}>
-    {visiblePhotos.map((photoBreakpoints) => (
-      <MasonryPhotoContainer
-        photoBreakpoints={photoBreakpoints}
-        key={photoBreakpoints.photo.id}
-      />
-    ))}
+    {visiblePhotos.map((photoBreakpoints) => {
+      const {
+        photo: { id },
+        pageNumber,
+        indexInPage,
+      } = photoBreakpoints;
+
+      return (
+        <MasonryPhotoContainer
+          photoBreakpoints={photoBreakpoints}
+          key={[id, pageNumber, indexInPage].join()}
+        />
+      );
+    })}
   </div>
 );
 

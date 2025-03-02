@@ -19,7 +19,7 @@ aws s3 cp build/client s3://allen-pasch-masonry-grid \
 
 aws s3 cp build/client s3://allen-pasch-masonry-grid \
     --acl public-read \
-    --cache-control "max-age=2592000" \
+    --cache-control "max-age=31536000" \
     --exclude "*.html" \
     --recursive
 

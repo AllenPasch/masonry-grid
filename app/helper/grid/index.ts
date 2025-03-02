@@ -6,7 +6,9 @@ export {
   getColumnCount,
   getMinGridHeightVws,
   getWidthPx,
+  getWidthVw,
   MAX_COLUMN_COUNT,
+  SPACING_SIDES_VW,
 } from "./layout";
 export type { IPhotoPosition } from "./layout";
 

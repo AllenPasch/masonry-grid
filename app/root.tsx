@@ -1,1 +1,6 @@
-export { App as default, ErrorBoundary, Layout, links } from "./layout/root";
+export {
+  AppStyled as default,
+  ErrorBoundary,
+  Layout,
+  links,
+} from "./layout/root";

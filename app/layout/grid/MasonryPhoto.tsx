@@ -10,18 +10,10 @@ interface IProps {
 
 const MasonryPhoto = ({
   photoBreakpoints: {
-    photo: { width, height, alt },
+    photo: { alt },
   },
   url,
   className,
-}: IProps) => (
-  <img
-    src={url}
-    width={width}
-    height={height}
-    alt={alt || ""}
-    className={className}
-  />
-);
+}: IProps) => <img src={url} alt={alt || ""} className={className} />;
 
 export default memo(MasonryPhoto);

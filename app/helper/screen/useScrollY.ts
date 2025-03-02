@@ -21,6 +21,9 @@ export const useScrollY = (): number => {
 
     window.addEventListener("scroll", onScroll, { passive: true });
 
+    // Recalculate the scroll position, after the user goes back.
+    onScroll();
+
     return () => {
       window.removeEventListener("scroll", onScroll);
     };

@@ -3,11 +3,10 @@ import { useMemo } from "react";
 import type { Photo } from "~/api/pexels";
 import { getColumnCount, getWidthPx } from "~/helper/grid";
 import { getHtmlClientWidth } from "~/helper/screen";
-import type { ICachedPhotoSize, ICachedPhotoSizes } from ".";
+import { cachedPhotoSizes } from "./cache";
+import type { IDownloadedPhotoSize } from ".";
 
-const cachedPhotoSizes: ICachedPhotoSizes = {};
-
-export const usePhotoSize = ({ id }: Photo): ICachedPhotoSize =>
+export const usePhotoSize = ({ id }: Photo): IDownloadedPhotoSize =>
   useMemo(() => {
     let size = cachedPhotoSizes[id];
 

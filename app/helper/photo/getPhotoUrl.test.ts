@@ -1,6 +1,6 @@
 import type { Photo } from "~/api/pexels";
 import { getPhotoUrl } from ".";
-import type { ICachedPhotoSize } from ".";
+import type { IDownloadedPhotoSize } from ".";
 
 describe("getPhotoUrl()", () => {
   test("When devicePixelRatio is 1, it does not need to be included in the URL.", () => {
@@ -13,7 +13,7 @@ describe("getPhotoUrl()", () => {
       },
     } as Photo;
 
-    const size: ICachedPhotoSize = {
+    const size: IDownloadedPhotoSize = {
       devicePixelRatio: 1,
       widthPx: 360,
     };
@@ -37,7 +37,7 @@ describe("getPhotoUrl()", () => {
       },
     } as Photo;
 
-    const size: ICachedPhotoSize = {
+    const size: IDownloadedPhotoSize = {
       devicePixelRatio: 2.5,
       widthPx: 360,
     };
@@ -62,7 +62,7 @@ describe("getPhotoUrl()", () => {
       },
     } as Photo;
 
-    const size: ICachedPhotoSize = {
+    const size: IDownloadedPhotoSize = {
       devicePixelRatio: 3,
       widthPx: 2000,
     };
@@ -86,7 +86,7 @@ describe("getPhotoUrl()", () => {
       },
     } as Photo;
 
-    const size: ICachedPhotoSize = {
+    const size: IDownloadedPhotoSize = {
       devicePixelRatio: 1,
       widthPx: 359.9,
     };
@@ -111,7 +111,7 @@ describe("getPhotoUrl()", () => {
       },
     } as Photo;
 
-    const size: ICachedPhotoSize = {
+    const size: IDownloadedPhotoSize = {
       devicePixelRatio: 1,
       widthPx: 359.7,
     };
@@ -122,6 +122,58 @@ describe("getPhotoUrl()", () => {
     // Assert
     expect(url).toBe(
       "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg?auto=compress&cs=tinysrgb&w=359"
+    );
+  });
+
+  test("When heightPx is more than 0, adjust the widthPx using the aspect ratio.", () => {
+    // Arrange
+    const photo = {
+      width: 1000,
+      height: 2000,
+      src: {
+        original:
+          "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg",
+      },
+    } as Photo;
+
+    const size: IDownloadedPhotoSize = {
+      devicePixelRatio: 2,
+      widthPx: 100,
+      heightPx: 50,
+    };
+
+    // Act
+    const url = getPhotoUrl(photo, size);
+
+    // Assert
+    expect(url).toBe(
+      "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=25"
+    );
+  });
+
+  test("When heightPx is more than 0, do not increase the widthPx.", () => {
+    // Arrange
+    const photo = {
+      width: 1000,
+      height: 2000,
+      src: {
+        original:
+          "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg",
+      },
+    } as Photo;
+
+    const size: IDownloadedPhotoSize = {
+      devicePixelRatio: 2,
+      widthPx: 100,
+      heightPx: 400,
+    };
+
+    // Act
+    const url = getPhotoUrl(photo, size);
+
+    // Assert
+    expect(url).toBe(
+      "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=100"
     );
   });
 });

@@ -4,7 +4,7 @@ import type { RouteConfig } from "@react-router/dev/routes";
 const config: RouteConfig = [
   route("*", "routes/NotFound.tsx"),
 
-  index("routes/Home.tsx"),
+  index("routes/home.tsx"),
 ];
 
 export default config;

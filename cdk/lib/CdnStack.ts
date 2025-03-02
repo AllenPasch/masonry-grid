@@ -7,6 +7,7 @@ import {
   CachePolicy,
   Distribution,
   HttpVersion,
+  ViewerProtocolPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
 import {
   ARecord,
@@ -66,6 +67,7 @@ export class CdnStack extends Stack {
         cachedMethods: CachedMethods.CACHE_GET_HEAD_OPTIONS,
         cachePolicy: CachePolicy.CACHING_OPTIMIZED,
         origin,
+        viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
       defaultRootObject: DEFAULT_PATH,
       domainNames: [CDN_DOMAIN],

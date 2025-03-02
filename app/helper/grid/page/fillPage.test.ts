@@ -1,6 +1,6 @@
 import type { Photo, Photos } from "~/api/pexels";
 
-import { IBreakpoint } from "../breakpoint";
+import type { IBreakpoint } from "../breakpoint";
 import { SPACING_TOP_VW } from "../layout";
 import type { ColumnTopVws } from "../layout";
 import { fillPage } from ".";

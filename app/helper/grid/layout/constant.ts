@@ -1,9 +1,9 @@
-export const BREAKPOINT_XSM_PX = 0;
-export const BREAKPOINT_SM_PX = 576;
-export const BREAKPOINT_MD_PX = 768;
-export const BREAKPOINT_LG_PX = 992;
-export const BREAKPOINT_XL_PX = 1200;
-export const BREAKPOINT_XXL_PX = 1400;
+const BREAKPOINT_XSM_PX = 0;
+const BREAKPOINT_SM_PX = 576;
+const BREAKPOINT_MD_PX = 768;
+const BREAKPOINT_LG_PX = 992;
+const BREAKPOINT_XL_PX = 1200;
+const BREAKPOINT_XXL_PX = 1400;
 
 export const BREAKPOINTS_PX = [
   BREAKPOINT_XSM_PX,

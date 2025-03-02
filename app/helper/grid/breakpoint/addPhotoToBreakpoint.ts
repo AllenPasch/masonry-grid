@@ -10,7 +10,7 @@ import {
 } from "../layout";
 import type { IPhotoPosition, ColumnTopVws } from "../layout";
 
-export interface IAddPhotoToBreakpointResult {
+interface IAddPhotoToBreakpointResult {
   readonly position: IPhotoPosition;
   readonly nextColumnTopVws: ColumnTopVws;
 }

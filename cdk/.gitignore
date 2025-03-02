@@ -7,5 +7,5 @@ node_modules
 .cdk.staging
 cdk.out
 
-# User preferences
+# Developer preferences
 cdk.context.json

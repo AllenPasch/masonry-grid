@@ -1,6 +1,13 @@
-import { Stack } from "aws-cdk-lib";
+import { Duration, Stack } from "aws-cdk-lib";
 import type { StackProps } from "aws-cdk-lib";
-import { Distribution } from "aws-cdk-lib/aws-cloudfront";
+import { S3StaticWebsiteOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
+import {
+  AllowedMethods,
+  CachedMethods,
+  CachePolicy,
+  Distribution,
+  HttpVersion,
+} from "aws-cdk-lib/aws-cloudfront";
 import {
   Bucket,
   BucketAccessControl,
@@ -8,7 +15,7 @@ import {
 } from "aws-cdk-lib/aws-s3";
 import { Construct } from "constructs";
 
-import { CDN_DOMAIN, S3_BUCKET_NAME } from "./config";
+import { CDN_DOMAIN, DEFAULT_PATH, S3_BUCKET_NAME } from "./config";
 import { CertificateStack } from "./CertificateStack";
 
 export class CdnStack extends Stack {
@@ -20,7 +27,7 @@ export class CdnStack extends Stack {
   ) {
     super(scope, id, props);
 
-    new Bucket(this, "Bucket", {
+    const bucket = new Bucket(this, "Bucket", {
       bucketName: S3_BUCKET_NAME,
 
       accessControl: BucketAccessControl.PUBLIC_READ,
@@ -35,12 +42,25 @@ export class CdnStack extends Stack {
       versioned: true,
     });
 
+    const origin = new S3StaticWebsiteOrigin(bucket);
+
     new Distribution(this, "Distribution", {
       certificate: certificateStack.certificate,
       defaultBehavior: {
-        origin: // TODO:
+        allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
+        cachedMethods: CachedMethods.CACHE_GET_HEAD_OPTIONS,
+        cachePolicy: CachePolicy.USE_ORIGIN_CACHE_CONTROL_HEADERS,
+        origin,
       },
+      defaultRootObject: DEFAULT_PATH,
       domainNames: [CDN_DOMAIN],
+      errorResponses: [403, 404].map((httpStatus) => ({
+        httpStatus,
+        responseHttpStatus: 200,
+        responsePagePath: DEFAULT_PATH,
+        ttl: Duration.days(30),
+      })),
+      httpVersion: HttpVersion.HTTP2_AND_3,
     });
   }
 }

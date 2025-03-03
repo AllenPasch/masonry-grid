@@ -13,24 +13,21 @@ export const usePhoto = (photoId: number): UseQueryResult<IPhoto> => {
 
   const result = useQuery({
     queryKey: ["pexels.photo", photoId],
-    queryFn: () => {
+    queryFn: async () => {
       const cachedPhoto = cachedPhotos[photoId];
       if (cachedPhoto) {
-        return Promise.resolve(cachedPhoto);
+        cachedPhoto;
       }
 
-      return client.photos
-        .show({ id: photoId })
-        .then((photoWithExtraFields) => {
-          if ("error" in photoWithExtraFields) {
-            throw photoWithExtraFields;
-          } else {
-            const photo = prunePhoto(photoWithExtraFields);
+      const response = await client.photos.show({ id: photoId });
+      if ("error" in response) {
+        throw response;
+      } else {
+        const photo = prunePhoto(response);
 
-            cachedPhotos[photoId] = photo;
-            return photo;
-          }
-        });
+        cachedPhotos[photoId] = photo;
+        return photo;
+      }
     },
   });
 

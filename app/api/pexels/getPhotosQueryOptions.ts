@@ -11,7 +11,7 @@ export const getPhotosQueryOptions = (
   searchQuery: string
 ): UseQueryOptions<IPhotos> => ({
   queryKey: ["pexels.photos", pageNumber, searchQuery],
-  queryFn: () => {
+  queryFn: async () => {
     const photosPromise = searchQuery
       ? client.photos.search({
           page: pageNumber,
@@ -20,12 +20,11 @@ export const getPhotosQueryOptions = (
         })
       : client.photos.curated({ page: pageNumber, per_page: PAGE_SIZE });
 
-    return photosPromise.then((photos) => {
-      if ("error" in photos) {
-        throw photos;
-      } else {
-        return prunePhotos(photos);
-      }
-    });
+    const response = await photosPromise;
+    if ("error" in response) {
+      throw response;
+    } else {
+      return prunePhotos(response);
+    }
   },
 });

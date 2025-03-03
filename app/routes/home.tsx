@@ -1,6 +1,7 @@
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import type { DehydratedState } from "@tanstack/react-query";
 
+import { createPexelsClient, getPhotosQueryOptions } from "~/api/pexels";
 import { queryClient } from "~/api/query";
 import MasonryGridContainer from "~/layout/grid/MasonryGrid.container";
 
@@ -13,7 +14,9 @@ export const meta = () => [
 ];
 
 export const loader = async (): Promise<DehydratedState> => {
-  // TODO: Run the queries.
+  const pexelsClient = createPexelsClient();
+  const photosQueryOptions = getPhotosQueryOptions(pexelsClient, 1, "");
+  await queryClient.prefetchQuery(photosQueryOptions);
 
   return dehydrate(queryClient);
 };

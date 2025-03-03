@@ -1,4 +1,5 @@
 export { createPexelsClient } from "./createPexelsClient";
+export { getPhotosQueryOptions } from "./getPhotosQueryOptions";
 export type { IPexelsClient } from "./IPexelsClient";
 export type { IPhoto } from "./IPhoto";
 export type { IPhotos } from "./IPhotos";

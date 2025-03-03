@@ -66,3 +66,18 @@ After migrating from Next.js to React Router, PageSpeed Insights showed the same
 | :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
 |                          ❌ 85% Performance Score                           |                                ✅ 94% Performance Score                                |
 | ![Next.js Mobile](./docs/performance/framework/nextjs/pagespeed-mobile.png) | ![React Router Mobile](./docs/performance/framework/react-router/pagespeed-mobile.png) |
+
+### Client Data Loading → Static Data Loading
+
+I fixed the biggest performance problems mentioned by PageSpeed Insights by setting up:
+
+- [Static Data Loading](https://reactrouter.com/start/framework/data-loading#static-data-loading) in the React Router framework.
+- React Query to:
+  - Call the Pexels API during build time.
+  - [Dehydrate and hydrate](https://tanstack.com/query/latest/docs/framework/react/reference/hydration) its cache.
+- Sticky image URLs for the images included in the static HTML.
+
+|                      Mobile                       |                       Desktop                       |
+| :-----------------------------------------------: | :-------------------------------------------------: |
+|          ✅ 94% → 97% Performance Score           |           ✅ 99% → 100% Performance Score           |
+| ![Mobile](./docs/performance/hydrated/mobile.png) | ![Desktop](./docs/performance/hydrated/desktop.png) |

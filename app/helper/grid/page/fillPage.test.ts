@@ -24,10 +24,11 @@ describe("fillPage()", () => {
       page: 1,
       next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
     } as unknown as IPhotos;
+    const searchQuery = "";
     const maxColumnCount = 3;
 
     // Act
-    const page = fillPage(null, photos, maxColumnCount);
+    const page = fillPage(searchQuery, null, photos, maxColumnCount);
 
     // Assert
     expect(page.breakpoints.length).toBe(maxColumnCount);
@@ -66,6 +67,7 @@ describe("fillPage()", () => {
     expect(page.photos[0].photo).toEqual(photo1);
     expect(page.photos[0].pageNumber).toBe(1);
     expect(page.photos[0].indexInPage).toBe(0);
+    expect(page.photos[0].staticHtml).toBe(true);
     expect(page.photos[0].breakpoints.length).toBe(maxColumnCount);
     expect(page.photos[0].breakpoints[0].photo).toEqual(photo1);
     expect(page.photos[0].breakpoints[0].columnIndex).toBe(0);
@@ -77,6 +79,7 @@ describe("fillPage()", () => {
     expect(page.photos[1].photo).toEqual(photo2);
     expect(page.photos[1].pageNumber).toBe(1);
     expect(page.photos[1].indexInPage).toBe(1);
+    expect(page.photos[1].staticHtml).toBe(true);
     expect(page.photos[1].breakpoints.length).toBe(maxColumnCount);
     expect(page.photos[1].breakpoints[0].photo).toEqual(photo2);
     expect(page.photos[1].breakpoints[0].columnIndex).toBe(0);
@@ -117,10 +120,11 @@ describe("fillPage()", () => {
       photos: [photo1, photo2],
       page: 2,
     } as unknown as IPhotos;
+    const searchQuery = "";
     const maxColumnCount = 3;
 
     // Act
-    const page = fillPage(previousPage, photos, maxColumnCount);
+    const page = fillPage(searchQuery, previousPage, photos, maxColumnCount);
 
     // Assert
     expect(page.breakpoints.length).toBe(maxColumnCount);
@@ -152,6 +156,7 @@ describe("fillPage()", () => {
     expect(page.photos[0].photo).toEqual(photo1);
     expect(page.photos[0].pageNumber).toBe(2);
     expect(page.photos[0].indexInPage).toBe(0);
+    expect(page.photos[0].staticHtml).toBe(false);
     expect(page.photos[0].breakpoints.length).toBe(maxColumnCount);
     expect(page.photos[0].breakpoints[0].photo).toEqual(photo1);
     expect(page.photos[0].breakpoints[0].columnIndex).toBe(0);
@@ -163,6 +168,7 @@ describe("fillPage()", () => {
     expect(page.photos[1].photo).toEqual(photo2);
     expect(page.photos[1].pageNumber).toBe(2);
     expect(page.photos[1].indexInPage).toBe(1);
+    expect(page.photos[1].staticHtml).toBe(false);
     expect(page.photos[1].breakpoints.length).toBe(maxColumnCount);
     expect(page.photos[1].breakpoints[0].photo).toEqual(photo2);
     expect(page.photos[1].breakpoints[0].columnIndex).toBe(0);

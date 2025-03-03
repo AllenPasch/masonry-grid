@@ -2,9 +2,11 @@ import type { IPhotos } from "~/api/pexels";
 
 import { fillBreakpoint, initializeColumnTopVws } from "../breakpoint";
 import { MAX_COLUMN_COUNT } from "../layout";
+import { inStaticHtml } from ".";
 import type { IPage } from ".";
 
 export const fillPage = (
+  searchQuery: string,
   previousPage: IPage | null | undefined,
   { photos, page, next_page }: IPhotos,
   maxColumnCount: number = MAX_COLUMN_COUNT
@@ -27,6 +29,7 @@ export const fillPage = (
       ),
       pageNumber: page,
       indexInPage: photoIndex,
+      staticHtml: inStaticHtml(searchQuery, page, photoIndex),
     })
   );
 

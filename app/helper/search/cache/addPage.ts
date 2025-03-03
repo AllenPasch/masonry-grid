@@ -14,7 +14,7 @@ export const addPage = (
   }
 
   const previousPage = pages[pageNumber - 1];
-  const page = fillPage(previousPage, photos);
+  const page = fillPage(searchQuery, previousPage, photos);
 
   pages[pageNumber] = page;
 };

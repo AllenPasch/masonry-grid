@@ -29,7 +29,7 @@ describe("getVisiblePhotos()", () => {
     expect(visiblePhotos.length).toBe(0);
   });
 
-  test("On a very tiny and short screen, at the top of the window, only the 1st photo is visible.", () => {
+  test("Searching on a very tiny and short screen, at the top of the window, only the 1st photo is visible.", () => {
     // Arrange
     const photo1 = { id: 1 } as IPhoto;
     const photo2 = { id: 2 } as IPhoto;
@@ -49,6 +49,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 0,
+      staticHtml: false,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -65,6 +66,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 1,
+      staticHtml: false,
     };
 
     const page1: IPage = {
@@ -95,7 +97,7 @@ describe("getVisiblePhotos()", () => {
     expect(visiblePhotos[0]).toEqual(photoBreakpoints1);
   });
 
-  test("On a very tiny screen, at the top of the window, the first 2 photos are visible if the screen is tall enough.", () => {
+  test("Searching on a very tiny screen, at the top of the window, the first 2 photos are visible if the screen is tall enough.", () => {
     // Arrange
     const photo1 = { id: 1 } as IPhoto;
     const photo2 = { id: 2 } as IPhoto;
@@ -115,6 +117,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 0,
+      staticHtml: false,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -131,6 +134,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 1,
+      staticHtml: false,
     };
 
     const page1: IPage = {
@@ -162,7 +166,7 @@ describe("getVisiblePhotos()", () => {
     expect(visiblePhotos[1]).toEqual(photoBreakpoints2);
   });
 
-  test("On a very tiny and short screen, if the user scrolls down enough, the first 2 photos are visible.", () => {
+  test("Searching on a very tiny and short screen, if the user scrolls down enough, the first 2 photos are visible.", () => {
     // Arrange
     const photo1 = { id: 1 } as IPhoto;
     const photo2 = { id: 2 } as IPhoto;
@@ -182,6 +186,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 0,
+      staticHtml: false,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -198,6 +203,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 1,
+      staticHtml: false,
     };
 
     const page1: IPage = {
@@ -229,7 +235,7 @@ describe("getVisiblePhotos()", () => {
     expect(visiblePhotos[1]).toEqual(photoBreakpoints2);
   });
 
-  test("On a very tiny and short screen, if the user scrolls too much, only the 2nd photo is visible.", () => {
+  test("Searching on a very tiny and short screen, if the user scrolls too much, only the 2nd photo is visible.", () => {
     // Arrange
     const photo1 = { id: 1 } as IPhoto;
     const photo2 = { id: 2 } as IPhoto;
@@ -249,6 +255,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 0,
+      staticHtml: false,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -265,6 +272,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 1,
+      staticHtml: false,
     };
 
     const page1: IPage = {
@@ -295,7 +303,7 @@ describe("getVisiblePhotos()", () => {
     expect(visiblePhotos[0]).toEqual(photoBreakpoints2);
   });
 
-  test("On a really short screen with 2 columns, at the top of the window, the first 2 photos are visible.", () => {
+  test("Searching on a really short screen with 2 columns, at the top of the window, the first 2 photos are visible.", () => {
     // Arrange
     const photo1 = { id: 1 } as IPhoto;
     const photo2 = { id: 2 } as IPhoto;
@@ -324,6 +332,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 0,
+      staticHtml: false,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -349,6 +358,7 @@ describe("getVisiblePhotos()", () => {
       ],
       pageNumber: 1,
       indexInPage: 1,
+      staticHtml: false,
     };
 
     const page1: IPage = {

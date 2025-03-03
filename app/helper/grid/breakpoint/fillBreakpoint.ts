@@ -1,9 +1,12 @@
-import type { IPhoto } from "~/api/pexels";
+import { type IPhoto } from "~/api/pexels";
 
-import { SPACING_BETWEEN_VW, SPACING_SIDES_VW } from "../layout";
-import type { ColumnTopVws } from "../layout";
-import { addPhotoToBreakpoint } from ".";
-import type { IBreakpoint } from ".";
+import {
+  SPACING_BETWEEN_VW,
+  SPACING_SIDES_VW,
+  type ColumnTopVws,
+} from "../layout";
+import { type IBreakpoint } from ".";
+import { addPhotoToBreakpoint } from "./addPhotoToBreakpoint";
 
 export const fillBreakpoint = (
   columnTopVws: ColumnTopVws,

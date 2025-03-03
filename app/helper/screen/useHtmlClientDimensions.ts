@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 
-import { HAS_WINDOW } from ".";
-import { getHtmlClientDimensions } from ".";
-import type { IHtmlClientDimensions } from ".";
+import { HAS_WINDOW } from "./constant";
+import { getHtmlClientDimensions } from "./getHtmlClientDimensions";
+import { type IHtmlClientDimensions } from ".";
 
 export const useHtmlClientDimensions = (): IHtmlClientDimensions => {
   const initialDimensions: IHtmlClientDimensions = useMemo(

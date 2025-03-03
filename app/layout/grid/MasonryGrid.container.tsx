@@ -4,7 +4,8 @@ import { usePhotos } from "~/api/pexels";
 import { getDesiredPageNumber, getMinGridHeightVws } from "~/helper/grid";
 import { getVisiblePhotos } from "~/helper/photo";
 import { useHtmlClientDimensions, useScrollY } from "~/helper/screen";
-import { getSearchResults } from "~/helper/search";
+import { getSearchResults, hasMorePages } from "~/helper/search";
+
 import MasonryGridStyled from "./MasonryGrid.styled";
 
 const MasonryGridContainer = () => {
@@ -26,6 +27,7 @@ const MasonryGridContainer = () => {
     () => getMinGridHeightVws(searchResults),
     [searchResults]
   );
+  const morePages = hasMorePages(searchResults);
   const visiblePhotos = getVisiblePhotos(
     searchResults,
     htmlClientDimensions,
@@ -38,6 +40,7 @@ const MasonryGridContainer = () => {
   return (
     <MasonryGridStyled
       minHeightVws={minHeightVws}
+      morePages={morePages}
       visiblePhotos={visiblePhotos}
     />
   );

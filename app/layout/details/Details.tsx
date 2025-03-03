@@ -1,7 +1,8 @@
 import { css, Global } from "@emotion/react";
 import { memo } from "react";
 
-import type { IPhoto } from "~/api/pexels";
+import { type IPhoto } from "~/api/pexels";
+
 import Attribution from "./Attribution";
 import BackButtonContainer from "./BackButton.container";
 import LargePhotoContainer from "./LargePhoto.container";

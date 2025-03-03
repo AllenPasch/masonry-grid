@@ -1,4 +1,5 @@
 import { pathsToModuleNameMapper, JestConfigWithTsJest } from "ts-jest";
+
 import { compilerOptions } from "./tsconfig.json";
 
 // Add any custom config to be passed to Jest

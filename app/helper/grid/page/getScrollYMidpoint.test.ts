@@ -1,8 +1,8 @@
-import type { IHtmlClientDimensions } from "~/helper/screen";
-import { BREAKPOINTS_PX } from "..";
-import type { IBreakpoint } from "..";
-import { getScrollYMidpoint } from ".";
-import type { IPage } from ".";
+import { type IHtmlClientDimensions } from "~/helper/screen";
+
+import { BREAKPOINTS_PX, type IBreakpoint } from "..";
+import { type IPage } from ".";
+import { getScrollYMidpoint } from "./getScrollYMidpoint";
 
 describe("getScrollYMidpoint()", () => {
   test("Once the middle of the page is visible on the screen, the next page should be loaded.", () => {

@@ -1,4 +1,4 @@
-import type { IPhoto } from "~/api/pexels";
+import { type IPhoto } from "~/api/pexels";
 
 export interface IPhotoPosition {
   readonly photo: IPhoto;

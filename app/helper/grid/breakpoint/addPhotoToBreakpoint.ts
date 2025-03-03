@@ -1,4 +1,4 @@
-import type { IPhoto } from "~/api/pexels";
+import { type IPhoto } from "~/api/pexels";
 
 import {
   getHeight,
@@ -7,8 +7,9 @@ import {
   getWidthVw,
   SPACING_BETWEEN_VW,
   SPACING_SIDES_VW,
+  type ColumnTopVws,
+  type IPhotoPosition,
 } from "../layout";
-import type { IPhotoPosition, ColumnTopVws } from "../layout";
 
 interface IAddPhotoToBreakpointResult {
   readonly position: IPhotoPosition;

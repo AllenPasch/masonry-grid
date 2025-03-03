@@ -1,6 +1,7 @@
-import type { IPhoto } from "~/api/pexels";
-import { getPhotoUrl } from ".";
-import type { IDownloadedPhotoSize } from ".";
+import { type IPhoto } from "~/api/pexels";
+
+import { type IPhotoSizeSpecific } from "../size";
+import { getPhotoUrl } from "./getPhotoUrl";
 
 describe("getPhotoUrl()", () => {
   test("When devicePixelRatio is 1, it does not need to be included in the URL.", () => {
@@ -13,7 +14,7 @@ describe("getPhotoUrl()", () => {
       },
     } as IPhoto;
 
-    const size: IDownloadedPhotoSize = {
+    const size: IPhotoSizeSpecific = {
       devicePixelRatio: 1,
       widthPx: 360,
     };
@@ -37,7 +38,7 @@ describe("getPhotoUrl()", () => {
       },
     } as IPhoto;
 
-    const size: IDownloadedPhotoSize = {
+    const size: IPhotoSizeSpecific = {
       devicePixelRatio: 2.5,
       widthPx: 360,
     };
@@ -62,7 +63,7 @@ describe("getPhotoUrl()", () => {
       },
     } as IPhoto;
 
-    const size: IDownloadedPhotoSize = {
+    const size: IPhotoSizeSpecific = {
       devicePixelRatio: 3,
       widthPx: 2000,
     };
@@ -86,7 +87,7 @@ describe("getPhotoUrl()", () => {
       },
     } as IPhoto;
 
-    const size: IDownloadedPhotoSize = {
+    const size: IPhotoSizeSpecific = {
       devicePixelRatio: 1,
       widthPx: 359.9,
     };
@@ -111,7 +112,7 @@ describe("getPhotoUrl()", () => {
       },
     } as IPhoto;
 
-    const size: IDownloadedPhotoSize = {
+    const size: IPhotoSizeSpecific = {
       devicePixelRatio: 1,
       widthPx: 359.7,
     };
@@ -136,7 +137,7 @@ describe("getPhotoUrl()", () => {
       },
     } as IPhoto;
 
-    const size: IDownloadedPhotoSize = {
+    const size: IPhotoSizeSpecific = {
       devicePixelRatio: 2,
       widthPx: 100,
       heightPx: 50,
@@ -162,7 +163,7 @@ describe("getPhotoUrl()", () => {
       },
     } as IPhoto;
 
-    const size: IDownloadedPhotoSize = {
+    const size: IPhotoSizeSpecific = {
       devicePixelRatio: 2,
       widthPx: 100,
       heightPx: 400,

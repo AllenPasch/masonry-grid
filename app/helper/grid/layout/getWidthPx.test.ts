@@ -1,4 +1,4 @@
-import { getWidthPx } from ".";
+import { getWidthPx } from "./getWidthPx";
 
 describe("getWidthPx()", () => {
   test("With 1 column, use the whole window, minus 2 spacingSidesVw.", () => {

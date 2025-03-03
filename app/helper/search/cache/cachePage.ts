@@ -1,12 +1,11 @@
-import { IPhotos } from "~/api/pexels";
+import { type IPhotos } from "~/api/pexels";
 import { fillPage } from "~/helper/grid/page";
-import { cachedPages } from ".";
 
-export const addPage = (
-  searchQuery: string,
-  pageNumber: number,
-  photos: IPhotos
-) => {
+import { cachedPages } from "./cachedPages";
+
+export const cachePage = (photos: IPhotos) => {
+  const { page: pageNumber, searchQuery } = photos;
+
   let pages = cachedPages[searchQuery];
   if (!pages) {
     pages = [];

@@ -1,30 +1,36 @@
-import type { UseQueryOptions } from "@tanstack/react-query";
+import { type UseQueryOptions } from "@tanstack/react-query";
 
-import { prunePhotos } from ".";
-import type { IPexelsClient, IPhotos } from ".";
+import { STATIC_HTML_PHOTO_COUNT } from "~/helper/grid/page";
 
-const PAGE_SIZE = 80;
+import { type IPhotos } from ".";
+import { pexelsClient } from "./pexelsClient";
+import { prunePhotos } from "./prunePhotos";
+
+/**
+ * Minimize the amount of data included in the statically generated HTML.
+ */
+const PAGE_SIZE = STATIC_HTML_PHOTO_COUNT;
 
 export const getPhotosQueryOptions = (
-  client: IPexelsClient,
   pageNumber: number,
   searchQuery: string
 ): UseQueryOptions<IPhotos> => ({
   queryKey: ["pexels.photos", pageNumber, searchQuery],
   queryFn: async () => {
     const photosPromise = searchQuery
-      ? client.photos.search({
+      ? pexelsClient.photos.search({
           page: pageNumber,
           query: searchQuery,
           per_page: PAGE_SIZE,
         })
-      : client.photos.curated({ page: pageNumber, per_page: PAGE_SIZE });
+      : pexelsClient.photos.curated({ page: pageNumber, per_page: PAGE_SIZE });
 
     const response = await photosPromise;
     if ("error" in response) {
       throw response;
     } else {
-      return prunePhotos(response);
+      return prunePhotos(response, searchQuery);
     }
   },
+  gcTime: Infinity,
 });

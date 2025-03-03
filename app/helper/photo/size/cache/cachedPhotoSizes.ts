@@ -1,3 +1,3 @@
-import type { ICachedPhotoSizes } from ".";
+import { type ICachedPhotoSizes } from ".";
 
 export const cachedPhotoSizes: ICachedPhotoSizes = {};

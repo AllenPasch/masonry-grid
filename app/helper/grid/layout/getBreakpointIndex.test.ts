@@ -1,4 +1,5 @@
-import { BREAKPOINTS_PX, getBreakpointIndex } from ".";
+import { BREAKPOINTS_PX } from "./constant";
+import { getBreakpointIndex } from "./getBreakpointIndex";
 
 describe("getBreakpointIndex()", () => {
   test("Tiny screens use the breakpoint with index 0.", () => {

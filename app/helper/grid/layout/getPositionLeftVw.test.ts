@@ -1,4 +1,4 @@
-import { getPositionLeftVw } from ".";
+import { getPositionLeftVw } from "./getPositionLeftVw";
 
 describe("getPositionLeftVw()", () => {
   test("Column 0 is just spacingSidesVw from the left.", () => {

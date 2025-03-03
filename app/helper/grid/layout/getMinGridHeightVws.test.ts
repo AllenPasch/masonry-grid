@@ -1,11 +1,12 @@
-import type { IBreakpoint, IPage } from "~/helper/grid";
-import type { ISearchResults } from "~/helper/search";
+import { type IBreakpoint, type IPage } from "~/helper/grid";
+import { type ISearchResults } from "~/helper/search";
+
 import {
-  getMinGridHeightVws,
   SPACING_BETWEEN_VW,
   SPACING_BOTTOM_VW,
   SPACING_TOP_VW,
-} from ".";
+} from "./constant";
+import { getMinGridHeightVws } from "./getMinGridHeightVws";
 
 describe("getMinGridHeightVws()", () => {
   test("Before the pexels API responds, only a small min-height is used.", () => {

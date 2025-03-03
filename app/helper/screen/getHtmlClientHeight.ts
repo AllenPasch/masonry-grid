@@ -1,4 +1,4 @@
-import { htmlElement } from ".";
+import { htmlElement } from "./htmlElement";
 
 /**
  * How tall of a screen to generate static content for.

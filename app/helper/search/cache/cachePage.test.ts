@@ -1,10 +1,10 @@
-import type { IPhoto, IPhotos } from "~/api/pexels";
-
+import { type IPhoto, type IPhotos } from "~/api/pexels";
 import { MAX_COLUMN_COUNT } from "~/helper/grid";
-import { getSearchResults } from "..";
-import { addPage } from ".";
 
-describe("addPage()", () => {
+import { getSearchResults } from "..";
+import { cachePage } from "./cachePage";
+
+describe("cachePage()", () => {
   test("At the top of the window, MAX_COLUMN_COUNT breakpoints are created, and the first photos are added in each breakpoint.", () => {
     // Arrange
     const photo1 = {
@@ -19,15 +19,15 @@ describe("addPage()", () => {
     } as IPhoto;
 
     const searchQuery = "";
-    const pageNumber = 1;
     const photos: IPhotos = {
       photos: [photo1, photo2],
       page: 1,
       next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
+      searchQuery,
     };
 
     // Act
-    addPage(searchQuery, pageNumber, photos);
+    cachePage(photos);
 
     const searchResults = getSearchResults(searchQuery);
 
@@ -79,9 +79,10 @@ describe("addPage()", () => {
       photos: [photo1, photo2],
       page: 1,
       next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
+      searchQuery,
     };
 
-    addPage(searchQuery, 1, photosPage1);
+    cachePage(photosPage1);
 
     const photo3 = {
       id: 3,
@@ -98,10 +99,11 @@ describe("addPage()", () => {
       photos: [photo3, photo4],
       page: 2,
       next_page: "https://api.pexels.com/v1/curated?page=3&per_page=80",
+      searchQuery,
     };
 
     // Act
-    addPage(searchQuery, 2, photosPage2);
+    cachePage(photosPage2);
 
     const searchResults = getSearchResults(searchQuery);
 

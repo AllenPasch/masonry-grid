@@ -1,6 +1,6 @@
-import type { IPhoto } from "~/api/pexels";
+import { type IPhoto } from "~/api/pexels";
 
-import { addPhotoToBreakpoint } from ".";
+import { addPhotoToBreakpoint } from "./addPhotoToBreakpoint";
 
 describe("addPhotoToBreakpoint()", () => {
   test("At the top of the window, the 1st photo is added to column 0.", () => {

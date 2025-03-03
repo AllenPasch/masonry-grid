@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { HAS_WINDOW, windowNode } from ".";
+import { HAS_WINDOW } from "./constant";
+import { windowNode } from "./windowNode";
 
 export const useScrollY = (): number => {
   const [scrollY, setScrollY] = useState(windowNode?.scrollY || 0);

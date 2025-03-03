@@ -1,4 +1,4 @@
-import type { IPhoto } from "..";
+import { type IPhoto } from "..";
 
 export interface ICachedPhotos {
   [id: number]: IPhoto;

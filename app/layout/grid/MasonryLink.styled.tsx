@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import { memo } from "react";
 
 import { BREAKPOINTS_PX, getWidthVw, SPACING_SIDES_VW } from "~/helper/grid";
+import { mediaQuery } from "~/helper/style";
+
 import MasonryLink from "./MasonryLink";
 
 const MasonryLinkStyled = styled(MasonryLink)`
@@ -22,11 +24,7 @@ const MasonryLinkStyled = styled(MasonryLink)`
         const imageWidthVwHover = imageWidthVwOriginal + 2 * SPACING_SIDES_VW;
         const scale = imageWidthVwHover / imageWidthVwOriginal;
 
-        return `
-          @media (min-width: ${breakpointPx}px) {
-            transform: scale(${scale});
-          }
-        `;
+        return mediaQuery(breakpointPx, `transform: scale(${scale});`);
       })}
     }
   }

@@ -9,8 +9,7 @@ interface IProps {
 }
 
 const MasonryPhotoContainer = ({ photoBreakpoints }: IProps) => {
-  const { photo } = photoBreakpoints;
-  const url = usePhotoUrl(photo);
+  const url = usePhotoUrl(photoBreakpoints);
 
   return <MasonryPhotoStyled photoBreakpoints={photoBreakpoints} url={url} />;
 };

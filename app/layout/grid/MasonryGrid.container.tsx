@@ -7,11 +7,7 @@ import { useHtmlClientDimensions, useScrollY } from "~/helper/screen";
 import { useReducer } from "~/reducer";
 import MasonryGridStyled from "./MasonryGrid.styled";
 
-interface IProps {
-  readonly hydrationData: string | undefined;
-}
-
-const MasonryGridContainer = ({}: IProps) => {
+const MasonryGridContainer = () => {
   const htmlClientDimensions = useHtmlClientDimensions();
   const scrollY = useScrollY();
   const [{ search }, dispatch] = useReducer();

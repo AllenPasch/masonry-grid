@@ -1,7 +1,7 @@
 import findLast from "lodash/findLast";
 
 import type { IHtmlClientDimensions } from "~/helper/screen";
-import type { ISearchResults } from "~/reducer";
+import type { ISearchResults } from "~/helper/search";
 import { getScrollYMidpoint } from ".";
 
 export const getDesiredPageNumber = (

@@ -1,6 +1,6 @@
 import findLast from "lodash/findLast";
 
-import type { ISearchResults } from "~/reducer";
+import type { ISearchResults } from "~/helper/search";
 import {
   MAX_COLUMN_COUNT,
   SPACING_BETWEEN_VW,

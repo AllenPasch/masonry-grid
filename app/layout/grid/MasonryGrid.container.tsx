@@ -2,34 +2,34 @@ import { memo, useMemo, useState } from "react";
 
 import { usePhotos } from "~/api/pexels";
 import { getDesiredPageNumber, getMinGridHeightVws } from "~/helper/grid";
-import { useVisiblePhotos } from "~/helper/photo";
+import { getVisiblePhotos } from "~/helper/photo";
 import { useHtmlClientDimensions, useScrollY } from "~/helper/screen";
-import { useReducer } from "~/reducer";
+import { getSearchResults } from "~/helper/search";
 import MasonryGridStyled from "./MasonryGrid.styled";
 
 const MasonryGridContainer = () => {
+  const [searchQuery] = useState(""); // TODO: Allow the user to search.
+
   const htmlClientDimensions = useHtmlClientDimensions();
   const scrollY = useScrollY();
-  const [{ search }, dispatch] = useReducer();
-  const searchResults = search.results[search.query];
+  const pageNumber = getDesiredPageNumber(
+    getSearchResults(searchQuery),
+    htmlClientDimensions,
+    scrollY
+  );
 
+  usePhotos(pageNumber, searchQuery);
+
+  const searchResults = getSearchResults(searchQuery);
   const minHeightVws = useMemo(
     () => getMinGridHeightVws(searchResults),
     [searchResults]
   );
-  const visiblePhotos = useVisiblePhotos(
+  const visiblePhotos = getVisiblePhotos(
     searchResults,
     htmlClientDimensions,
     scrollY
   );
-  const pageNumber = getDesiredPageNumber(
-    searchResults,
-    htmlClientDimensions,
-    scrollY
-  );
-  const [searchQuery] = useState(""); // TODO: Allow the user to search.
-
-  usePhotos(dispatch, pageNumber, searchQuery);
 
   return (
     <MasonryGridStyled

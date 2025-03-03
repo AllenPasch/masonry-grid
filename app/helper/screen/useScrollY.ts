@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-const HAS_WINDOW = typeof window !== "undefined";
+import { HAS_WINDOW, windowNode } from ".";
 
 export const useScrollY = (): number => {
-  const [scrollY, setScrollY] = useState(HAS_WINDOW ? window.scrollY : 0);
+  const [scrollY, setScrollY] = useState(windowNode?.scrollY || 0);
 
   useEffect(() => {
     if (!HAS_WINDOW) return;

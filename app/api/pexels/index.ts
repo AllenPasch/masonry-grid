@@ -1,5 +1,10 @@
-export { usePexelsClient } from "./client";
+export { createPexelsClient } from "./createPexelsClient";
+export { getPhotosQueryOptions } from "./getPhotosQueryOptions";
+export type { IPexelsClient } from "./IPexelsClient";
+export type { IPhoto } from "./IPhoto";
+export type { IPhotos } from "./IPhotos";
+export { prunePhoto } from "./prunePhoto";
+export { prunePhotos } from "./prunePhotos";
+export { usePexelsClient } from "./usePexelsClient";
 export { usePhoto } from "./usePhoto";
 export { usePhotos } from "./usePhotos";
-
-export type { Photo, Photos } from "./type";

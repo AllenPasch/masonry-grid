@@ -1,4 +1,4 @@
-import type { Photo, Photos } from "~/api/pexels";
+import type { IPhoto, IPhotos } from "~/api/pexels";
 
 import type { IBreakpoint } from "../breakpoint";
 import { SPACING_TOP_VW } from "../layout";
@@ -12,18 +12,18 @@ describe("fillPage()", () => {
     const photo1 = {
       width: 240,
       height: 120,
-    } as Photo;
+    } as IPhoto;
 
     const photo2 = {
       width: 120,
       height: 240,
-    } as Photo;
+    } as IPhoto;
 
     const photos = {
       photos: [photo1, photo2],
       page: 1,
       next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
-    } as unknown as Photos;
+    } as unknown as IPhotos;
     const maxColumnCount = 3;
 
     // Act
@@ -91,12 +91,12 @@ describe("fillPage()", () => {
     const photo1 = {
       width: 240,
       height: 120,
-    } as Photo;
+    } as IPhoto;
 
     const photo2 = {
       width: 120,
       height: 240,
-    } as Photo;
+    } as IPhoto;
 
     const previousPage: IPage = {
       breakpoints: [
@@ -116,7 +116,7 @@ describe("fillPage()", () => {
     const photos = {
       photos: [photo1, photo2],
       page: 2,
-    } as unknown as Photos;
+    } as unknown as IPhotos;
     const maxColumnCount = 3;
 
     // Act

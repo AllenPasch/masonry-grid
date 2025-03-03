@@ -5,4 +5,3 @@ export type { IDownloadedPhotoSize } from "./IDownloadedPhotoSize";
 export { useCachedPhotoUrl } from "./useCachedPhotoUrl";
 export { usePhotoSize } from "./usePhotoSize";
 export { usePhotoUrl } from "./usePhotoUrl";
-export { useVisiblePhotos } from "./useVisiblePhotos";

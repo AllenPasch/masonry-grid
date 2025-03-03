@@ -1,7 +1,7 @@
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 
 export interface IPhotoPosition {
-  readonly photo: Photo;
+  readonly photo: IPhoto;
   readonly leftVw: number;
   readonly topVw: number;
   readonly bottomVw: number;

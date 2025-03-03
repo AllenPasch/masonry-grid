@@ -1,8 +1,8 @@
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 import { BREAKPOINTS_PX } from "~/helper/grid";
 import type { IPage, IPhotoBreakpoints } from "~/helper/grid";
 import type { IHtmlClientDimensions } from "~/helper/screen";
-import type { ISearchResults } from "~/reducer";
+import type { ISearchResults } from "~/helper/search";
 import { getVisiblePhotos } from ".";
 
 describe("getVisiblePhotos()", () => {
@@ -31,8 +31,8 @@ describe("getVisiblePhotos()", () => {
 
   test("On a very tiny and short screen, at the top of the window, only the 1st photo is visible.", () => {
     // Arrange
-    const photo1 = { id: 1 } as Photo;
-    const photo2 = { id: 2 } as Photo;
+    const photo1 = { id: 1 } as IPhoto;
+    const photo2 = { id: 2 } as IPhoto;
 
     const photoBreakpoints1: IPhotoBreakpoints = {
       photo: photo1,
@@ -97,8 +97,8 @@ describe("getVisiblePhotos()", () => {
 
   test("On a very tiny screen, at the top of the window, the first 2 photos are visible if the screen is tall enough.", () => {
     // Arrange
-    const photo1 = { id: 1 } as Photo;
-    const photo2 = { id: 2 } as Photo;
+    const photo1 = { id: 1 } as IPhoto;
+    const photo2 = { id: 2 } as IPhoto;
 
     const photoBreakpoints1: IPhotoBreakpoints = {
       photo: photo1,
@@ -164,8 +164,8 @@ describe("getVisiblePhotos()", () => {
 
   test("On a very tiny and short screen, if the user scrolls down enough, the first 2 photos are visible.", () => {
     // Arrange
-    const photo1 = { id: 1 } as Photo;
-    const photo2 = { id: 2 } as Photo;
+    const photo1 = { id: 1 } as IPhoto;
+    const photo2 = { id: 2 } as IPhoto;
 
     const photoBreakpoints1: IPhotoBreakpoints = {
       photo: photo1,
@@ -231,8 +231,8 @@ describe("getVisiblePhotos()", () => {
 
   test("On a very tiny and short screen, if the user scrolls too much, only the 2nd photo is visible.", () => {
     // Arrange
-    const photo1 = { id: 1 } as Photo;
-    const photo2 = { id: 2 } as Photo;
+    const photo1 = { id: 1 } as IPhoto;
+    const photo2 = { id: 2 } as IPhoto;
 
     const photoBreakpoints1: IPhotoBreakpoints = {
       photo: photo1,
@@ -297,8 +297,8 @@ describe("getVisiblePhotos()", () => {
 
   test("On a really short screen with 2 columns, at the top of the window, the first 2 photos are visible.", () => {
     // Arrange
-    const photo1 = { id: 1 } as Photo;
-    const photo2 = { id: 2 } as Photo;
+    const photo1 = { id: 1 } as IPhoto;
+    const photo2 = { id: 2 } as IPhoto;
 
     const photoBreakpoints1: IPhotoBreakpoints = {
       photo: photo1,

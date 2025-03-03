@@ -1,5 +1,5 @@
 import type { IBreakpoint, IPage } from "~/helper/grid";
-import type { ISearchResults } from "~/reducer";
+import type { ISearchResults } from "~/helper/search";
 import {
   getMinGridHeightVws,
   SPACING_BETWEEN_VW,

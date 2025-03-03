@@ -1,4 +1,4 @@
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 
 import { addPhotoToBreakpoint } from ".";
 
@@ -8,7 +8,7 @@ describe("addPhotoToBreakpoint()", () => {
     const photo = {
       width: 240,
       height: 120,
-    } as Photo;
+    } as IPhoto;
 
     const columnTopVws = [4, 4, 4, 4];
     const spacingSidesVw = 8;
@@ -46,7 +46,7 @@ describe("addPhotoToBreakpoint()", () => {
     const photo = {
       width: 240,
       height: 480,
-    } as Photo;
+    } as IPhoto;
 
     const columnTopVws = [18.875, 4, 4, 4];
     const spacingSidesVw = 8;

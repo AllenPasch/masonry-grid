@@ -1,4 +1,4 @@
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 import { getPhotoUrl } from ".";
 import type { IDownloadedPhotoSize } from ".";
 
@@ -11,7 +11,7 @@ describe("getPhotoUrl()", () => {
         original:
           "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg",
       },
-    } as Photo;
+    } as IPhoto;
 
     const size: IDownloadedPhotoSize = {
       devicePixelRatio: 1,
@@ -35,7 +35,7 @@ describe("getPhotoUrl()", () => {
         original:
           "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg",
       },
-    } as Photo;
+    } as IPhoto;
 
     const size: IDownloadedPhotoSize = {
       devicePixelRatio: 2.5,
@@ -60,7 +60,7 @@ describe("getPhotoUrl()", () => {
         original:
           "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg",
       },
-    } as Photo;
+    } as IPhoto;
 
     const size: IDownloadedPhotoSize = {
       devicePixelRatio: 3,
@@ -84,7 +84,7 @@ describe("getPhotoUrl()", () => {
         original:
           "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg",
       },
-    } as Photo;
+    } as IPhoto;
 
     const size: IDownloadedPhotoSize = {
       devicePixelRatio: 1,
@@ -109,7 +109,7 @@ describe("getPhotoUrl()", () => {
         original:
           "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg",
       },
-    } as Photo;
+    } as IPhoto;
 
     const size: IDownloadedPhotoSize = {
       devicePixelRatio: 1,
@@ -134,7 +134,7 @@ describe("getPhotoUrl()", () => {
         original:
           "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg",
       },
-    } as Photo;
+    } as IPhoto;
 
     const size: IDownloadedPhotoSize = {
       devicePixelRatio: 2,
@@ -160,7 +160,7 @@ describe("getPhotoUrl()", () => {
         original:
           "https://images.pexels.com/photos/30930147/pexels-photo-30930147.jpeg",
       },
-    } as Photo;
+    } as IPhoto;
 
     const size: IDownloadedPhotoSize = {
       devicePixelRatio: 2,

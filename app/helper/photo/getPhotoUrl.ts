@@ -1,9 +1,9 @@
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 
 import type { IDownloadedPhotoSize } from ".";
 
 export const getPhotoUrl = (
-  { src: { original }, width, height }: Photo,
+  { src: { original }, width, height }: IPhoto,
   { devicePixelRatio, widthPx, heightPx }: IDownloadedPhotoSize
 ): string => {
   const urlFragments = [`${original}?auto=compress&cs=tinysrgb`];

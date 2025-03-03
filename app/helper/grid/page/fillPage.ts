@@ -1,4 +1,4 @@
-import type { Photos } from "~/api/pexels";
+import type { IPhotos } from "~/api/pexels";
 
 import { fillBreakpoint, initializeColumnTopVws } from "../breakpoint";
 import { MAX_COLUMN_COUNT } from "../layout";
@@ -6,7 +6,7 @@ import type { IPage } from ".";
 
 export const fillPage = (
   previousPage: IPage | null | undefined,
-  { photos, page, next_page }: Photos,
+  { photos, page, next_page }: IPhotos,
   maxColumnCount: number = MAX_COLUMN_COUNT
 ): IPage => {
   const breakpoints = Array.from(Array(maxColumnCount)).map(

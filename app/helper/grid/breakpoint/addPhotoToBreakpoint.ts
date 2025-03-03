@@ -1,4 +1,4 @@
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 
 import {
   getHeight,
@@ -17,7 +17,7 @@ interface IAddPhotoToBreakpointResult {
 
 export const addPhotoToBreakpoint = (
   columnTopVws: ColumnTopVws,
-  photo: Photo,
+  photo: IPhoto,
   spacingSidesVw: number = SPACING_SIDES_VW,
   spacingBetweenVw: number = SPACING_BETWEEN_VW
 ): IAddPhotoToBreakpointResult => {

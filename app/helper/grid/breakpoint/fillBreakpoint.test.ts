@@ -1,4 +1,4 @@
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 
 import { fillBreakpoint } from ".";
 
@@ -8,12 +8,12 @@ describe("fillBreakpoint()", () => {
     const photo1 = {
       width: 240,
       height: 120,
-    } as Photo;
+    } as IPhoto;
 
     const photo2 = {
       width: 120,
       height: 240,
-    } as Photo;
+    } as IPhoto;
 
     const columnTopVws = [4, 4, 4, 4];
     const photos = [photo1, photo2];

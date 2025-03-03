@@ -1,4 +1,4 @@
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 
 import { getHeight } from ".";
 
@@ -10,7 +10,7 @@ describe("getHeight()", () => {
     const photo = {
       width: 240,
       height: 60,
-    } as Photo;
+    } as IPhoto;
 
     // Act
     const heightPx = getHeight(widthPx, photo);
@@ -26,7 +26,7 @@ describe("getHeight()", () => {
     const photo = {
       width: 0,
       height: 0,
-    } as Photo;
+    } as IPhoto;
 
     // Act
     const heightPx = getHeight(widthPx, photo);

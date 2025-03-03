@@ -1,10 +1,10 @@
 import { css } from "@emotion/react";
 import { memo } from "react";
 
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 
 interface IProps {
-  readonly photo: Photo;
+  readonly photo: IPhoto;
 }
 
 const Attribution = ({

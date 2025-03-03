@@ -1,13 +1,13 @@
 import { css, Global } from "@emotion/react";
 import { memo } from "react";
 
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 import Attribution from "./Attribution";
 import BackButtonContainer from "./BackButton.container";
 import LargePhotoContainer from "./LargePhoto.container";
 
 interface IProps {
-  readonly photo: Photo;
+  readonly photo: IPhoto;
 }
 
 const Details = ({ photo }: IProps) => (

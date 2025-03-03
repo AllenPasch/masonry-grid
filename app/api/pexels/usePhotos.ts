@@ -3,8 +3,8 @@ import type { UseQueryResult } from "@tanstack/react-query";
 
 import type { Dispatch } from "~/reducer";
 import { cachedPhotos } from "./cache";
-import { usePexelsClient } from ".";
-import type { Photos } from ".";
+import { prunePhotos, usePexelsClient } from ".";
+import type { IPhotos } from ".";
 
 const PAGE_SIZE = 80;
 
@@ -16,7 +16,7 @@ export const usePhotos = (
   dispatch: Dispatch,
   pageNumber: number,
   searchQuery: string
-): UseQueryResult<Photos> => {
+): UseQueryResult<IPhotos> => {
   const client = usePexelsClient();
 
   const result = useQuery({
@@ -30,10 +30,12 @@ export const usePhotos = (
           })
         : client.photos.curated({ page: pageNumber, per_page: PAGE_SIZE });
 
-      return photosPromise.then((photos) => {
-        if ("error" in photos) {
-          throw photos;
+      return photosPromise.then((photosWithExtraFields) => {
+        if ("error" in photosWithExtraFields) {
+          throw photosWithExtraFields;
         } else {
+          const photos = prunePhotos(photosWithExtraFields);
+
           dispatch({
             type: "addPageResults",
             query: searchQuery,

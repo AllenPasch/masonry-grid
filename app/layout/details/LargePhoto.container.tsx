@@ -1,12 +1,12 @@
 import { memo, useEffect, useRef, useState } from "react";
 
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 import { getPhotoUrl, useCachedPhotoUrl } from "~/helper/photo";
 import type { IDownloadedPhotoSize } from "~/helper/photo";
 import LargePhoto from "./LargePhoto";
 
 interface IProps {
-  readonly photo: Photo;
+  readonly photo: IPhoto;
 }
 
 const LargePhotoContainer = ({ photo }: IProps) => {

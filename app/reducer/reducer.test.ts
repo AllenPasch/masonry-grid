@@ -1,4 +1,4 @@
-import type { Photo } from "~/api/pexels";
+import type { IPhoto } from "~/api/pexels";
 
 import { MAX_COLUMN_COUNT } from "~/helper/grid";
 import { initialState, reducer } from ".";
@@ -12,12 +12,12 @@ describe("reducer()", () => {
         id: 1,
         width: 240,
         height: 120,
-      } as Photo;
+      } as IPhoto;
       const photo2 = {
         id: 2,
         width: 120,
         height: 240,
-      } as Photo;
+      } as IPhoto;
 
       const oldState = initialState;
       const photos = [photo1, photo2];
@@ -29,8 +29,7 @@ describe("reducer()", () => {
         photos: {
           photos,
           page: 1,
-          per_page: 80,
-          next_page: 2,
+          next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
         },
       };
 
@@ -73,12 +72,12 @@ describe("reducer()", () => {
         id: 1,
         width: 240,
         height: 120,
-      } as Photo;
+      } as IPhoto;
       const photo2 = {
         id: 2,
         width: 120,
         height: 240,
-      } as Photo;
+      } as IPhoto;
 
       const photosPage1 = [photo1, photo2];
       const actionPage1: IAddPageResults = {
@@ -88,8 +87,7 @@ describe("reducer()", () => {
         photos: {
           photos: photosPage1,
           page: 1,
-          per_page: 80,
-          next_page: 2,
+          next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
         },
       };
 
@@ -99,12 +97,12 @@ describe("reducer()", () => {
         id: 3,
         width: 240,
         height: 240,
-      } as Photo;
+      } as IPhoto;
       const photo4 = {
         id: 4,
         width: 480,
         height: 120,
-      } as Photo;
+      } as IPhoto;
 
       const photosPage2 = [photo3, photo4];
       const actionPage2: IAddPageResults = {
@@ -114,8 +112,7 @@ describe("reducer()", () => {
         photos: {
           photos: photosPage2,
           page: 2,
-          per_page: 80,
-          next_page: 2,
+          next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
         },
       };
 

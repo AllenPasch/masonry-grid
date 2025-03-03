@@ -1,22 +1,27 @@
 import { useMemo } from "react";
 
-import type { IPhoto } from "~/api/pexels";
 import { getColumnCount, getWidthPx } from "~/helper/grid";
+import type { IPhotoBreakpoints } from "~/helper/grid";
 import { getDevicePixelRatio, getHtmlClientWidth } from "~/helper/screen";
 import { cachedPhotoSizes } from "./cache";
 import type { IDownloadedPhotoSize } from ".";
 
-export const usePhotoSize = ({ id }: IPhoto): IDownloadedPhotoSize =>
+export const usePhotoSize = ({
+  photo: { id },
+  staticHtml,
+}: IPhotoBreakpoints): IDownloadedPhotoSize =>
   useMemo(() => {
     let size = cachedPhotoSizes[id];
 
     if (!size) {
-      const htmlClientWidth = getHtmlClientWidth();
+      const htmlClientWidth = getHtmlClientWidth(staticHtml);
+      const devicePixelRatio = getDevicePixelRatio();
+
       const columnCount = getColumnCount(htmlClientWidth);
       const widthPx = getWidthPx(columnCount, htmlClientWidth);
 
       size = {
-        devicePixelRatio: getDevicePixelRatio(),
+        devicePixelRatio,
         widthPx,
       };
 

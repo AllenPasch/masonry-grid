@@ -4,20 +4,25 @@ import type { IHtmlClientDimensions } from "~/helper/screen";
 import type { ISearchResults } from "~/helper/search";
 
 export const getVisiblePhotos = (
-  { pages }: ISearchResults,
+  { pages, query }: ISearchResults,
   { htmlClientWidth, htmlClientHeight }: IHtmlClientDimensions,
-  scrollY: number
+  scrollY: number,
+  firstRender: boolean
 ): readonly IPhotoBreakpoints[] => {
   const breakpointIndex = getBreakpointIndex(htmlClientWidth);
   const htmlTopVw = (100 * scrollY) / htmlClientWidth;
   const htmlBottomVw = (100 * (scrollY + htmlClientHeight)) / htmlClientWidth;
+  const onlyShowStatic = firstRender && !query && !scrollY;
 
   return pages
     .map((page) =>
       page
-        ? page.photos.filter(({ breakpoints }) => {
-            const { topVw, bottomVw } = breakpoints[breakpointIndex];
+        ? page.photos.filter(({ breakpoints, staticHtml }) => {
+            if (onlyShowStatic) {
+              return staticHtml;
+            }
 
+            const { topVw, bottomVw } = breakpoints[breakpointIndex];
             return htmlTopVw < bottomVw && htmlBottomVw > topVw;
           })
         : []

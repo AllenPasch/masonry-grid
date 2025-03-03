@@ -6,4 +6,5 @@ export interface IPhotoBreakpoints {
   readonly breakpoints: readonly IPhotoPosition[];
   readonly pageNumber: number;
   readonly indexInPage: number;
+  readonly staticHtml: boolean;
 }

@@ -1,4 +1,4 @@
-const PHOTOS_IN_STATIC_HTML = 10;
+const PHOTOS_IN_STATIC_HTML = 25;
 
 export const inStaticHtml = (
   searchQuery: string,

@@ -3,6 +3,7 @@ import { memo, useEffect, useRef, useState } from "react";
 import type { IPhoto } from "~/api/pexels";
 import { getPhotoUrl, useCachedPhotoUrl } from "~/helper/photo";
 import type { IDownloadedPhotoSize } from "~/helper/photo";
+import { getDevicePixelRatio } from "~/helper/screen";
 import LargePhoto from "./LargePhoto";
 
 interface IProps {
@@ -18,7 +19,7 @@ const LargePhotoContainer = ({ photo }: IProps) => {
     const { current } = ref;
     if (current) {
       const size: IDownloadedPhotoSize = {
-        devicePixelRatio: window.devicePixelRatio || 1,
+        devicePixelRatio: getDevicePixelRatio(),
         widthPx: current.clientWidth,
         heightPx: current.clientHeight,
       };

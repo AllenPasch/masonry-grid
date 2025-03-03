@@ -1,8 +1,7 @@
-const windowNode =
-  typeof window !== "undefined" ? window : ({} as unknown as Window);
+import { windowNode } from "~/helper/screen";
 
-export const getBackButtonTo = ({ history }: Window = windowNode) => {
-  const stateIndex = history?.state?.idx;
+export const getBackButtonTo = (window: Window | null = windowNode) => {
+  const stateIndex = window?.history?.state?.idx;
   if (stateIndex && stateIndex > 0) {
     return -1;
   }

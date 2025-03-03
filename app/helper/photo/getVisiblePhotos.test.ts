@@ -2,7 +2,7 @@ import type { IPhoto } from "~/api/pexels";
 import { BREAKPOINTS_PX } from "~/helper/grid";
 import type { IPage, IPhotoBreakpoints } from "~/helper/grid";
 import type { IHtmlClientDimensions } from "~/helper/screen";
-import type { ISearchResults } from "~/reducer";
+import type { ISearchResults } from "~/helper/search";
 import { getVisiblePhotos } from ".";
 
 describe("getVisiblePhotos()", () => {

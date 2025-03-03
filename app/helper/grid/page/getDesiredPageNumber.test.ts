@@ -1,5 +1,5 @@
 import type { IHtmlClientDimensions } from "~/helper/screen";
-import type { ISearchResults } from "~/reducer";
+import type { ISearchResults } from "~/helper/search";
 import type { IBreakpoint } from "..";
 import { getDesiredPageNumber } from ".";
 import type { IPage } from ".";

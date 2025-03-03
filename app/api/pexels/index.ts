@@ -1,5 +1,5 @@
-export { createPexelsClient, usePexelsClient } from "./client";
+export { usePexelsClient } from "./client";
+export { usePhoto } from "./usePhoto";
 export { usePhotos } from "./usePhotos";
 
-export type { PexelsClient } from "./client";
 export type { Photo, Photos } from "./type";

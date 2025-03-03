@@ -4,4 +4,6 @@ import type { IPhotoPosition } from "..";
 export interface IPhotoBreakpoints {
   readonly photo: Photo;
   readonly breakpoints: readonly IPhotoPosition[];
+  readonly pageNumber: number;
+  readonly indexInPage: number;
 }

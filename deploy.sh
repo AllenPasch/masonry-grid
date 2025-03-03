@@ -25,4 +25,4 @@ aws s3 cp build/client s3://allen-pasch-masonry-grid \
 
 aws cloudfront create-invalidation \
     --distribution-id E1K21MT8F2KK0V \
-    --paths "/favicon.ico"
+    --paths "/*"

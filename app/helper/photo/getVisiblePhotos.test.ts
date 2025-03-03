@@ -47,6 +47,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 0,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 0,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -61,6 +63,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 0,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 1,
     };
 
     const page1: IPage = {
@@ -109,6 +113,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 0,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 0,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -123,6 +129,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 0,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 1,
     };
 
     const page1: IPage = {
@@ -172,6 +180,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 0,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 0,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -186,6 +196,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 0,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 1,
     };
 
     const page1: IPage = {
@@ -235,6 +247,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 0,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 0,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -249,6 +263,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 0,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 1,
     };
 
     const page1: IPage = {
@@ -306,6 +322,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 0,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 0,
     };
     const photoBreakpoints2: IPhotoBreakpoints = {
       photo: photo2,
@@ -329,6 +347,8 @@ describe("getVisiblePhotos()", () => {
           columnIndex: 1,
         },
       ],
+      pageNumber: 1,
+      indexInPage: 1,
     };
 
     const page1: IPage = {

@@ -6,7 +6,7 @@ import type { IPage } from ".";
 
 export const fillPage = (
   previousPage: IPage | null | undefined,
-  { photos, next_page }: Photos,
+  { photos, page, next_page }: Photos,
   maxColumnCount: number = MAX_COLUMN_COUNT
 ): IPage => {
   const breakpoints = Array.from(Array(maxColumnCount)).map(
@@ -25,6 +25,8 @@ export const fillPage = (
       breakpoints: breakpoints.map(
         ({ photoPositions }) => photoPositions[photoIndex]
       ),
+      pageNumber: page,
+      indexInPage: photoIndex,
     })
   );
 

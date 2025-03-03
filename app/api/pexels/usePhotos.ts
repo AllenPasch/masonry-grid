@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { UseQueryResult } from "@tanstack/react-query";
 
 import type { Dispatch } from "~/reducer";
+import { cachedPhotos } from "./cache";
 import { usePexelsClient } from ".";
 import type { Photos } from ".";
 
@@ -39,6 +40,8 @@ export const usePhotos = (
             pageNumber,
             photos,
           });
+
+          photos.photos.forEach((photo) => (cachedPhotos[photo.id] = photo));
 
           return photos;
         }

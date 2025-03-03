@@ -1,12 +1,17 @@
 import type { Photo } from "~/api/pexels";
 
-import type { ICachedPhotoSize } from ".";
+import type { IDownloadedPhotoSize } from ".";
 
 export const getPhotoUrl = (
-  { src: { original }, width }: Photo,
-  { devicePixelRatio, widthPx }: ICachedPhotoSize
+  { src: { original }, width, height }: Photo,
+  { devicePixelRatio, widthPx, heightPx }: IDownloadedPhotoSize
 ): string => {
   const urlFragments = [`${original}?auto=compress&cs=tinysrgb`];
+
+  if (height && heightPx) {
+    const aspectRatioOriginal = width / height;
+    widthPx = Math.min(heightPx * aspectRatioOriginal, widthPx);
+  }
 
   widthPx = Math.floor(widthPx + 0.25);
 

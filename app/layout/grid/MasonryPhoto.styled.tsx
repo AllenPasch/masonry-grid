@@ -6,7 +6,6 @@ import MasonryPhoto from "./MasonryPhoto";
 
 const MasonryPhotoStyled = styled(MasonryPhoto)`
   background: ${({ photoBreakpoints }) => photoBreakpoints.photo.avg_color};
-  position: absolute;
 
   ${({ photoBreakpoints: { breakpoints } }) =>
     BREAKPOINTS_PX.map((breakpointPx, breakpointIndex) => {

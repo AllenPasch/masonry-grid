@@ -4,13 +4,13 @@ import { usePhotos } from "~/api/pexels";
 import { getDesiredPageNumber, getMinGridHeightVws } from "~/helper/grid";
 import { useVisiblePhotos } from "~/helper/photo";
 import { useHtmlClientDimensions, useScrollY } from "~/helper/screen";
-import { useMasonryReducer } from "~/reducer";
+import { useReducer } from "~/reducer";
 import MasonryGridStyled from "./MasonryGrid.styled";
 
 const MasonryGridContainer = () => {
   const htmlClientDimensions = useHtmlClientDimensions();
   const scrollY = useScrollY();
-  const [{ search }, dispatch] = useMasonryReducer();
+  const [{ search }, dispatch] = useReducer();
   const searchResults = search.results[search.query];
 
   const minHeightVws = useMemo(

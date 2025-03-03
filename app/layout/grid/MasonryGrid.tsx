@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 import type { IPhotoBreakpoints } from "~/helper/grid";
-import MasonryPhotoContainer from "./MasonryPhoto.container";
+import MasonryLinkStyled from "./MasonryLink.styled";
 
 interface IProps {
   readonly minHeightVws: readonly number[];
@@ -11,12 +11,20 @@ interface IProps {
 
 const MasonryGrid = ({ visiblePhotos, className }: IProps) => (
   <div className={className}>
-    {visiblePhotos.map((photoBreakpoints) => (
-      <MasonryPhotoContainer
-        photoBreakpoints={photoBreakpoints}
-        key={photoBreakpoints.photo.id}
-      />
-    ))}
+    {visiblePhotos.map((photoBreakpoints) => {
+      const {
+        photo: { id },
+        pageNumber,
+        indexInPage,
+      } = photoBreakpoints;
+
+      return (
+        <MasonryLinkStyled
+          photoBreakpoints={photoBreakpoints}
+          key={[id, pageNumber, indexInPage].join()}
+        />
+      );
+    })}
   </div>
 );
 

@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import type { UseQueryResult } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 import type { Dispatch } from "~/reducer";
 import { cachedPhotos } from "./cache";
@@ -30,26 +31,30 @@ export const usePhotos = (
           })
         : client.photos.curated({ page: pageNumber, per_page: PAGE_SIZE });
 
-      return photosPromise.then((photosWithExtraFields) => {
-        if ("error" in photosWithExtraFields) {
-          throw photosWithExtraFields;
+      return photosPromise.then((photos) => {
+        if ("error" in photos) {
+          throw photos;
         } else {
-          const photos = prunePhotos(photosWithExtraFields);
-
-          dispatch({
-            type: "addPageResults",
-            query: searchQuery,
-            pageNumber,
-            photos,
-          });
-
-          photos.photos.forEach((photo) => (cachedPhotos[photo.id] = photo));
-
-          return photos;
+          return prunePhotos(photos);
         }
       });
     },
   });
+
+  const { data: photos } = result;
+
+  useEffect(() => {
+    if (photos) {
+      dispatch({
+        type: "addPageResults",
+        query: searchQuery,
+        pageNumber,
+        photos,
+      });
+
+      photos.photos.forEach((photo) => (cachedPhotos[photo.id] = photo));
+    }
+  }, [photos]);
 
   return result;
 };

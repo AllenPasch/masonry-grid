@@ -8,6 +8,7 @@ import { useHtmlClientDimensions, useScrollY } from "~/helper/screen";
 import { getSearchResults, hasMorePages } from "~/helper/search";
 
 import MasonryGridStyled from "./MasonryGrid.styled";
+import SearchBar from "./SearchBar";
 
 const MasonryGridContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -44,13 +45,14 @@ const MasonryGridContainer = () => {
   useEffect(() => setFirstRender(false));
 
   return (
-    <MasonryGridStyled
-      minHeightVws={minHeightVws}
-      morePages={morePages}
-      searchQuery={searchQuery}
-      setSearchQuery={setSearchQuery}
-      visiblePhotos={visiblePhotos}
-    />
+    <>
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <MasonryGridStyled
+        minHeightVws={minHeightVws}
+        morePages={morePages}
+        visiblePhotos={visiblePhotos}
+      />
+    </>
   );
 };
 

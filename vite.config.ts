@@ -26,19 +26,6 @@ export default defineConfig({
         passes: 5,
         pure_getters: true,
         toplevel: true,
-        unsafe: true,
-        unsafe_arrows: true,
-        unsafe_comps: true,
-        unsafe_Function: true,
-        unsafe_math: true,
-        unsafe_symbols: true,
-        unsafe_methods: true,
-        unsafe_proto: true,
-        unsafe_regexp: true,
-        unsafe_undefined: true,
-
-        // Causes back button from Photo Details to show a white screen:
-        // booleans_as_integers: true,
       },
       // See https://terser.org/docs/options/#mangle-options
       mangle: {

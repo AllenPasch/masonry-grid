@@ -13,6 +13,11 @@ export default defineConfig({
   build: {
     commonjsOptions: { transformMixedEsModules: true },
 
+    rollupOptions: {
+      // See https://rollupjs.org/configuration-options/#treeshake
+      treeshake: "smallest",
+    },
+
     minify: "terser",
     terserOptions: {
       // See https://terser.org/docs/options/#compress-options
@@ -36,11 +41,6 @@ export default defineConfig({
       format: {
         ecma: 2020,
       },
-    },
-
-    rollupOptions: {
-      // See https://rollupjs.org/configuration-options/#treeshake
-      treeshake: "smallest",
     },
 
     sourcemap: process.env.SOURCE_MAPS === "true",

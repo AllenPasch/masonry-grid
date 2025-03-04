@@ -98,3 +98,19 @@ I tried out different photo widths for the `srcset` attribute, and got good Page
 |                     Mobile                      |                      Desktop                      |
 | :---------------------------------------------: | :-----------------------------------------------: |
 | ![Mobile](./docs/performance/srcset/mobile.png) | ![Desktop](./docs/performance/srcset/desktop.png) |
+
+### Rollup & Terser Options
+
+I fixed the "Reduce unused JavaScript" performance problem reported by PageSpeed Insights by configuring:
+
+- Rollup to use `"smallest"` for tree shaking.
+- Terser to run more compression and mangling rules.
+
+PageSpeed Insights now:
+
+- Reports a 100% Performance score for both Mobile and Desktop.
+- Does not complain about anything.
+
+|                         Mobile                         |                         Desktop                          |
+| :----------------------------------------------------: | :------------------------------------------------------: |
+| ![Mobile](./docs/performance/rollup-terser/mobile.png) | ![Desktop](./docs/performance/rollup-terser/desktop.png) |

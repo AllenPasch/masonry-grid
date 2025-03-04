@@ -31,7 +31,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }: IProps) => (
           border-radius: 32px;
           color: #fff;
           font-family: inherit;
-          font-size: 14px;
+          font-size: 16px;
           padding-left: 14px;
           padding-top: 8px;
           padding-bottom: 8px;
@@ -44,6 +44,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }: IProps) => (
             opacity: 1;
           }
         `}
+        aria-label="Search"
       />
     </div>
   </div>

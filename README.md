@@ -22,6 +22,21 @@ Build the project.
 
 ![Architecture](./docs/architecture.drawio.png)
 
+## Design Decisions
+
+### Amazon CloudFront
+
+- ✅ Great for low traffic websites, since it keeps content in the cache.
+- ✅ On a cache miss, responds to a request the moment the origin (e.g. S3) responds to the request.
+
+(Neither of the above is true for Akamai.)
+
+### Amazon S3
+
+- ✅ Cheap and easy.
+- ❌ Slow.
+  - A further performance optimization would be to use a backend that keeps the content in memory.
+
 ## Performance
 
 ### styled-components → Emotion CSS

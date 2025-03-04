@@ -45,6 +45,15 @@ export default defineConfig({
         eval: true,
         toplevel: true,
       },
+      // See https://terser.org/docs/options/#format-options
+      format: {
+        ecma: 2020,
+      },
+    },
+
+    rollupOptions: {
+      // See https://rollupjs.org/configuration-options/#treeshake
+      treeshake: "smallest",
     },
 
     sourcemap: process.env.SOURCE_MAPS === "true",

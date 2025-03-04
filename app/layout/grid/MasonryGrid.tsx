@@ -1,16 +1,16 @@
-import { memo, type Dispatch, type SetStateAction } from "react";
+import { memo } from "react";
 
 import { type IPhotoBreakpoints } from "~/helper/grid";
 
 import Footer from "./Footer";
 import MasonryLinkStyled from "./MasonryLink.styled";
-import SearchBarContainer from "./SearchBar.container";
+import SearchBar from "./SearchBar";
 
 interface IProps {
   readonly minHeightVws: readonly number[];
   readonly morePages: boolean;
   readonly searchQuery: string;
-  readonly setSearchQuery: Dispatch<SetStateAction<string>>;
+  readonly setSearchQuery: (searchQuery: string) => void;
   readonly visiblePhotos: readonly IPhotoBreakpoints[];
   readonly className?: string;
 }
@@ -22,10 +22,7 @@ const MasonryGrid = ({
   className,
 }: IProps) => (
   <>
-    <SearchBarContainer
-      searchQuery={searchQuery}
-      setSearchQuery={setSearchQuery}
-    />
+    <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
     <div className={className}>
       {visiblePhotos.map((photoBreakpoints) => {
         const {

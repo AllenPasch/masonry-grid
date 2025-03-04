@@ -1,4 +1,5 @@
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router";
 
 import { usePhotos } from "~/api/pexels";
 import { getDesiredPageNumber, getMinGridHeightVws } from "~/helper/grid";
@@ -9,10 +10,16 @@ import { getSearchResults, hasMorePages } from "~/helper/search";
 import MasonryGridStyled from "./MasonryGrid.styled";
 
 const MasonryGridContainer = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") || "";
+  const setSearchQuery = useCallback((searchQuery: string) => {
+    const params = searchQuery ? { search: searchQuery } : undefined;
+    setSearchParams(params, { replace: true });
+  }, []);
+
   const [firstRender, setFirstRender] = useState(true);
   const htmlClientDimensions = useHtmlClientDimensions();
   const scrollY = useScrollY();
-  const [searchQuery, setSearchQuery] = useState("");
   const pageNumber = getDesiredPageNumber(
     getSearchResults(searchQuery),
     htmlClientDimensions,

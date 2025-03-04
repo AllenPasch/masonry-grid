@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
-import { memo, type Dispatch, type SetStateAction } from "react";
+import { memo } from "react";
 
 interface IProps {
   readonly searchQuery: string;
-  readonly setSearchQuery: Dispatch<SetStateAction<string>>;
+  readonly setSearchQuery: (searchQuery: string) => void;
 }
 
 const SearchBar = ({ searchQuery, setSearchQuery }: IProps) => (

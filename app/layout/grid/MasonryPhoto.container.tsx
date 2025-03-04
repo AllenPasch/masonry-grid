@@ -1,7 +1,9 @@
 import { memo } from "react";
 
-import type { IPhotoBreakpoints } from "~/helper/grid";
-import { usePhotoUrl } from "~/helper/photo";
+import { type IPhotoBreakpoints } from "~/helper/grid";
+import { getAlt } from "~/helper/photo";
+import { usePhotoUrls } from "~/helper/photo/url";
+
 import MasonryPhotoStyled from "./MasonryPhoto.styled";
 
 interface IProps {
@@ -9,9 +11,10 @@ interface IProps {
 }
 
 const MasonryPhotoContainer = ({ photoBreakpoints }: IProps) => {
-  const url = usePhotoUrl(photoBreakpoints);
+  const alt = getAlt(photoBreakpoints.photo);
+  const urls = usePhotoUrls(photoBreakpoints);
 
-  return <MasonryPhotoStyled photoBreakpoints={photoBreakpoints} url={url} />;
+  return <MasonryPhotoStyled alt={alt} photoBreakpoints={photoBreakpoints} urls={urls} />;
 };
 
 export default memo(MasonryPhotoContainer);

@@ -1,6 +1,6 @@
-import type { IPhoto } from "~/api/pexels";
+import { type IPhoto } from "~/api/pexels";
 
-import { getHeight } from ".";
+import { getHeight } from "./getHeight";
 
 describe("getHeight()", () => {
   test("A photo with half the width should have half the height.", () => {

@@ -1,7 +1,8 @@
+import { type IPhotoBreakpoints } from "~/helper/grid";
+import { type IHtmlClientDimensions } from "~/helper/screen";
+import { type ISearchResults } from "~/helper/search";
+
 import { getBreakpointIndex } from "../grid/layout";
-import type { IPhotoBreakpoints } from "~/helper/grid";
-import type { IHtmlClientDimensions } from "~/helper/screen";
-import type { ISearchResults } from "~/helper/search";
 
 export const getVisiblePhotos = (
   { pages, query }: ISearchResults,

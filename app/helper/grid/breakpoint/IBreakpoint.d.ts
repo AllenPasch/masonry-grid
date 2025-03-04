@@ -1,4 +1,4 @@
-import type { IPhotoPosition, ColumnTopVws } from "../layout";
+import { type IPhotoPosition, type ColumnTopVws } from "../layout";
 
 export interface IBreakpoint {
   readonly photoPositions: readonly IPhotoPosition[];

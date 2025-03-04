@@ -1,5 +1,5 @@
 import { Duration, Stack } from "aws-cdk-lib";
-import type { StackProps } from "aws-cdk-lib";
+import { type StackProps } from "aws-cdk-lib";
 import { S3StaticWebsiteOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
 import {
   AllowedMethods,

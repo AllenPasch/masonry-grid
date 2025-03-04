@@ -1,5 +1,6 @@
-import type { Photo } from "pexels";
-import type { IPhoto } from ".";
+import { type Photo } from "pexels";
+
+import { type IPhoto } from ".";
 
 export const prunePhoto = ({
   id,

@@ -1,9 +1,10 @@
-import type { IPhoto } from "~/api/pexels";
+import { type IPhoto } from "~/api/pexels";
 import { BREAKPOINTS_PX } from "~/helper/grid";
-import type { IPage, IPhotoBreakpoints } from "~/helper/grid";
-import type { IHtmlClientDimensions } from "~/helper/screen";
-import type { ISearchResults } from "~/helper/search";
-import { getVisiblePhotos } from ".";
+import { type IPage, type IPhotoBreakpoints } from "~/helper/grid";
+import { type IHtmlClientDimensions } from "~/helper/screen";
+import { type ISearchResults } from "~/helper/search";
+
+import { getVisiblePhotos } from "./getVisiblePhotos";
 
 describe("getVisiblePhotos()", () => {
   test("Before the pexels API responds, no photos are visible.", () => {

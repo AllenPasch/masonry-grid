@@ -1,8 +1,8 @@
+export { HAS_WINDOW } from "./constant";
 export { getDevicePixelRatio } from "./getDevicePixelRatio";
 export { getHtmlClientDimensions } from "./getHtmlClientDimensions";
 export { getHtmlClientHeight } from "./getHtmlClientHeight";
 export { getHtmlClientWidth } from "./getHtmlClientWidth";
-export { HAS_WINDOW } from "./HAS_WINDOW";
 export { htmlElement } from "./htmlElement";
 export type { IHtmlClientDimensions } from "./IHtmlClientDimensions";
 export { useHtmlClientDimensions } from "./useHtmlClientDimensions";

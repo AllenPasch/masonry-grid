@@ -1,15 +1,16 @@
 import findLast from "lodash/findLast";
 
-import type { IHtmlClientDimensions } from "~/helper/screen";
-import type { ISearchResults } from "~/helper/search";
-import { getScrollYMidpoint } from ".";
+import { type IHtmlClientDimensions } from "~/helper/screen";
+import { type ISearchResults } from "~/helper/search";
+
+import { getScrollYMidpoint } from "./getScrollYMidpoint";
 
 export const getDesiredPageNumber = (
   { pages }: ISearchResults,
   htmlClientDimensions: IHtmlClientDimensions,
   scrollY: number
 ) => {
-  const page = findLast(pages, (page) => !!page);
+  const page = findLast(pages, Boolean);
   if (!page) {
     return 1;
   }

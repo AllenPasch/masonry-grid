@@ -1,10 +1,12 @@
 import { memo } from "react";
 
-import type { IPhotoBreakpoints } from "~/helper/grid";
+import { type IPhotoBreakpoints } from "~/helper/grid";
+
 import MasonryLinkStyled from "./MasonryLink.styled";
 
 interface IProps {
   readonly minHeightVws: readonly number[];
+  readonly morePages: boolean;
   readonly visiblePhotos: readonly IPhotoBreakpoints[];
   readonly className?: string;
 }

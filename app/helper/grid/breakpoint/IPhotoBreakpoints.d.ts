@@ -1,5 +1,6 @@
-import type { IPhoto } from "~/api/pexels";
-import type { IPhotoPosition } from "..";
+import { type IPhoto } from "~/api/pexels";
+
+import { type IPhotoPosition } from "..";
 
 export interface IPhotoBreakpoints {
   readonly photo: IPhoto;

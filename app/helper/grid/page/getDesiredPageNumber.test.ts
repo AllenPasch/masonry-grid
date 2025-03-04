@@ -1,8 +1,9 @@
-import type { IHtmlClientDimensions } from "~/helper/screen";
-import type { ISearchResults } from "~/helper/search";
-import type { IBreakpoint } from "..";
-import { getDesiredPageNumber } from ".";
-import type { IPage } from ".";
+import { type IHtmlClientDimensions } from "~/helper/screen";
+import { type ISearchResults } from "~/helper/search";
+
+import { type IBreakpoint } from "..";
+import { type IPage } from ".";
+import { getDesiredPageNumber } from "./getDesiredPageNumber";
 
 describe("getDesiredPageNumber()", () => {
   test("Before the pexels API responds, the desired page number is 1.", () => {

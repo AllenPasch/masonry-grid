@@ -1,4 +1,4 @@
-import { windowNode } from ".";
+import { windowNode } from "./windowNode";
 
-export const getDevicePixelRatio = (matchServer: boolean = false): number =>
-  (!matchServer && windowNode?.devicePixelRatio) || 1;
+export const getDevicePixelRatio = (): number =>
+  windowNode?.devicePixelRatio || 1;

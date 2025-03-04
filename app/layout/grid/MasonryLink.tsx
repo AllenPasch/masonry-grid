@@ -1,8 +1,9 @@
 import { memo } from "react";
 import { Link } from "react-router";
 
-import type { IPhotoBreakpoints } from "~/helper/grid";
+import { type IPhotoBreakpoints } from "~/helper/grid";
 import { TITLE } from "~/routes/PhotoDetails.lazy";
+
 import MasonryPhotoContainer from "./MasonryPhoto.container";
 
 interface IProps {

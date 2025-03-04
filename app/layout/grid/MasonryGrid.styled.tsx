@@ -2,18 +2,19 @@ import styled from "@emotion/styled";
 import { memo } from "react";
 
 import { BREAKPOINTS_PX } from "~/helper/grid";
+import { mediaQuery } from "~/helper/style";
+
 import MasonryGrid from "./MasonryGrid";
 
 const MasonryGridStyled = styled(MasonryGrid)`
-  ${({ minHeightVws }) =>
+  ${({ minHeightVws, morePages }) =>
     BREAKPOINTS_PX.map((breakpointPx, breakpointIndex) => {
-      const minHeightVw = minHeightVws[breakpointIndex];
+      let minHeightVw = minHeightVws[breakpointIndex];
+      if (morePages) {
+        minHeightVw += 100;
+      }
 
-      return `
-        @media (min-width: ${breakpointPx}px) {
-          min-height: calc(${minHeightVw}vw);
-        }
-      `;
+      return mediaQuery(breakpointPx, `min-height: calc(${minHeightVw}vw);`);
     })}
 `;
 

@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 
-import type { IProps } from "./PhotoDetails";
+import { type IProps } from "./PhotoDetails";
 
 export const TITLE = "Photo Details";
 

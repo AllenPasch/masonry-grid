@@ -1,10 +1,9 @@
-import type { IPhoto, IPhotos } from "~/api/pexels";
+import { type IPhoto, type IPhotos } from "~/api/pexels";
 
-import type { IBreakpoint } from "../breakpoint";
-import { SPACING_TOP_VW } from "../layout";
-import type { ColumnTopVws } from "../layout";
-import { fillPage } from ".";
-import type { IPage } from ".";
+import { type IBreakpoint } from "../breakpoint";
+import { SPACING_TOP_VW, type ColumnTopVws } from "../layout";
+import { type IPage } from ".";
+import { fillPage } from "./fillPage";
 
 describe("fillPage()", () => {
   test("At the top of the window, maxColumnCount breakpoints are created, and the first photos are added in each breakpoint.", () => {

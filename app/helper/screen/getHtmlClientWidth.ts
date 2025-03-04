@@ -1,4 +1,4 @@
-import { htmlElement } from ".";
+import { htmlElement } from "./htmlElement";
 
 /**
  * How wide of a screen to generate static content for.
@@ -7,7 +7,5 @@ import { htmlElement } from ".";
  */
 const STATIC_GENERATION_HTML_CLIENT_WIDTH = 768;
 
-export const getHtmlClientWidth = (matchServer: boolean = false): number =>
-  htmlElement && !matchServer
-    ? htmlElement.clientWidth
-    : STATIC_GENERATION_HTML_CLIENT_WIDTH;
+export const getHtmlClientWidth = (): number =>
+  htmlElement ? htmlElement.clientWidth : STATIC_GENERATION_HTML_CLIENT_WIDTH;

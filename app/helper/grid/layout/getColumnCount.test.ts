@@ -1,4 +1,5 @@
-import { BREAKPOINTS_PX, getColumnCount, MAX_COLUMN_COUNT } from ".";
+import { BREAKPOINTS_PX, MAX_COLUMN_COUNT } from "./constant";
+import { getColumnCount } from "./getColumnCount";
 
 describe("getColumnCount()", () => {
   test("Tiny screens only have 1 column.", () => {

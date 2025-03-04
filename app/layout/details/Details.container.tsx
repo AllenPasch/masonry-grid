@@ -1,6 +1,7 @@
 import { memo } from "react";
 
 import { usePhoto } from "~/api/pexels";
+
 import Details from "./Details";
 
 interface IProps {

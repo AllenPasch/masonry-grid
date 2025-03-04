@@ -75,9 +75,42 @@ I fixed the biggest performance problems mentioned by PageSpeed Insights by sett
 - React Query to:
   - Call the Pexels API during build time.
   - [Dehydrate and hydrate](https://tanstack.com/query/latest/docs/framework/react/reference/hydration) its cache.
-- Sticky image URLs for the images included in the static HTML.
+- Sticky photo URLs for the photos included in the static HTML.
 
 |                      Mobile                       |                       Desktop                       |
 | :-----------------------------------------------: | :-------------------------------------------------: |
 |          ✅ 94% → 97% Performance Score           |           ✅ 99% → 100% Performance Score           |
+|        ❌ 100% → 96% Best Practices Score         |            ✅ 100% Best Practices Score             |
 | ![Mobile](./docs/performance/hydrated/mobile.png) | ![Desktop](./docs/performance/hydrated/desktop.png) |
+
+### `srcset` and `sizes` for Photos in Static HTML
+
+Based on the Best Practices issue above, I realized I needed to use `srcset` and `sizes` to load the photos in the static HTML.
+
+| Photo Widths in `srcset`          | Mobile Best Practices Score | Mobile Performance Score | Desktop Performance Score |
+| --------------------------------- | :-------------------------: | :----------------------: | :-----------------------: |
+| 144, 160, 176, 192, 208           |           ❌ 96%            |          ❌ 97%          |          ✅ 100%          |
+| 144, 160, 176, 192, 208, 216      |           ✅ 100%           | ❌ 97%, 98%, ✅ 2x 100%  |          ✅ 100%          |
+| 144, 160, 176, 192, 208, 216, 224 |           ✅ 100%           |          ❌ 97%          |          ✅ 100%          |
+
+I tried out different photo widths for the `srcset` attribute, and got good PageSpeed Insights scores with `144, 160, 176, 192, 208, 216`.
+
+|                     Mobile                      |                      Desktop                      |
+| :---------------------------------------------: | :-----------------------------------------------: |
+| ![Mobile](./docs/performance/srcset/mobile.png) | ![Desktop](./docs/performance/srcset/desktop.png) |
+
+### Rollup & Terser Options
+
+I fixed the "Reduce unused JavaScript" performance problem reported by PageSpeed Insights by configuring:
+
+- Rollup to use `"smallest"` for tree shaking.
+- Terser to run more compression and mangling rules.
+
+PageSpeed Insights now:
+
+- Reports a 100% Performance score for both Mobile and Desktop.
+- Does not complain about anything.
+
+|                         Mobile                         |                         Desktop                          |
+| :----------------------------------------------------: | :------------------------------------------------------: |
+| ![Mobile](./docs/performance/rollup-terser/mobile.png) | ![Desktop](./docs/performance/rollup-terser/desktop.png) |

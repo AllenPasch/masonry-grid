@@ -1,25 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 
-import { addPage } from "~/helper/search/cache";
-import { cachedPhotos } from "./cache";
-import { getPhotosQueryOptions, usePexelsClient } from ".";
+import { cachePage } from "~/helper/search/cache";
+
+import { cachePhoto } from "./cache";
+import { getPhotosQueryOptions } from "./getPhotosQueryOptions";
 
 /**
  * @see https://www.pexels.com/api/documentation/#photos-curated
  * @see https://www.pexels.com/api/documentation/#photos-search
  */
 export const usePhotos = (pageNumber: number, searchQuery: string) => {
-  const client = usePexelsClient();
-
-  const queryOptions = getPhotosQueryOptions(client, pageNumber, searchQuery);
+  const queryOptions = getPhotosQueryOptions(pageNumber, searchQuery);
   const queryResult = useQuery(queryOptions);
-  const { data } = queryResult;
+  const { data: photos } = queryResult;
 
   useMemo(() => {
-    if (data) {
-      addPage(searchQuery, pageNumber, data);
-      data.photos.forEach((photo) => (cachedPhotos[photo.id] = photo));
+    if (photos) {
+      cachePage(photos);
+      photos.photos.forEach(cachePhoto);
     }
-  }, [data]);
+  }, [photos]);
 };

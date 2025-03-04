@@ -1,9 +1,9 @@
-import type { IPhotos } from "~/api/pexels";
+import { type IPhotos } from "~/api/pexels";
 
 import { fillBreakpoint, initializeColumnTopVws } from "../breakpoint";
 import { MAX_COLUMN_COUNT } from "../layout";
-import { inStaticHtml } from ".";
-import type { IPage } from ".";
+import { type IPage } from ".";
+import { inStaticHtml } from "./inStaticHtml";
 
 export const fillPage = (
   searchQuery: string,
@@ -33,7 +33,7 @@ export const fillPage = (
     })
   );
 
-  const morePages = !!next_page;
+  const morePages = Boolean(next_page);
 
   return {
     breakpoints,

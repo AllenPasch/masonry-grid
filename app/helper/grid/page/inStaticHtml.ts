@@ -1,8 +1,8 @@
-const PHOTOS_IN_STATIC_HTML = 25;
+import { STATIC_HTML_PHOTO_COUNT } from "./constant";
 
 export const inStaticHtml = (
   searchQuery: string,
   pageNumber: number,
   indexInPage: number
 ): boolean =>
-  !searchQuery && pageNumber === 1 && indexInPage < PHOTOS_IN_STATIC_HTML;
+  !searchQuery && pageNumber === 1 && indexInPage < STATIC_HTML_PHOTO_COUNT;

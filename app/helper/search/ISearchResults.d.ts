@@ -1,4 +1,4 @@
-import type { IPage } from "~/helper/grid";
+import { type IPage } from "~/helper/grid";
 
 export interface ISearchResults {
   readonly query: string;

@@ -1,4 +1,4 @@
-import { getNextColumnIndex } from ".";
+import { getNextColumnIndex } from "./getNextColumnIndex";
 
 describe("getNextColumnIndex()", () => {
   test("Photos are added to the column with the lowest nextColumnTopVw.", () => {

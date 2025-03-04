@@ -1,4 +1,5 @@
-import { getWidthVw, SPACING_BETWEEN_VW, SPACING_SIDES_VW } from ".";
+import { SPACING_BETWEEN_VW, SPACING_SIDES_VW } from "./constant";
+import { getWidthVw } from "./getWidthVw";
 
 export const getPositionLeftVw = (
   columnCount: number,

@@ -1,4 +1,4 @@
-import { getBackButtonTo } from ".";
+import { getBackButtonTo } from "./getBackButtonTo";
 
 describe("getBackButtonTo", () => {
   test("Go back, if window.history.state says there's 1 previous page.", () => {

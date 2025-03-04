@@ -1,6 +1,6 @@
-import type { IPhoto } from "~/api/pexels";
+import { type IPhoto } from "~/api/pexels";
 
-import { fillBreakpoint } from ".";
+import { fillBreakpoint } from "./fillBreakpoint";
 
 describe("fillBreakpoint()", () => {
   test("At the top of the window, the first 2 photos are added to column 0 and column 1.", () => {

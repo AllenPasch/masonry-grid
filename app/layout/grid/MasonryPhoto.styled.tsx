@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import { memo } from "react";
 
 import { BREAKPOINTS_PX } from "~/helper/grid";
+import { mediaQuery } from "~/helper/style";
+
 import MasonryPhoto from "./MasonryPhoto";
 
 const MasonryPhotoStyled = styled(MasonryPhoto)`
@@ -11,14 +13,15 @@ const MasonryPhotoStyled = styled(MasonryPhoto)`
     BREAKPOINTS_PX.map((breakpointPx, breakpointIndex) => {
       const { leftVw, topVw, widthVw, heightVw } = breakpoints[breakpointIndex];
 
-      return `
-        @media (min-width: ${breakpointPx}px) {
+      return mediaQuery(
+        breakpointPx,
+        `
           left: calc(${leftVw}vw);
           top: calc(${topVw}vw);
           width: calc(${widthVw}vw);
           height: calc(${heightVw}vw);
-        }
-      `;
+      `
+      );
     })}
 `;
 

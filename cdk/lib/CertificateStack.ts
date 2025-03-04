@@ -1,5 +1,4 @@
-import { Stack } from "aws-cdk-lib";
-import type { StackProps } from "aws-cdk-lib";
+import { Stack, type StackProps } from "aws-cdk-lib";
 import {
   Certificate,
   CertificateValidation,

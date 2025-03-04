@@ -2,6 +2,7 @@ import { memo } from "react";
 
 import { type IPhotoBreakpoints } from "~/helper/grid";
 
+import Footer from "./Footer";
 import MasonryLinkStyled from "./MasonryLink.styled";
 
 interface IProps {
@@ -12,22 +13,25 @@ interface IProps {
 }
 
 const MasonryGrid = ({ visiblePhotos, className }: IProps) => (
-  <div className={className}>
-    {visiblePhotos.map((photoBreakpoints) => {
-      const {
-        photo: { id },
-        pageNumber,
-        indexInPage,
-      } = photoBreakpoints;
+  <>
+    <div className={className}>
+      {visiblePhotos.map((photoBreakpoints) => {
+        const {
+          photo: { id },
+          pageNumber,
+          indexInPage,
+        } = photoBreakpoints;
 
-      return (
-        <MasonryLinkStyled
-          photoBreakpoints={photoBreakpoints}
-          key={[id, pageNumber, indexInPage].join()}
-        />
-      );
-    })}
-  </div>
+        return (
+          <MasonryLinkStyled
+            photoBreakpoints={photoBreakpoints}
+            key={[id, pageNumber, indexInPage].join()}
+          />
+        );
+      })}
+    </div>
+    <Footer />
+  </>
 );
 
 export default memo(MasonryGrid);

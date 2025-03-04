@@ -6,8 +6,14 @@ interface IProps {
   readonly setSearchQuery: Dispatch<SetStateAction<string>>;
 }
 
-const SearchBar = ({ searchQuery }: IProps) => (
-  <div css={css``}>search: {searchQuery}</div>
+const SearchBar = ({ searchQuery, setSearchQuery }: IProps) => (
+  <div css={css``}>
+    <input
+      type="search"
+      value={searchQuery}
+      onChange={({ target: { value } }) => setSearchQuery(value)}
+    />
+  </div>
 );
 
 export default memo(SearchBar);

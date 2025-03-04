@@ -9,11 +9,10 @@ import { getSearchResults, hasMorePages } from "~/helper/search";
 import MasonryGridStyled from "./MasonryGrid.styled";
 
 const MasonryGridContainer = () => {
-  const [searchQuery] = useState(""); // TODO: Allow the user to search.
-
   const [firstRender, setFirstRender] = useState(true);
   const htmlClientDimensions = useHtmlClientDimensions();
   const scrollY = useScrollY();
+  const [searchQuery, setSearchQuery] = useState("");
   const pageNumber = getDesiredPageNumber(
     getSearchResults(searchQuery),
     htmlClientDimensions,
@@ -41,6 +40,8 @@ const MasonryGridContainer = () => {
     <MasonryGridStyled
       minHeightVws={minHeightVws}
       morePages={morePages}
+      searchQuery={searchQuery}
+      setSearchQuery={setSearchQuery}
       visiblePhotos={visiblePhotos}
     />
   );

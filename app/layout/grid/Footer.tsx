@@ -1,11 +1,7 @@
 import { css } from "@emotion/react";
 import { memo } from "react";
 
-interface IProps {
-  readonly className?: string;
-}
-
-const Footer = ({ className }: IProps) => (
+const Footer = () => (
   <div
     css={css`
       cursor: default;

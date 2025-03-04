@@ -4,7 +4,7 @@ import { type IPhotoBreakpoints } from "~/helper/grid";
 
 import Footer from "./Footer";
 import MasonryLinkStyled from "./MasonryLink.styled";
-import SearchBar from "./SearchBar";
+import SearchBarContainer from "./SearchBar.container";
 
 interface IProps {
   readonly minHeightVws: readonly number[];
@@ -22,7 +22,10 @@ const MasonryGrid = ({
   className,
 }: IProps) => (
   <>
-    <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+    <SearchBarContainer
+      searchQuery={searchQuery}
+      setSearchQuery={setSearchQuery}
+    />
     <div className={className}>
       {visiblePhotos.map((photoBreakpoints) => {
         const {

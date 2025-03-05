@@ -6,7 +6,9 @@ import {
   CachedMethods,
   CachePolicy,
   Distribution,
+  HeadersFrameOption,
   HttpVersion,
+  ResponseHeadersPolicy,
   ViewerProtocolPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
 import {
@@ -61,6 +63,25 @@ export class CdnStack extends Stack {
 
     const origin = new S3StaticWebsiteOrigin(bucket);
 
+    const responseHeadersPolicy = new ResponseHeadersPolicy(
+      this,
+      "ResponseHeadersPolicy",
+      {
+        securityHeadersBehavior: {
+          frameOptions: {
+            frameOption: HeadersFrameOption.SAMEORIGIN,
+            override: true,
+          },
+          strictTransportSecurity: {
+            accessControlMaxAge: Duration.days(365),
+            includeSubdomains: true,
+            override: true,
+            preload: true,
+          },
+        },
+      }
+    );
+
     const distribution = new Distribution(this, "Distribution", {
       certificate: certificateStack.certificate,
       defaultBehavior: {
@@ -68,6 +89,7 @@ export class CdnStack extends Stack {
         cachedMethods: CachedMethods.CACHE_GET_HEAD_OPTIONS,
         cachePolicy: CachePolicy.CACHING_OPTIMIZED,
         origin,
+        responseHeadersPolicy: responseHeadersPolicy,
         viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
       defaultRootObject: DEFAULT_PATH,

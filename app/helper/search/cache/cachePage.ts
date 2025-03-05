@@ -12,6 +12,19 @@ export const cachePage = (photos: IPhotos) => {
     cachedPages[searchQuery] = pages;
   }
 
+  const previousPhotoIds = new Set<number>();
+  pages.slice(0, pageNumber).forEach((previousPage) => {
+    if (previousPage) {
+      previousPage.photos.forEach(({ photo: { id } }) =>
+        previousPhotoIds.add(id)
+      );
+    }
+  });
+  photos = {
+    ...photos,
+    photos: photos.photos.filter(({ id }) => !previousPhotoIds.has(id)),
+  };
+
   const previousPage = pages[pageNumber - 1];
   const page = fillPage(searchQuery, previousPage, photos);
 

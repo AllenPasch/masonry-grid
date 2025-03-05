@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const SearchBar = ({ searchQuery, setSearchQuery }: IProps) => (
-  <div
+  <header
     css={css`
       position: fixed;
       left: 25vw;
@@ -47,7 +47,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }: IProps) => (
         aria-label="Search"
       />
     </div>
-  </div>
+  </header>
 );
 
 export default memo(SearchBar);

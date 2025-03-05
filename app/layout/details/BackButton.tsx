@@ -20,6 +20,8 @@ const BackButton = ({ to }: IProps) => (
         opacity: 1;
       }
     `}
+    title="Back to Photo Gallery"
+    aria-label="Back to Photo Gallery"
   >
     <div
       css={css`

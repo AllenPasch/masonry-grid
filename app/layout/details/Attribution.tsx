@@ -12,10 +12,14 @@ const Attribution = ({
 }: IProps) => {
   alt = alt && alt.trim();
   photographer = photographer && photographer.trim();
+  if (alt && photographer) {
+    alt = alt.replace(/\.$/, "");
+  }
 
   return (
     <figcaption
       css={css`
+        cursor: default;
         text-align: center;
       `}
     >
@@ -42,7 +46,7 @@ const Attribution = ({
           <span
             css={css`
               color: var(--foreground);
-              opacity: 0.5;
+              opacity: 0.75;
             `}
           >
             {" "}

@@ -21,7 +21,7 @@ const Details = ({ photo }: IProps) => (
         }
       `}
     />
-    <div
+    <main
       css={css`
         display: flex;
         flex-direction: column;
@@ -63,7 +63,7 @@ const Details = ({ photo }: IProps) => (
       >
         <LargePhotoContainer photo={photo} />
       </div>
-    </div>
+    </main>
   </>
 );
 

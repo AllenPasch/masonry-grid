@@ -2,11 +2,11 @@ import { css } from "@emotion/react";
 import { memo } from "react";
 
 const Footer = () => (
-  <div
+  <footer
     css={css`
       cursor: default;
       font-size: 14px;
-      padding: 16px;
+      padding: 67px 16px 16px;
       text-align: center;
     `}
   >
@@ -21,7 +21,7 @@ const Footer = () => (
       Pexels
     </a>
     .
-  </div>
+  </footer>
 );
 
 export default memo(Footer);

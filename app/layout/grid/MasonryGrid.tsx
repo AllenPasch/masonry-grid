@@ -14,7 +14,7 @@ interface IProps {
 
 const MasonryGrid = ({ visiblePhotos, className }: IProps) => (
   <>
-    <div className={className}>
+    <main className={className}>
       {visiblePhotos.map((photoBreakpoints) => {
         const {
           photo: { id },
@@ -29,7 +29,7 @@ const MasonryGrid = ({ visiblePhotos, className }: IProps) => (
           />
         );
       })}
-    </div>
+    </main>
     <Footer />
   </>
 );

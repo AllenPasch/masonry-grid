@@ -6,7 +6,9 @@ import {
   CachedMethods,
   CachePolicy,
   Distribution,
+  HeadersFrameOption,
   HttpVersion,
+  ResponseHeadersPolicy,
   ViewerProtocolPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
 import {
@@ -25,6 +27,7 @@ import { Construct } from "constructs";
 import {
   CDN_DOMAIN,
   DEFAULT_PATH,
+  ERROR_PATH,
   ROUTE_53_HOSTED_ZONE_ID,
   ROUTE_53_HOSTED_ZONE_NAME,
   S3_BUCKET_NAME,
@@ -55,10 +58,38 @@ export class CdnStack extends Stack {
 
       versioned: true,
       websiteErrorDocument: DEFAULT_PATH,
-      websiteIndexDocument: DEFAULT_PATH,
+      websiteIndexDocument: ERROR_PATH,
     });
 
     const origin = new S3StaticWebsiteOrigin(bucket);
+
+    const responseHeadersPolicy = new ResponseHeadersPolicy(
+      this,
+      "ResponseHeadersPolicy",
+      {
+        customHeadersBehavior: {
+          customHeaders: [
+            {
+              header: "Cross-Origin-Opener-Policy",
+              value: "same-origin",
+              override: true,
+            },
+          ],
+        },
+        securityHeadersBehavior: {
+          frameOptions: {
+            frameOption: HeadersFrameOption.SAMEORIGIN,
+            override: true,
+          },
+          strictTransportSecurity: {
+            accessControlMaxAge: Duration.days(365),
+            includeSubdomains: true,
+            override: true,
+            preload: true,
+          },
+        },
+      }
+    );
 
     const distribution = new Distribution(this, "Distribution", {
       certificate: certificateStack.certificate,
@@ -67,6 +98,7 @@ export class CdnStack extends Stack {
         cachedMethods: CachedMethods.CACHE_GET_HEAD_OPTIONS,
         cachePolicy: CachePolicy.CACHING_OPTIMIZED,
         origin,
+        responseHeadersPolicy: responseHeadersPolicy,
         viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
       defaultRootObject: DEFAULT_PATH,
@@ -74,7 +106,7 @@ export class CdnStack extends Stack {
       errorResponses: [403, 404].map((httpStatus) => ({
         httpStatus,
         responseHttpStatus: 200,
-        responsePagePath: `/${DEFAULT_PATH}`,
+        responsePagePath: `/${ERROR_PATH}`,
         ttl: Duration.days(30),
       })),
       httpVersion: HttpVersion.HTTP2_AND_3,

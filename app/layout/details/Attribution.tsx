@@ -43,7 +43,7 @@ const Attribution = ({
           <span
             css={css`
               color: var(--foreground);
-              opacity: 0.5;
+              opacity: 0.75;
             `}
           >
             {" "}

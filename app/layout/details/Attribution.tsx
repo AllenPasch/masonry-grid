@@ -16,6 +16,7 @@ const Attribution = ({
   return (
     <figcaption
       css={css`
+        cursor: default;
         text-align: center;
       `}
     >

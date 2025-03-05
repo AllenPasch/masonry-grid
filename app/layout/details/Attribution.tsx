@@ -12,6 +12,9 @@ const Attribution = ({
 }: IProps) => {
   alt = alt && alt.trim();
   photographer = photographer && photographer.trim();
+  if (alt && photographer) {
+    alt = alt.replace(/\.$/, "");
+  }
 
   return (
     <figcaption

@@ -9,13 +9,29 @@ import { queryClient } from "~/api/query";
 
 import MasonryGridContainer from "~/layout/grid/MasonryGrid.container";
 
-export const meta = () => [
-  { title: "Masonry Grid" },
-  {
-    name: "description",
-    content: "Responsive masonry grid, with performance optimizations.",
-  },
-];
+interface IMetaPropsLocation {
+  readonly search: string;
+}
+
+interface IMetaProps {
+  readonly location: IMetaPropsLocation;
+}
+
+export const meta = ({ location: { search } }: IMetaProps) => {
+  const searchQuery = search && new URLSearchParams(search).get("search");
+
+  return [
+    {
+      title: searchQuery
+        ? `${searchQuery} | Search Masonry Grid`
+        : "Masonry Grid",
+    },
+    {
+      name: "description",
+      content: "Responsive masonry grid, with performance optimizations.",
+    },
+  ];
+};
 
 export const loader = async (): Promise<DehydratedState> => {
   const photosQueryOptions = getPhotosQueryOptions(1, "");

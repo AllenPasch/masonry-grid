@@ -129,3 +129,30 @@ PageSpeed Insights now:
 |                         Mobile                         |                         Desktop                          |
 | :----------------------------------------------------: | :------------------------------------------------------: |
 | ![Mobile](./docs/performance/rollup-terser/mobile.png) | ![Desktop](./docs/performance/rollup-terser/desktop.png) |
+
+### `index.html` → `__spa-fallback.html` Error Page
+
+On the Photo Details page, PageSpeed Insights complained about:
+
+- An error logged to the console.
+  - The error was that the Photo Details page was getting hydrated with data from `index.html`, intended for the Masonry Grid.
+- Low Performance scores (only 88% for mobile).
+- In the screenshots, photos for the Masonry Grid loading, then disappearing, then the Photo Details page loading.
+
+Configuring CloudFront to use `__spa-fallback.html` for the error page resolved these issues.
+
+#### Desktop
+
+|                              `index.html`                              |                                 `__spa-fallback.html`                                  |
+| :--------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
+|                        ❌ 99% Performance Score                        |                               ✅ 100% Performance Score                                |
+|                      ❌ 96% Best Practices Score                       |                              ✅ 100% Best Practices Score                              |
+| ![index.html Desktop](./docs/performance/error-page/index/desktop.png) | ![__spa-fallback.html Desktop](./docs/performance/error-page/spa-fallback/desktop.png) |
+
+#### Mobile
+
+|                             `index.html`                             |                                `__spa-fallback.html`                                 |
+| :------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
+|                       ❌ 88% Performance Score                       |                               ✅ 96% Performance Score                               |
+|                     ❌ 96% Best Practices Score                      |                             ✅ 100% Best Practices Score                             |
+| ![index.html Mobile](./docs/performance/error-page/index/mobile.png) | ![__spa-fallback.html Mobile](./docs/performance/error-page/spa-fallback/mobile.png) |

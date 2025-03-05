@@ -137,4 +137,82 @@ describe("cachePage()", () => {
     expect(page2.photos[1].breakpoints[3].photo).toEqual(photo4);
     expect(page2.photos[1].breakpoints[3].columnIndex).toBe(3);
   });
+
+  test(`Discard photos that were already returned on previous pages for the same search query,
+        so the user does not see the same photo twice.`, () => {
+    // Arrange
+    const photo1 = {
+      id: 1,
+      width: 240,
+      height: 120,
+    } as IPhoto;
+    const photo2 = {
+      id: 2,
+      width: 120,
+      height: 240,
+    } as IPhoto;
+
+    const searchQuery = "";
+    const photosPage1: IPhotos = {
+      photos: [photo1, photo2],
+      page: 1,
+      next_page: "https://api.pexels.com/v1/curated?page=2&per_page=80",
+      searchQuery,
+    };
+
+    cachePage(photosPage1);
+
+    const photo3 = {
+      id: 3,
+      width: 240,
+      height: 240,
+    } as IPhoto;
+    const photo4 = {
+      id: 4,
+      width: 480,
+      height: 120,
+    } as IPhoto;
+
+    const photosPage2: IPhotos = {
+      photos: [{ ...photo1 }, photo3, { ...photo2 }, photo4],
+      page: 2,
+      next_page: "https://api.pexels.com/v1/curated?page=3&per_page=80",
+      searchQuery,
+    };
+
+    // Act
+    cachePage(photosPage2);
+
+    const searchResults = getSearchResults(searchQuery);
+
+    // Assert
+    expect(searchResults.pages.length).toBe(3);
+    expect(searchResults.pages[0]).toBeUndefined();
+    expect(searchResults.pages[1]).toBeTruthy();
+
+    const page2 = searchResults.pages[2]!;
+    expect(page2.photos.length).toBe(2);
+
+    expect(page2.photos[0].photo).toEqual(photo3);
+    expect(page2.photos[0].breakpoints.length).toBe(MAX_COLUMN_COUNT);
+    expect(page2.photos[0].breakpoints[0].photo).toEqual(photo3);
+    expect(page2.photos[0].breakpoints[0].columnIndex).toBe(0);
+    expect(page2.photos[0].breakpoints[1].photo).toEqual(photo3);
+    expect(page2.photos[0].breakpoints[1].columnIndex).toBe(0);
+    expect(page2.photos[0].breakpoints[2].photo).toEqual(photo3);
+    expect(page2.photos[0].breakpoints[2].columnIndex).toBe(2);
+    expect(page2.photos[0].breakpoints[3].photo).toEqual(photo3);
+    expect(page2.photos[0].breakpoints[3].columnIndex).toBe(2);
+
+    expect(page2.photos[1].photo).toEqual(photo4);
+    expect(page2.photos[1].breakpoints.length).toBe(MAX_COLUMN_COUNT);
+    expect(page2.photos[1].breakpoints[0].photo).toEqual(photo4);
+    expect(page2.photos[1].breakpoints[0].columnIndex).toBe(0);
+    expect(page2.photos[1].breakpoints[1].photo).toEqual(photo4);
+    expect(page2.photos[1].breakpoints[1].columnIndex).toBe(0);
+    expect(page2.photos[1].breakpoints[2].photo).toEqual(photo4);
+    expect(page2.photos[1].breakpoints[2].columnIndex).toBe(0);
+    expect(page2.photos[1].breakpoints[3].photo).toEqual(photo4);
+    expect(page2.photos[1].breakpoints[3].columnIndex).toBe(3);
+  });
 });

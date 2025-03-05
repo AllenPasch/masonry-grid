@@ -67,6 +67,15 @@ export class CdnStack extends Stack {
       this,
       "ResponseHeadersPolicy",
       {
+        customHeadersBehavior: {
+          customHeaders: [
+            {
+              header: "Cross-Origin-Opener-Policy",
+              value: "same-origin",
+              override: true,
+            },
+          ],
+        },
         securityHeadersBehavior: {
           frameOptions: {
             frameOption: HeadersFrameOption.SAMEORIGIN,

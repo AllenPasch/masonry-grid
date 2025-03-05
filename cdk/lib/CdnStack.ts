@@ -25,6 +25,7 @@ import { Construct } from "constructs";
 import {
   CDN_DOMAIN,
   DEFAULT_PATH,
+  ERROR_PATH,
   ROUTE_53_HOSTED_ZONE_ID,
   ROUTE_53_HOSTED_ZONE_NAME,
   S3_BUCKET_NAME,
@@ -55,7 +56,7 @@ export class CdnStack extends Stack {
 
       versioned: true,
       websiteErrorDocument: DEFAULT_PATH,
-      websiteIndexDocument: DEFAULT_PATH,
+      websiteIndexDocument: ERROR_PATH,
     });
 
     const origin = new S3StaticWebsiteOrigin(bucket);
@@ -74,7 +75,7 @@ export class CdnStack extends Stack {
       errorResponses: [403, 404].map((httpStatus) => ({
         httpStatus,
         responseHttpStatus: 200,
-        responsePagePath: `/${DEFAULT_PATH}`,
+        responsePagePath: `/${ERROR_PATH}`,
         ttl: Duration.days(30),
       })),
       httpVersion: HttpVersion.HTTP2_AND_3,

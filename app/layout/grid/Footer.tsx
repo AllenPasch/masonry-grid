@@ -6,7 +6,7 @@ const Footer = () => (
     css={css`
       cursor: default;
       font-size: 14px;
-      padding: 16px;
+      padding: 67px 16px 16px;
       text-align: center;
     `}
   >
